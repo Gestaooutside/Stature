@@ -1,0 +1,111 @@
+/**
+ * Estilos para forçar tema claro na área administrativa
+ * Sobrescreve as variáveis do tema dark apenas para as páginas admin
+ */
+
+/* Força tema claro para toda a área admin */
+.admin-light-theme,
+.admin-light-theme * {
+  /* Sobrescreve variáveis CSS do tema dark */
+  --background: 250 250 250 !important; /* bg-gray-50 */
+  --foreground: 3 3 3 !important; /* text-gray-900 */
+  --card: 255 255 255 !important; /* bg-white */
+  --card-foreground: 3 3 3 !important; /* text-gray-900 */
+  --popover: 255 255 255 !important; /* bg-white */
+  --popover-foreground: 3 3 3 !important; /* text-gray-900 */
+  --primary: 3 3 3 !important; /* text-gray-900 */
+  --primary-foreground: 250 250 250 !important; /* bg-gray-50 */
+  --secondary: 241 245 249 !important; /* bg-slate-100 */
+  --secondary-foreground: 3 3 3 !important; /* text-gray-900 */
+  --muted: 241 245 249 !important; /* bg-slate-100 */
+  --muted-foreground: 100 116 139 !important; /* text-slate-500 */
+  --accent: 241 245 249 !important; /* bg-slate-100 */
+  --accent-foreground: 3 3 3 !important; /* text-gray-900 */
+  --destructive: 239 68 68 !important; /* bg-red-500 */
+  --destructive-foreground: 250 250 250 !important; /* bg-gray-50 */
+  --border: 226 232 240 !important; /* border-slate-200 */
+  --input: 226 232 240 !important; /* border-slate-200 */
+  --ring: 3 3 3 !important; /* text-gray-900 */
+  --radius: 0.5rem;
+}
+
+/* Força cores de fundo específicas para classes Tailwind dark: */
+.admin-light-theme [class*="dark:bg-neutral-900"],
+.admin-light-theme [class~="dark:bg-neutral-900"] {
+  background-color: rgb(255 255 255) !important;
+}
+
+.admin-light-theme [class*="dark:bg-neutral-800"],
+.admin-light-theme [class~="dark:bg-neutral-800"] {
+  background-color: rgb(249 250 251) !important;
+}
+
+.admin-light-theme [class*="dark:from-neutral-800"],
+.admin-light-theme [class~="dark:from-neutral-800"] {
+  background-color: rgb(249 250 251) !important;
+}
+
+.admin-light-theme [class*="dark:to-neutral-900"],
+.admin-light-theme [class~="dark:to-neutral-900"] {
+  background-color: rgb(255 255 255) !important;
+}
+
+/* Força cores de texto específicas */
+.admin-light-theme [class*="dark:text-neutral-200"],
+.admin-light-theme [class~="dark:text-neutral-200"] {
+  color: rgb(3 3 3) !important;
+}
+
+.admin-light-theme [class*="dark:text-neutral-400"],
+.admin-light-theme [class~="dark:text-neutral-400"] {
+  color: rgb(107 114 128) !important;
+}
+
+/* Força cores de borda */
+.admin-light-theme [class*="dark:border-neutral-700"],
+.admin-light-theme [class~="dark:border-neutral-700"] {
+  border-color: rgb(226 232 240) !important;
+}
+
+/* Remove background escuro do body na área admin */
+.admin-light-theme {
+  background-color: rgb(250 250 250) !important;
+  color: rgb(3 3 3) !important;
+}
+
+/* Garante que containers principais tenham fundo claro */
+.admin-light-theme .bg-gray-100,
+.admin-light-theme [class*="bg-gray"] {
+  background-color: rgb(250 250 250) !important;
+}
+
+/* Sidebar específica */
+.admin-light-theme .bg-neutral-900 {
+  background-color: rgb(255 255 255) !important;
+}
+
+/* Textos em ícones e elementos da sidebar */
+.admin-light-theme .text-neutral-700,
+.admin-light-theme .text-neutral-800,
+.admin-light-theme .text-neutral-600 {
+  color: rgb(55 65 81) !important;
+}
+
+/* Cards e containers */
+.admin-light-theme [class*="rounded-lg"],
+.admin-light-theme [class*="border"] {
+  background-color: rgb(255 255 255) !important;
+  border-color: rgb(226 232 240) !important;
+}
+
+/* Override para elementos com gradiente dark */
+.admin-light-theme [class*="from-neutral-50"],
+.admin-light-theme [class*="to-neutral-100"] {
+  background-image: linear-gradient(to bottom right, rgb(249 250 251), rgb(243 244 246)) !important;
+}
+
+/* Metadados e textos secundários */
+.admin-light-theme .text-neutral-500,
+.admin-light-theme .text-xs {
+  color: rgb(107 114 128) !important;
+}
