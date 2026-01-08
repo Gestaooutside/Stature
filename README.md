@@ -1,3 +1,5 @@
+registro
+
 # DUO NATURAL – Portal e Área Administrativa
 
 Repositório monolítico do site público e do painel administrativo da DUO Natural. O projeto roda em Next.js 16 (App Router + Turbopack) com Drizzle ORM e integrações com OpenRouter e Asaas.
