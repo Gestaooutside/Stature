@@ -11,7 +11,7 @@ import { PRODUCT_PRICES } from "@/lib/config/products"
 const featuredProducts = [
   {
     id: "duo-dia",
-    name: "DUO DIA",
+    name: "DUO DAY",
     price: `R$ ${PRODUCT_PRICES.DUO_DIA.toFixed(2).replace('.', ',')}`,
     image: "/duo-dia-video-1.mp4",
     isVideo: true,
@@ -29,7 +29,7 @@ const featuredProducts = [
   },
   {
     id: "duo-noite",
-    name: "DUO NOITE",
+    name: "DUO NIGHT",
     price: `R$ ${PRODUCT_PRICES.DUO_NOITE.toFixed(2).replace('.', ',')}`,
     image: "/duo-noite-video-1.mp4",
     isVideo: true,
