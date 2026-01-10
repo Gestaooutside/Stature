@@ -91,7 +91,7 @@ export function IngredientsSection() {
 
         {/* Tabs */}
         <Reveal>
-          <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mb-12 lg:mb-16">
+          <div className="flex flex-col md:flex-row flex-wrap justify-center gap-3 md:gap-4 mb-12 lg:mb-16">
             <button
               onClick={() => setActiveTab("dia")}
               onMouseEnter={() => setActiveTab("dia")}
