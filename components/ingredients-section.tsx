@@ -93,48 +93,43 @@ export function IngredientsSection() {
         <Reveal>
           <div className="inline-flex flex-nowrap justify-center gap-2 mb-12 lg:mb-16">
             <button
-              onClick={() => setActiveTab("dia")}
-              onMouseEnter={() => setActiveTab("dia")}
-              className={cn(
-                "px-3 py-2 md:px-5 md:py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
-                activeTab === "dia"
-                  ? "bg-[#355E3B] text-white shadow-lg"
-                  : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
-              )}
-            >
-              <Pill className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
-              <span>Fórmula Dia</span>
-              <span className="text-xs opacity-75 hidden sm:inline">({ingredientsDia.length} ativos)</span>
-            </button>
-            <button
-              onClick={() => setActiveTab("noite")}
-              onMouseEnter={() => setActiveTab("noite")}
-              className={cn(
-                "px-3 py-2 md:px-5 md:py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
-                activeTab === "noite"
-                  ? "bg-[#1a365d] text-white shadow-lg"
-                  : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
-              )}
-            >
-              <Droplet className="w-5 h-5" />
-              Fórmula Noite
-              <span className="text-xs opacity-75">({ingredientsNoite.length} ativos)</span>
-            </button>
-          </div>
-        </Reveal>
-        <button
+                onClick={() => setActiveTab("dia")}
+                onMouseEnter={() => setActiveTab("dia")}
+                className={cn(
+                  "px-4 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2 text-sm",
+                  activeTab === "dia"
+                    ? "bg-[#355E3B] text-white shadow-lg"
+                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
+                )}
+              >
+                <Pill className="w-4 h-4" />
+                Fórmula Dia
+              </button>
+              <button
+                onClick={() => setActiveTab("noite")}
+                onMouseEnter={() => setActiveTab("noite")}
+                className={cn(
+                  "px-4 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2 text-sm",
+                  activeTab === "noite"
+                    ? "bg-[#1a365d] text-white shadow-lg"
+                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
+                )}
+              >
+                <Droplet className="w-4 h-4" />
+                Fórmula Noite
+              </button>
+              <button
                 onClick={() => setActiveTab("energy")}
                 onMouseEnter={() => setActiveTab("energy")}
                 className={cn(
-                  "px-3 py-2 md:px-5 md:py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
+                  "px-4 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2 text-sm",
                   activeTab === "energy"
                     ? "bg-[#f97316] text-white shadow-lg"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
                 )}
               >
-                <Zap className="w-5 h-5" />
+                <Zap className="w-4 h-4" />
                 Fórmula Energy
-                <span className="text-xs opacity-75">({ingredientsEnergy.length} ativos)</span>
               </button>
 
         {/* Ingredients Grid */}
