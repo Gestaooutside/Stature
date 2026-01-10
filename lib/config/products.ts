@@ -23,8 +23,8 @@ function getPrice(envVar: string, fallback: number): number {
 export const PRODUCT_PRICES = {
   DUO_DIA: getPrice('NEXT_PUBLIC_PRICE_DUO_DIA', 179.99),
   DUO_NOITE: getPrice('NEXT_PUBLIC_PRICE_DUO_NOITE', 179.99),
-  DUO_COMPLETO: getPrice('NEXT_PUBLIC_PRICE_DUO_COMPLETO', 299.99),
-  DUO_ENERGY: getPrice('NEXT_PUBLIC_PRICE_DUO_ENERGY', 179.99),
+  DUO_ENERGY: getPrice('NEXT_PUBLIC_PRICE_DUO_ENERGY', 249.99),
+  DUO_COMPLETO: getPrice('NEXT_PUBLIC_PRICE_DUO_COMPLETO', 524.99),
 } as const;
 
 /**
@@ -45,6 +45,7 @@ export const SHIPPING_CONFIG = {
 export const PRODUCT_PRICE_MAP: Record<string, number> = {
   'duo-dia': PRODUCT_PRICES.DUO_DIA,
   'duo-noite': PRODUCT_PRICES.DUO_NOITE,
+  'duo-energy': PRODUCT_PRICES.DUO_ENERGY,
   'duo-completo': PRODUCT_PRICES.DUO_COMPLETO,
 };
 
@@ -67,18 +68,18 @@ export const PRODUCTS: Product[] = [
     badge: 'Novo',
   },
   {
+    id: 'duo-energy',
+    name: 'DUO ENERGY',
+    price: PRODUCT_PRICES.DUO_ENERGY,
+    image: '/duo-noite-2.jpg',
+    badge: 'Novo',
+  },
+  {
     id: 'duo-completo',
     name: 'Kit DUO Completo',
     price: PRODUCT_PRICES.DUO_COMPLETO,
     image: '/duo-dia-noite-2.jpg',
     badge: 'Limitado',
-  },
-    {
-    id: 'duo-energy',
-    name: 'DUO ENERGY',
-    price: PRODUCT_PRICES.DUO_ENERGY,
-    image: '/duo-noite-2.jpg',  // mesma imagem do DUO Night
-    badge: 'Novo',
   },
 ];
 
@@ -98,6 +99,7 @@ export const PRODUCT_COMPOSITIONS: Record<string, Array<{ productId: string; qua
   'duo-completo': [
     { productId: 'duo-dia', quantity: 1 },
     { productId: 'duo-noite', quantity: 1 },
+    { productId: 'duo-energy', quantity: 1 },
   ],
 };
 
