@@ -54,12 +54,25 @@ const ingredientsNoite = [
   { name: "Sorbitol", icon: Droplet, benefit: "Melhora textura e absorção" },
 ]
 
-type TabType = "dia" | "noite"
+const ingredientsEnergy = [
+  { name: "NADH 10", icon: Zap, benefit: "Energia celular e clareza mental" },
+  { name: "Magnésio Dimalato", icon: Battery, benefit: "Combate fadiga e aumenta disposição" },
+  { name: "Powder Lymp II", icon: Beaker, benefit: "Suporte ao sistema linfático" },
+  { name: "Mucuna Pruriens", icon: Leaf, benefit: "Dopamina natural, melhora humor e motivação" },
+  { name: "Coenzima Q10", icon: Heart, benefit: "Antioxidante, energia para células" },
+]
+
+type TabType = "dia" | "noite" | "energy"
 
 export function IngredientsSection() {
   const [activeTab, setActiveTab] = useState<TabType>("dia")
 
-  const currentIngredients = activeTab === "dia" ? ingredientsDia : ingredientsNoite
+  const currentIngredients =
+    activeTab === "dia"
+      ? ingredientsDia
+      : activeTab === "noite"
+        ? ingredientsNoite
+        : ingredientsEnergy
 
   return (
     <section id="ingredients" className="py-24 lg:py-32 bg-white">
@@ -109,6 +122,20 @@ export function IngredientsSection() {
             </button>
           </div>
         </Reveal>
+        <button
+                onClick={() => setActiveTab("energy")}
+                onMouseEnter={() => setActiveTab("energy")}
+                className={cn(
+                  "px-4 py-3 md:px-8 md:py-4 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 text-sm md:text-base",
+                  activeTab === "energy"
+                    ? "bg-[#f97316] text-white shadow-lg"
+                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
+                )}
+              >
+                <Zap className="w-5 h-5" />
+                Fórmula Energy
+                <span className="text-xs opacity-75">({ingredientsEnergy.length} ativos)</span>
+              </button>
 
         {/* Ingredients Grid */}
         <AnimatePresence mode="sync">
