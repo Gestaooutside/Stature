@@ -62,6 +62,23 @@ const featuredProducts = [
     ],
     dimensions: "Kit Completo × 30 dias",
   },
+  {
+    id: "duo-energy",
+    name: "DUO ENERGY",
+    price: `R$ ${PRODUCT_PRICES.DUO_ENERGY.toFixed(2).replace('.', ',')}`,
+    image: "/duo-noite-video-1.mp4",  // mesmo vídeo do DUO Night
+    isVideo: true,
+    badge: "Novo" as const,
+    materials: ["100% Natural", "Sem Contraindicações"],
+    swatches: [
+      { name: "Verde Energia", color: "#22c55e" },  // cores personalizadas
+      // adicione outras cores se quiser
+    ],
+    quickLookImages: [
+      "/duo-noite-2.jpg",  // mesma imagem do DUO Night
+    ],
+    dimensions: "30ml × Fórmula Energy",
+  }
 ]
 
 // Define props do componente
