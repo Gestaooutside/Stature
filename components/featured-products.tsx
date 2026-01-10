@@ -46,12 +46,30 @@ const featuredProducts = [
     dimensions: "30ml × Fórmula Noite",
   },
   {
+    id: "duo-energy",
+    name: "DUO ENERGY",
+    price: `R$ ${PRODUCT_PRICES.DUO_ENERGY.toFixed(2).replace('.', ',')}`,
+    image: "/duo-noite-video-1.mp4",
+    isVideo: true,
+    badge: "Novo" as const,
+    materials: ["100% Natural", "Sem Contraindicações"],
+    swatches: [
+      { name: "Verde Energia", color: "#22c55e" },
+      { name: "Laranja Vitalidade", color: "#f97316" },
+      { name: "Dourado Premium", color: "#B87333" },
+    ],
+    quickLookImages: [
+      "/duo-dia-noite-2.jpg",
+    ],
+    dimensions: "30ml × Fórmula Energy",
+  },
+  {
     id: "duo-completo",
     name: "Kit DUO Completo",
     price: `R$ ${PRODUCT_PRICES.DUO_COMPLETO.toFixed(2).replace('.', ',')}`,
     image: "/duo-dia-noite-2.jpg",
     badge: "Limitado" as const,
-    materials: ["Dia + Noite", "Resultado em 15 dias"],
+    materials: ["Day + Night + Energy", "Resultado em 15 dias"],
     swatches: [
       { name: "Verde Natural", color: "#9CAF88" },
       { name: "Azul Noturno", color: "#1a365d" },
@@ -61,23 +79,6 @@ const featuredProducts = [
       "/duo-dia-noite-2.jpg",
     ],
     dimensions: "Kit Completo × 30 dias",
-  },
-  {
-    id: "duo-energy",
-    name: "DUO ENERGY",
-    price: `R$ ${PRODUCT_PRICES.DUO_ENERGY.toFixed(2).replace('.', ',')}`,
-    image: "/duo-noite-video-1.mp4",  // mesmo vídeo do DUO Night
-    isVideo: true,
-    badge: "Novo" as const,
-    materials: ["100% Natural", "Sem Contraindicações"],
-    swatches: [
-      { name: "Verde Energia", color: "#22c55e" },  // cores personalizadas
-      // adicione outras cores se quiser
-    ],
-    quickLookImages: [
-      "/duo-noite-2.jpg",  // mesma imagem do DUO Night
-    ],
-    dimensions: "30ml × Fórmula Energy",
   }
 ]
 
