@@ -91,7 +91,7 @@ export function IngredientsSection() {
 
         {/* Tabs */}
         <Reveal>
-          <div className="flex flex-col md:flex-row flex-wrap justify-center gap-3 md:gap-4 mb-12 lg:mb-16">
+          <div className="flex flex-col lg:flex-row justify-center gap-2 md:gap-3 mb-12 lg:mb-16">
             <button
               onClick={() => setActiveTab("dia")}
               onMouseEnter={() => setActiveTab("dia")}
@@ -126,7 +126,7 @@ export function IngredientsSection() {
                 onClick={() => setActiveTab("energy")}
                 onMouseEnter={() => setActiveTab("energy")}
                 className={cn(
-                  "px-4 py-3 md:px-8 md:py-4 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 text-sm md:text-base",
+                  "px-4 py-3 md:px-6 md:py-4 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 text-sm md:text-base",
                   activeTab === "energy"
                     ? "bg-[#f97316] text-white shadow-lg"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
