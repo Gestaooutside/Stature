@@ -120,21 +120,20 @@ export function IngredientsSection() {
               Fórmula Noite
               <span className="text-xs opacity-75">({ingredientsNoite.length} ativos)</span>
             </button>
-            </Reveal>
-        <button
-                onClick={() => setActiveTab("energy")}
-                onMouseEnter={() => setActiveTab("energy")}
-                className={cn(
-                  "px-3 py-2 md:px-5 md:py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
-                  activeTab === "energy"
-                    ? "bg-[#f97316] text-white shadow-lg"
-                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
-                )}
-              >
-                <Zap className="w-5 h-5" />
-                Fórmula Energy
-                <span className="text-xs opacity-75">({ingredientsEnergy.length} ativos)</span>
-              </button>
+            <button
+              onClick={() => setActiveTab("energy")}
+              onMouseEnter={() => setActiveTab("energy")}
+              className={cn(
+                "px-3 py-2 md:px-5 md:py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
+                activeTab === "energy"
+                  ? "bg-[#f97316] text-white shadow-lg"
+                  : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
+              )}
+           >
+              <Zap className="w-5 h-5" />
+              Fórmula Energy
+              <span className="text-xs opacity-75">({ingredientsEnergy.length} ativos)</span>
+            </button>
           </div>
         
         {/* Ingredients Grid */}
