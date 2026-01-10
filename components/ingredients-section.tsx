@@ -120,8 +120,7 @@ export function IngredientsSection() {
               Fórmula Noite
               <span className="text-xs opacity-75">({ingredientsNoite.length} ativos)</span>
             </button>
-          </div>
-        </Reveal>
+            </Reveal>
         <button
                 onClick={() => setActiveTab("energy")}
                 onMouseEnter={() => setActiveTab("energy")}
@@ -136,7 +135,8 @@ export function IngredientsSection() {
                 Fórmula Energy
                 <span className="text-xs opacity-75">({ingredientsEnergy.length} ativos)</span>
               </button>
-
+          </div>
+        
         {/* Ingredients Grid */}
         <AnimatePresence mode="sync">
           <motion.div
