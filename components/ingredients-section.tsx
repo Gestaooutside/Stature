@@ -96,7 +96,7 @@ export function IngredientsSection() {
               onClick={() => setActiveTab("dia")}
               onMouseEnter={() => setActiveTab("dia")}
               className={cn(
-                "px-4 py-3 md:px-8 md:py-4 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 text-sm md:text-base",
+                "px-3 py-2 md:px-6 md:py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 text-sm md:text-base",
                 activeTab === "dia"
                   ? "bg-[#355E3B] text-white shadow-lg"
                   : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
