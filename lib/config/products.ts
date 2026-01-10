@@ -24,6 +24,7 @@ export const PRODUCT_PRICES = {
   DUO_DIA: getPrice('NEXT_PUBLIC_PRICE_DUO_DIA', 179.99),
   DUO_NOITE: getPrice('NEXT_PUBLIC_PRICE_DUO_NOITE', 179.99),
   DUO_COMPLETO: getPrice('NEXT_PUBLIC_PRICE_DUO_COMPLETO', 299.99),
+  DUO_ENERGY: getPrice('NEXT_PUBLIC_PRICE_DUO_ENERGY', 179.99),
 } as const;
 
 /**
@@ -71,6 +72,13 @@ export const PRODUCTS: Product[] = [
     price: PRODUCT_PRICES.DUO_COMPLETO,
     image: '/duo-dia-noite-2.jpg',
     badge: 'Limitado',
+  },
+    {
+    id: 'duo-energy',
+    name: 'DUO ENERGY',
+    price: PRODUCT_PRICES.DUO_ENERGY,
+    image: '/duo-noite-2.jpg',  // mesma imagem do DUO Night
+    badge: 'Novo',
   },
 ];
 
