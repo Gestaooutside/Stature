@@ -117,7 +117,7 @@ export function IngredientsSection() {
                 )}
               >
                 <Droplet className="w-5 h-5" />
-                Fórmula Night
+                Fórmula Noite
                 <span className="text-xs opacity-75">({ingredientsNoite.length} ativos)</span>
               </button>
               <button
