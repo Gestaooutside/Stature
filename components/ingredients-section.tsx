@@ -96,7 +96,7 @@ export function IngredientsSection() {
                 onClick={() => setActiveTab("dia")}
                 onMouseEnter={() => setActiveTab("dia")}
                 className={cn(
-                  "px-3 py-2 md:px-5 md:py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
+                  "px-5 py-3 md:px-8 md:py-4 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
                   activeTab === "dia"
                     ? "bg-[#355E3B] text-white shadow-lg"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
@@ -110,7 +110,7 @@ export function IngredientsSection() {
                 onClick={() => setActiveTab("noite")}
                 onMouseEnter={() => setActiveTab("noite")}
                 className={cn(
-                  "px-3 py-2 md:px-5 md:py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
+                  "px-5 py-3 md:px-8 md:py-4 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
                   activeTab === "noite"
                     ? "bg-[#1a365d] text-white shadow-lg"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
@@ -124,7 +124,7 @@ export function IngredientsSection() {
                 onClick={() => setActiveTab("energy")}
                 onMouseEnter={() => setActiveTab("energy")}
                 className={cn(
-                  "px-3 py-2 md:px-5 md:py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
+                  "px-5 py-3 md:px-8 md:py-4 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap",
                   activeTab === "energy"
                     ? "bg-[#f97316] text-white shadow-lg"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
