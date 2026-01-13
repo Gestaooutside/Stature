@@ -55,14 +55,14 @@ export const PRODUCT_PRICE_MAP: Record<string, number> = {
 export const PRODUCTS: Product[] = [
   {
     id: 'duo-dia',
-    name: 'DUO DIA',
+    name: 'DUO DAY',
     price: PRODUCT_PRICES.DUO_DIA,
     image: '/duo-dia-2.jpg',
     badge: 'Novo',
   },
   {
     id: 'duo-noite',
-    name: 'DUO NOITE',
+    name: 'DUO NIGHT',
     price: PRODUCT_PRICES.DUO_NOITE,
     image: '/duo-noite-2.jpg',
     badge: 'Novo',
