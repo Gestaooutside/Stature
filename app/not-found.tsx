@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { BRAND } from '@/lib/config/brand'
 
 export const metadata: Metadata = {
-  title: 'Página não encontrada - DUO NATURAL',
-  description: 'A página que você procura não existe. Retorne para a página inicial do DUO NATURAL.',
+  title: `Página não encontrada - ${BRAND.name}`,
+  description: `A página que você procura não existe. Retorne para a página inicial do ${BRAND.name}.`,
 }
 
 export default function NotFound() {

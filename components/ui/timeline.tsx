@@ -1,8 +1,8 @@
 /**
- * Timeline - Componente de linha do tempo vertical para DUO NATURAL
+ * Timeline - Componente de linha do tempo vertical - White Label
  *
  * Apresenta conteúdo sequencial com scroll-triggered animations.
- * Adaptado para o design system DUO com cores da marca e tipografia Montserrat.
+ * Adaptado para o design system com cores da marca e tipografia Montserrat.
  *
  * Features:
  * - Linha vertical com gradiente da marca

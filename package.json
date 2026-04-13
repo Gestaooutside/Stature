@@ -1,14 +1,12 @@
 {
-  "name": "my-v0-project",
+  "name": "white-label-base",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start",
-    "ingest": "tsx scripts/ingest-knowledge.ts",
-    "test:vectors": "tsx scripts/test-vector-search.ts"
+    "start": "next start"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

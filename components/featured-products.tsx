@@ -1,165 +1,78 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { ProductCard } from "./product-card"
-import { QuickLookModal } from "./quick-look-modal"
+import Image from "next/image"
+import { MessageCircle, ArrowRight } from "lucide-react"
 import { Reveal } from "./reveal"
-import { PRODUCT_PRICES } from "@/lib/config/products"
+import { procedures } from "@/data/procedures"
+import { BRAND, URLS, COPY, COLORS, CONTACT } from "@/lib/config/brand"
 
-// Dados visuais dos produtos (imagens, badges, swatches) combinados com preços dinâmicos
-const featuredProducts = [
-  {
-    id: "duo-dia",
-    name: "DUO DAY",
-    price: `R$ ${PRODUCT_PRICES.DUO_DIA.toFixed(2).replace('.', ',')}`,
-    image: "/duo-dia-video-1.mp4",
-    isVideo: true,
-    badge: "Novo" as const,
-    materials: ["100% Natural", "Sem Contraindicações"],
-    swatches: [
-      { name: "Verde Natural", color: "#355E3B" },
-      { name: "Bege Calmante", color: "#9CAF88" },
-      { name: "Dourado Premium", color: "#B87333" },
-    ],
-    quickLookImages: [
-      "/duo-dia-2.jpg",
-    ],
-    dimensions: "60 cápsulas × Fórmula Dia",
-  },
-  {
-    id: "duo-noite",
-    name: "DUO NIGHT",
-    price: `R$ ${PRODUCT_PRICES.DUO_NOITE.toFixed(2).replace('.', ',')}`,
-    image: "/duo-noite-video-1.mp4",
-    isVideo: true,
-    badge: "Novo" as const,
-    materials: ["100% Natural", "Sem Contraindicações"],
-    swatches: [
-      { name: "Azul Noturno", color: "#1a365d" },
-      { name: "Roxo Profundo", color: "#553c9a" },
-      { name: "Dourado Premium", color: "#B87333" },
-    ],
-    quickLookImages: [
-      "/duo-noite-2.jpg",
-    ],
-    dimensions: "30ml × Fórmula Noite",
-  },
-  {
-    id: "duo-energy",
-    name: "DUO ENERGY",
-    price: `R$ ${PRODUCT_PRICES.DUO_ENERGY.toFixed(2).replace('.', ',')}`,
-    image: "/duo-noite-video-1.mp4",
-    isVideo: true,
-    badge: "Novo" as const,
-    materials: ["100% Natural", "Sem Contraindicações"],
-    swatches: [
-      { name: "Verde Energia", color: "#22c55e" },
-      { name: "Laranja Vitalidade", color: "#f97316" },
-      { name: "Dourado Premium", color: "#B87333" },
-    ],
-    quickLookImages: [
-      "/duo-dia-noite-2.jpg",
-    ],
-    dimensions: "30ml × Fórmula Energy",
-  },
-  {
-    id: "duo-completo",
-    name: "Kit DUO Completo",
-    price: `R$ ${PRODUCT_PRICES.DUO_COMPLETO.toFixed(2).replace('.', ',')}`,
-    image: "/duo-dia-noite-2.jpg",
-    badge: "Limitado" as const,
-    materials: ["Day + Night + Energy", "Resultado em 15 dias"],
-    swatches: [
-      { name: "Verde Natural", color: "#9CAF88" },
-      { name: "Azul Noturno", color: "#1a365d" },
-      { name: "Dourado Premium", color: "#B87333" },
-    ],
-    quickLookImages: [
-      "/duo-dia-noite-2.jpg",
-    ],
-    dimensions: "Kit Completo × 30 dias",
-  }
-]
-
-// Define props do componente
-interface FeaturedProductsProps {
-  onOpenPaymentModal?: () => void // Callback para abrir modal de pagamento
-}
-
-export function FeaturedProducts({ onOpenPaymentModal }: FeaturedProductsProps) {
-  const [selectedProduct, setSelectedProduct] = useState<any>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const handleQuickLook = (product: any) => {
-    setSelectedProduct(product)
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-    setSelectedProduct(null)
-  }
-
-  // Product Schemas para SEO
-  const productSchemas = featuredProducts.map((product) => ({
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: product.name,
-    description: `${product.name} - ${product.materials.join(', ')}. ${product.dimensions}`,
-    image: `https://duonatural.com.br${product.image}`,
-    brand: {
-      '@type': 'Brand',
-      name: 'DUO NATURAL',
-    },
-    offers: {
-      '@type': 'Offer',
-      url: 'https://duonatural.com.br/#featured-products',
-      priceCurrency: 'BRL',
-      price: product.price.replace('R$ ', '').replace(',', '.'),
-      availability: 'https://schema.org/InStock',
-      priceValidUntil: '2025-12-31',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '10000',
-      bestRating: '5',
-      worstRating: '1',
+export function FeaturedProducts() {
+  // Schema SEO — cada procedimento vira um MedicalProcedure
+  const proceduresSchema = procedures.map((proc) => ({
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    name: proc.name,
+    description: proc.description,
+    image: `${URLS.domain}${proc.image}`,
+    provider: {
+      "@type": "Physician",
+      name: BRAND.name,
     },
   }))
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 xl:py-32 2xl:py-40" id="featured-products">
+    <section
+      id="procedimento"
+      className="py-16 md:py-20 lg:py-24 xl:py-32"
+      style={{ backgroundColor: "#fbfcfc" }}
+    >
       <div className="container-custom">
         <Reveal>
-          <div className="text-left mb-12 md:mb-16 lg:mb-20 xl:mb-24 px-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-neutral-900 mb-3 md:mb-4">
-              Nossas <span className="italic font-light">Soluções</span>
+          <div className="text-center md:text-left mb-12 md:mb-16 lg:mb-20 px-4 max-w-3xl">
+            <div
+              className="inline-block px-5 py-2 rounded-full border mb-5"
+              style={{
+                backgroundColor: `${COLORS.surface}`,
+                borderColor: `${COLORS.accent}80`,
+              }}
+            >
+              <span
+                className="text-xs md:text-sm font-semibold uppercase tracking-wider"
+                style={{ color: COLORS.primaryDark }}
+              >
+                Procedimentos
+              </span>
+            </div>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 tracking-tight"
+              style={{ color: COLORS.primaryDark }}
+            >
+              {COPY.products.title}{" "}
+              <span className="italic font-normal">{COPY.products.titleItalic}</span>
             </h2>
-            <p className="text-base md:text-lg text-neutral-600 max-w-2xl">
-              Descubra o sistema completo DUO NATURAL: fórmulas naturais que atuam 24h para controlar ansiedade, compulsão alimentar e restaurar seu sono.
+            <p className="text-base md:text-lg text-neutral-600 leading-relaxed">
+              {COPY.products.description}
             </p>
           </div>
         </Reveal>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
           variants={{
             hidden: { opacity: 0 },
             visible: {
               opacity: 1,
-              transition: {
-                staggerChildren: 0.3,
-              },
+              transition: { staggerChildren: 0.15 },
             },
           }}
         >
-          {featuredProducts.map((product, index) => (
+          {procedures.map((proc) => (
             <motion.div
-              key={product.id}
+              key={proc.id}
               variants={{
                 hidden: { opacity: 0, y: 30 },
                 visible: {
@@ -171,23 +84,90 @@ export function FeaturedProducts({ onOpenPaymentModal }: FeaturedProductsProps) 
                   },
                 },
               }}
+              className="group flex flex-col rounded-3xl overflow-hidden border bg-white shadow-sm hover:shadow-2xl transition-all duration-500"
+              style={{ borderColor: `${COLORS.accent}60` }}
+              whileHover={{ y: -6 }}
             >
-              <Reveal delay={index * 0.1}>
-                <ProductCard
-                  product={product}
-                  onQuickLook={handleQuickLook}
-                  onAddToCart={onOpenPaymentModal}
+              {/* Imagem */}
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={proc.image}
+                  alt={proc.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-              </Reveal>
+                <div
+                  className="absolute inset-0 opacity-30"
+                  style={{
+                    background: `linear-gradient(180deg, transparent 0%, ${COLORS.primaryDark}80 100%)`,
+                  }}
+                />
+                {/* Badge ganho */}
+                <div
+                  className="absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs font-semibold text-white backdrop-blur-md border border-white/30"
+                  style={{ backgroundColor: `${COLORS.primary}E0` }}
+                >
+                  {proc.gain}
+                </div>
+              </div>
+
+              {/* Conteúdo */}
+              <div className="flex flex-col flex-1 p-6 md:p-7">
+                <h3
+                  className="text-xl md:text-2xl font-medium mb-2"
+                  style={{ color: COLORS.primaryDark }}
+                >
+                  {proc.name}
+                </h3>
+
+                <div className="flex items-center gap-3 text-xs md:text-sm text-neutral-600 mb-4">
+                  <span className="font-medium">{proc.duration}</span>
+                </div>
+
+                <p className="text-sm md:text-base text-neutral-700 leading-relaxed mb-5 flex-1">
+                  {proc.description}
+                </p>
+
+                <ul className="space-y-2 mb-6">
+                  {proc.highlights.map((h) => (
+                    <li
+                      key={h}
+                      className="flex items-start gap-2 text-xs md:text-sm text-neutral-600"
+                    >
+                      <span
+                        className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full"
+                        style={{ backgroundColor: COLORS.secondary }}
+                      />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <motion.a
+                  href={CONTACT.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-white text-sm font-medium transition-all duration-300"
+                  style={{
+                    background: `linear-gradient(135deg, ${COLORS.primary} 0%, ${COLORS.secondary} 100%)`,
+                  }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Saiba mais
+                  <ArrowRight className="w-4 h-4" />
+                </motion.a>
+              </div>
             </motion.div>
           ))}
         </motion.div>
       </div>
 
-      <QuickLookModal product={selectedProduct} isOpen={isModalOpen} onClose={closeModal} />
-
-      {/* Product Schema Markup para SEO */}
-      {productSchemas.map((schema, index) => (
+      {/* Schema SEO */}
+      {proceduresSchema.map((schema, index) => (
         <script
           key={index}
           type="application/ld+json"

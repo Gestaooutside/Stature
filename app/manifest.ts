@@ -1,30 +1,31 @@
 import { MetadataRoute } from 'next'
+import { BRAND, COLORS, SEO } from '@/lib/config/brand'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'DUO NATURAL - Controle da Ansiedade e Compulsão Alimentar',
-    short_name: 'DUO NATURAL',
-    description: 'Sistema natural 360º para controle de ansiedade, compulsão alimentar e sono profundo. 100% natural, sem dependência.',
+    name: `${BRAND.name} - ${BRAND.shortDescription}`,
+    short_name: BRAND.name,
+    description: BRAND.fullDescription,
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#a89a8d',
+    theme_color: COLORS.primary,
     icons: [
       {
-        src: '/icon.svg',
+        src: '/favicon.svg',
         sizes: 'any',
         type: 'image/svg+xml',
         purpose: 'any maskable',
       },
       {
-        src: '/apple-icon.svg',
+        src: '/favicon.svg',
         sizes: 'any',
         type: 'image/svg+xml',
         purpose: 'any',
       },
     ],
-    categories: ['health', 'lifestyle', 'wellness'],
-    lang: 'pt-BR',
+    categories: SEO.categories,
+    lang: BRAND.lang,
     dir: 'ltr',
     orientation: 'portrait-primary',
     scope: '/',

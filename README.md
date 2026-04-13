@@ -1,8 +1,8 @@
 registro
 
-# DUO NATURAL – Portal e Área Administrativa
+# White Label Base – Portal e Área Administrativa
 
-Repositório monolítico do site público e do painel administrativo da DUO Natural. O projeto roda em Next.js 16 (App Router + Turbopack) com Drizzle ORM e integrações com OpenRouter e Asaas.
+Repositório monolítico white-label do site público e do painel administrativo. O projeto roda em Next.js 16 (App Router + Turbopack) com Drizzle ORM e integrações com OpenRouter e Asaas. Para personalizar a marca, edite `lib/config/brand.ts`.
 
 [![Deploy Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](#)
 [![Stack](https://img.shields.io/badge/Stack-Next.js%2016%20%7C%20Drizzle%20ORM%20%7C%20pnpm-orange)](#)

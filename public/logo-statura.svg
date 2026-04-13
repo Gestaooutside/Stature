@@ -1,0 +1,23 @@
+<svg viewBox="100 380 880 220" xmlns="http://www.w3.org/2000/svg" width="880" height="220">
+  <defs>
+    
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0d5c5c"/>
+      <stop offset="100%" stop-color="#0a3d3d"/>
+    </radialGradient>
+    <radialGradient id="glowCenter" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#1a8a8a" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0a3d3d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- STATURA — serif display, same weight/spacing as original -->
+  <text x="540" y="516" font-family="'Cormorant Garamond', 'Cormorant', 'EB Garamond', 'Garamond', Georgia, serif" font-size="148" font-weight="300" letter-spacing="28" text-anchor="middle" fill="#7ec8c8" style="fill:rgb(126, 200, 200);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Cormorant Garamond&quot;, Cormorant, &quot;EB Garamond&quot;, Garamond, Georgia, serif;font-size:148px;font-weight:300;text-anchor:middle;dominant-baseline:auto">STATURA</text>
+
+  <!-- Decorative lines flanking CLINIC — same proportions as original -->
+  <line x1="222" y1="570" x2="392" y2="570" stroke="#7ec8c8" stroke-width="1" opacity="0.85" style="fill:rgb(0, 0, 0);stroke:rgb(126, 200, 200);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="688" y1="570" x2="858" y2="570" stroke="#7ec8c8" stroke-width="1" opacity="0.85" style="fill:rgb(0, 0, 0);stroke:rgb(126, 200, 200);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- CLINIC — small caps, wide tracking, same as original -->
+  <text x="540" y="577" font-family="'Cormorant Garamond', 'Cormorant', Georgia, serif" font-size="32" font-weight="400" letter-spacing="16" text-anchor="middle" fill="#7ec8c8" opacity="0.92" style="fill:rgb(126, 200, 200);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.92;font-family:&quot;Cormorant Garamond&quot;, Cormorant, Georgia, serif;font-size:32px;font-weight:400;text-anchor:middle;dominant-baseline:auto">CLINIC</text>
+</svg>

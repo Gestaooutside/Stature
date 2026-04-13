@@ -3,10 +3,18 @@ import type { Metadata, Viewport } from "next"
 import { Montserrat } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
-import DuoChat from "@/components/chat"
-import { ElevenLabsWidget } from "@/components/elevenlabs-widget" // TODO: Re-ligar widget ElevenLabs no futuro
-import { PaymentModalRoot } from "@/components/payment-modal/payment-modal-root"
 import { NavigationTracker } from "@/components/navigation-tracker"
+import {
+  BRAND,
+  URLS,
+  COLORS,
+  IMAGES,
+  SEO,
+  SOCIAL,
+  CONTACT,
+  PROFESSIONAL,
+  LOCATION,
+} from "@/lib/config/brand"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -14,77 +22,46 @@ const montserrat = Montserrat({
   style: ["normal", "italic"],
   display: "swap",
   variable: "--font-montserrat",
-  fallback: ['system-ui', 'arial', 'sans-serif'],
+  fallback: ["system-ui", "arial", "sans-serif"],
   adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {
-  title: "DUO NATURAL — Controle da Ansiedade e Compulsão Alimentar",
-  description: "Controle ansiedade, compulsão alimentar e sono profundo com DUO NATURAL. Sistema 360º 100% natural. 97% de aprovação. Resultados em 24 horas. Garantia de 30 dias.",
-  keywords: [
-    'ansiedade',
-    'compulsão alimentar',
-    'sono profundo',
-    'suplemento natural',
-    'controle ansiedade',
-    'melatonina natural',
-    'triptofano',
-    'passiflora',
-    'tratamento natural ansiedade',
-    'suplemento sono',
-    'compulsão noturna',
-    'DUO NATURAL',
-  ],
+  title: SEO.title,
+  description: SEO.description,
+  keywords: [...SEO.keywords],
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    apple: [
-      { url: "/apple-icon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: ["/icon.svg"],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: ["/favicon.svg"],
   },
   alternates: {
-    canonical: "https://duonatural.com.br/",
+    canonical: `${URLS.domain}/`,
   },
   openGraph: {
-    siteName: "DUO NATURAL",
-    title: "Controle da Ansiedade e Compulsão Alimentar | DUO NATURAL",
-    description: "Sistema 360º com fórmulas naturais para controle de ansiedade, compulsão alimentar e sono profundo. 100% natural, sem dependência.",
+    siteName: BRAND.name,
+    title: SEO.ogTitle,
+    description: SEO.ogDescription,
     type: "website",
-    url: "https://duonatural.com.br/",
-    images: [
-      {
-        url: "https://duonatural.com.br/duo-dia-ambiente.png",
-        alt: "DUO NATURAL - Fórmula Dia e Noite para controle de ansiedade e compulsão alimentar",
-        width: 1200,
-        height: 630,
-      },
-    ],
+    url: `${URLS.domain}/`,
     locale: "pt_BR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Controle da Ansiedade e Compulsão Alimentar | DUO NATURAL",
-    description: "Sistema 360º com fórmulas naturais. 97% de aprovação, resultados em 15 dias. 100% natural, sem dependência.",
-    images: [
-      {
-        url: "https://duonatural.com.br/duo-dia-ambiente.png",
-        alt: "DUO NATURAL - Sistema completo para controle de ansiedade e sono profundo",
-      },
-    ],
-    site: "@duonatural",
+    title: SEO.ogTitle,
+    description: SEO.twitterDescription,
+    site: URLS.twitterHandle,
   },
 }
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#a89a8d' },
-    { media: '(prefers-color-scheme: dark)', color: '#a89a8d' },
+    { media: "(prefers-color-scheme: light)", color: COLORS.primary },
+    { media: "(prefers-color-scheme: dark)", color: COLORS.primary },
   ],
 }
 
@@ -93,45 +70,53 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Schema JSON-LD para SEO
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'DUO NATURAL',
-    url: 'https://duonatural.com.br',
-    logo: 'https://duonatural.com.br/duo-logo-light.svg',
-    description: 'Sistema natural para controle de ansiedade, compulsão alimentar e sono profundo',
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'Customer Service',
-      availableLanguage: 'Portuguese',
+  // Schema.org Physician + MedicalBusiness
+  const physicianSchema = {
+    "@context": "https://schema.org",
+    "@type": ["Physician", "MedicalBusiness"],
+    name: BRAND.name,
+    url: URLS.domain,
+    image: `${URLS.domain}/logo-statura.svg`,
+    description: BRAND.fullDescription,
+    medicalSpecialty: "Orthopedic",
+    priceRange: "$$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: LOCATION.address,
+      addressLocality: LOCATION.city,
+      addressRegion: LOCATION.state,
+      addressCountry: LOCATION.country,
+      postalCode: LOCATION.zipCode,
     },
-    sameAs: [
-      'https://instagram.com/duonatural',
-      'https://facebook.com/duonatural',
-    ],
+    hospitalAffiliation: {
+      "@type": "Hospital",
+      name: LOCATION.hospital,
+    },
+    telephone: CONTACT.phoneDisplay,
+    email: CONTACT.email,
+    sameAs: SOCIAL.schemaUrls,
+    availableService: {
+      "@type": "MedicalProcedure",
+      name: "Alongamento Ósseo",
+      description:
+        "Alongamento ósseo para aumento de estatura e correção de discrepâncias com técnica minimamente invasiva.",
+    },
+    memberOf: {
+      "@type": "MedicalOrganization",
+      name: PROFESSIONAL.crm,
+    },
   }
 
   return (
-    <html lang="pt-BR" className={`${montserrat.variable} antialiased`}>
+    <html lang={BRAND.lang} className={`${montserrat.variable} antialiased`}>
       <head>
-        <link rel="preload" href="/hero-section.jpg" as="image" type="image/jpeg" />
-        <link rel="preload" href="/duo-logo-light.svg" as="image" type="image/svg+xml" />
+        <link rel="preload" href={IMAGES.hero.desktop} as="image" type="image/jpeg" />
       </head>
       <body className="font-sans bg-neutral-50 text-neutral-900 overflow-x-hidden">
         <NavigationTracker />
         {children}
 
-        {/* Modal global de pagamento (habilita abertura em qualquer página pública) */}
-        <PaymentModalRoot />
-
-        {/* Chat DUO Flutuante */}
-        <DuoChat />
-
-        {/* Widget de voz ElevenLabs flutuante - DESATIVADO TEMPORARIAMENTE */}
-        {/* <ElevenLabsWidget /> */}
-
-        {/* Microsoft Clarity - Analytics e Rastreamento de Comportamento */}
+        {/* Microsoft Clarity - Analytics */}
         {process.env.NEXT_PUBLIC_CLARITY_ID && (
           <Script
             id="clarity-script"
@@ -148,7 +133,7 @@ export default function RootLayout({
           />
         )}
 
-        {/* Facebook Pixel - Rastreamento de Conversões e Remarketing */}
+        {/* Facebook Pixel */}
         {process.env.NEXT_PUBLIC_FB_PIXEL_ID && (
           <Script
             id="facebook-pixel"
@@ -170,10 +155,10 @@ export default function RootLayout({
           />
         )}
 
-        {/* Schema JSON-LD para SEO */}
+        {/* Schema JSON-LD — Physician / MedicalBusiness */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
         />
       </body>
     </html>

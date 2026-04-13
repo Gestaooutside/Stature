@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
+import { URLS } from '@/lib/config/brand'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://duonatural.com.br'
+  const baseUrl = URLS.domain
   const currentDate = new Date()
 
   return [
@@ -12,34 +13,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/#featured-products`,
+      url: `${baseUrl}/#sobre`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/#procedimento`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/#ingredients`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#how-it-works`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#materials`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#testimonials`,
+      url: `${baseUrl}/#resultados`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/#tecnica`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/#faq`,
@@ -48,10 +43,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/#guarantee`,
+      url: `${baseUrl}/#contato`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.7,
     },
   ]
 }
