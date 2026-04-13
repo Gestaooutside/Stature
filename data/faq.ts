@@ -75,7 +75,7 @@ export const faqItems: FaqItem[] = [
     category: 'Riscos',
     question: 'Quais são os riscos do alongamento ósseo?',
     answer:
-      'Como toda cirurgia, existem riscos — infecção no trajeto dos pinos, retardo de consolidação, rigidez articular. O acompanhamento rigoroso, a técnica minimamente invasiva e a fisioterapia estruturada reduzem muito essas ocorrências.',
+      'Como toda cirurgia, existem riscos: infecção no trajeto dos pinos, retardo de consolidação, rigidez articular. O acompanhamento rigoroso, a técnica minimamente invasiva e a fisioterapia estruturada reduzem muito essas ocorrências.',
   },
   {
     id: 'q10',
@@ -96,14 +96,14 @@ export const faqItems: FaqItem[] = [
     category: 'Pós-tratamento',
     question: 'Após o tratamento, poderei praticar esportes normalmente?',
     answer:
-      'Sim. Concluída a consolidação óssea e a reabilitação, o paciente retoma todas as atividades do dia a dia e esportes — correr, saltar, academia, bicicleta. O osso formado é tão resistente quanto o original.',
+      'Sim. Concluída a consolidação óssea e a reabilitação, o paciente retoma todas as atividades do dia a dia e esportes: correr, saltar, academia, bicicleta. O osso formado é tão resistente quanto o original.',
   },
   {
     id: 'q13',
     category: 'Idade',
     question: 'Existe idade mínima ou máxima para o procedimento?',
     answer:
-      'O paciente precisa ter maturidade óssea — geralmente a partir dos 18 anos. O limite superior depende da avaliação individual, considerando saúde óssea, cardiovascular e metabólica. Cada caso é analisado individualmente.',
+      'O paciente precisa ter maturidade óssea, geralmente a partir dos 18 anos. O limite superior depende da avaliação individual, considerando saúde óssea, cardiovascular e metabólica. Cada caso é analisado individualmente.',
   },
   {
     id: 'q14',

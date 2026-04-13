@@ -30,7 +30,7 @@ export function HeroSection() {
       id="hero"
       ref={containerRef}
       className="relative min-h-screen overflow-hidden"
-      aria-label={`${BRAND.name} — ${BRAND.tagline}`}
+      aria-label={`${BRAND.name}, ${BRAND.tagline}`}
     >
       {/* Background Sólido */}
       <div 
@@ -107,7 +107,7 @@ export function HeroSection() {
               transition={{ duration: 0.9, delay: 0.25, ease: [0.21, 0.47, 0.32, 0.98] }}
             >
               <span className="sr-only">
-                {BRAND.name} — {BRAND.tagline}
+                {BRAND.name}, {BRAND.tagline}
               </span>
               <Image
                 src={LOGO.light}

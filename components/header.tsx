@@ -49,7 +49,7 @@ export function Header() {
           >
             <a
               href="#"
-              aria-label={`${BRAND.name} — Home`}
+              aria-label={`${BRAND.name}, Home`}
               className="flex items-center"
             >
               <Image

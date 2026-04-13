@@ -61,6 +61,6 @@ export const differentials: DifferentialItem[] = [
     name: 'Vida Normal Após',
     icon: Dumbbell,
     benefit:
-      'Correr, saltar, academia, esportes. O osso formado é tão resistente quanto o original — sem restrições permanentes.',
+      'Correr, saltar, academia, esportes. O osso formado é tão resistente quanto o original, sem restrições permanentes.',
   },
 ]

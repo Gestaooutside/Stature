@@ -20,9 +20,9 @@ export const BRAND = {
   name: 'Statura Clinic',
   shortName: 'Statura',
   tagline: 'Clínica de Alongamento Ósseo',
-  shortDescription: 'Statura Clinic — Alongamento Ósseo em Uberlândia-MG',
+  shortDescription: 'Statura Clinic, Alongamento Ósseo em Uberlândia-MG',
   fullDescription:
-    'Statura Clinic — clínica especializada em alongamento ósseo e aumento de estatura com técnica minimamente invasiva. Médico responsável: Dr. David de Mello. Hospital Orthomed Center, Uberlândia-MG.',
+    'Statura Clinic: clínica especializada em alongamento ósseo e aumento de estatura com técnica minimamente invasiva. Médico responsável: Dr. David de Mello. Hospital Orthomed Center, Uberlândia-MG.',
   lang: 'pt-BR',
   foundedYear: '2026',
 } as const
@@ -34,15 +34,15 @@ export const PROFESSIONAL = {
   firstName: 'David',
   lastName: 'de Mello',
   fullName: 'David de Mello',
-  specialty: 'Ortopedia e Traumatologia — Alongamento Ósseo',
+  specialty: 'Ortopedia e Traumatologia, Alongamento Ósseo',
   crm: 'CRM-MG 72397',
   rqe: 'RQE 38488',
   registry: 'CRM-MG 72397 · RQE 38488',
   education: [
     'Graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP).',
-    'Especialização em Alongamento e Reconstrução Óssea e Correção de Deformidades — Fixadores Externos pela Escola Paulista de Medicina (UNIFESP).',
+    'Especialização em Alongamento e Reconstrução Óssea e Correção de Deformidades com Fixadores Externos pela Escola Paulista de Medicina (UNIFESP).',
   ],
-  bio: 'Médico ortopedista com graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP) e especialização em Alongamento e Reconstrução Óssea e Correção de Deformidades — Fixadores Externos pela Escola Paulista de Medicina (UNIFESP). Atua no Hospital Orthomed Center, em Uberlândia-MG, com foco em alongamento ósseo e aumento de estatura utilizando técnica minimamente invasiva (fixador externo linear monolateral + haste intramedular). Registrado sob CRM-MG 72397 e RQE 38488.',
+  bio: 'Médico ortopedista com graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP) e especialização em Alongamento e Reconstrução Óssea e Correção de Deformidades com Fixadores Externos pela Escola Paulista de Medicina (UNIFESP). Atua no Hospital Orthomed Center, em Uberlândia-MG, com foco em alongamento ósseo e aumento de estatura utilizando técnica minimamente invasiva (fixador externo linear monolateral + haste intramedular). Registrado sob CRM-MG 72397 e RQE 38488.',
 } as const
 
 // ─── DOMÍNIO E URLs ──────────────────────────────────────────
@@ -70,7 +70,7 @@ export const LOGO = {
   light: '/logo-statura.svg',
   // dark = logo de cor escura, para fundos claros (header)
   dark: '/logo-statura-dark.svg',
-  alt: 'Statura Clinic — Alongamento Ósseo',
+  alt: 'Statura Clinic, Alongamento Ósseo',
   // Proporção 4:1 matches viewBox recortado dos SVGs (880 x 220).
   headerWidth: 240,
   headerHeight: 60,
@@ -124,7 +124,7 @@ export const LOCATION = {
   state: 'MG',
   country: 'BR',
   zipCode: '38400-000',
-  fullAddress: 'Av. Rondon Pacheco, 555 — Uberlândia, MG',
+  fullAddress: 'Av. Rondon Pacheco, 555, Uberlândia, MG',
   hasAirport: true,
   airportNote:
     'Uberlândia tem aeroporto com voos para diversas cidades do país.',
@@ -151,9 +151,9 @@ export const DEVELOPER = {
 // ─── SEO E METADATA ──────────────────────────────────────────
 
 export const SEO = {
-  title: 'Statura Clinic — Alongamento Ósseo com Dr. David de Mello | Uberlândia-MG',
+  title: 'Statura Clinic: Alongamento Ósseo com Dr. David de Mello | Uberlândia-MG',
   description:
-    'Statura Clinic — clínica especializada em alongamento ósseo e aumento de estatura. Técnica minimamente invasiva com fixador externo + haste intramedular. Médico responsável: Dr. David de Mello. Hospital Orthomed Center, Uberlândia-MG.',
+    'Statura Clinic: clínica especializada em alongamento ósseo e aumento de estatura. Técnica minimamente invasiva com fixador externo + haste intramedular. Médico responsável: Dr. David de Mello. Hospital Orthomed Center, Uberlândia-MG.',
   keywords: [
     'Statura Clinic',
     'Statura',
@@ -168,11 +168,11 @@ export const SEO = {
     'ortopedia',
     'discrepância de membros',
   ],
-  ogTitle: 'Statura Clinic — Alongamento Ósseo | Uberlândia-MG',
+  ogTitle: 'Statura Clinic: Alongamento Ósseo | Uberlândia-MG',
   ogDescription:
-    'Statura Clinic — alongamento ósseo e aumento de estatura com técnica minimamente invasiva. Médico responsável: Dr. David de Mello. Hospital Orthomed Center — Uberlândia-MG.',
+    'Statura Clinic: alongamento ósseo e aumento de estatura com técnica minimamente invasiva. Médico responsável: Dr. David de Mello. Hospital Orthomed Center, Uberlândia-MG.',
   twitterDescription:
-    'Statura Clinic — alongamento ósseo e aumento de estatura com técnica minimamente invasiva. Uberlândia-MG.',
+    'Statura Clinic: alongamento ósseo e aumento de estatura com técnica minimamente invasiva. Uberlândia-MG.',
   categories: ['medical', 'health', 'orthopedics'] as string[],
 } as const
 
@@ -184,7 +184,7 @@ export const TRUST_METRICS = {
   technique: 'Minimamente',
   techniqueLabel: 'Técnica Minimamente Invasiva',
   crm: 'CRM-MG 72397',
-  crmLabel: 'RQE 38488 — Ortopedia e Traumatologia',
+  crmLabel: 'RQE 38488 · Ortopedia e Traumatologia',
   reach: 'Brasil',
   reachLabel: 'Pacientes de Todo o Brasil',
 } as const
@@ -264,11 +264,11 @@ export const COPY = {
   about: {
     badge: 'Sobre o Médico',
     title: 'Dr. David de Mello',
-    subtitle: 'Ortopedia — Alongamento Ósseo',
+    subtitle: 'Ortopedia e Alongamento Ósseo',
     description: PROFESSIONAL.bio,
     highlights: [
       'Atendo pacientes de todo o Brasil',
-      'Hospital Orthomed Center — Uberlândia-MG',
+      'Hospital Orthomed Center, Uberlândia-MG',
       'Técnica minimamente invasiva',
     ],
     cta: 'Agende sua consulta',

@@ -39,7 +39,7 @@ export function AboutDoctor() {
               <div className="relative aspect-[4/5] max-w-md mx-auto lg:max-w-none overflow-hidden rounded-3xl shadow-2xl">
                 <Image
                   src={IMAGES.doctor}
-                  alt={`${BRAND.name} — ${PROFESSIONAL.specialty}`}
+                  alt={`${BRAND.name}, ${PROFESSIONAL.specialty}`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
