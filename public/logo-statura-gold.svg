@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 300" width="1080" height="300" role="img" aria-label="Statura Clinic">
   <title>Statura Clinic</title>
-  <!-- Champagne gold on transparent - for dark backgrounds -->
+  <!-- Full-color (gold on deep forest) variant -->
+  <rect width="1080" height="300" fill="#0F2A1D"/>
   <g fill="#D9C89E" stroke="none">
     <text x="540" y="155" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, serif" font-size="148" font-weight="300" letter-spacing="28" text-anchor="middle">STATURA</text>
   </g>

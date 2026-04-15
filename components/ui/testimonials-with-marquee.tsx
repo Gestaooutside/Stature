@@ -1,7 +1,3 @@
-// Seção de testimonials com efeito marquee infinito
-// Duplica automaticamente os cards para criar loop contínuo
-// Animação inicia apenas quando seção está visível (economia de recursos)
-
 "use client"
 
 import { useRef } from "react"
@@ -20,130 +16,66 @@ interface TestimonialsSectionProps {
   className?: string
 }
 
-/**
- * Seção de testimonials com animação marquee horizontal
- * Duplica cards 4x para garantir loop suave e contínuo
- * Animação controlada por visibilidade (Intersection Observer)
- */
 export function TestimonialsSection({
   title,
   description,
   testimonials,
-  className
+  className,
 }: TestimonialsSectionProps) {
-  // Ref para detectar visibilidade da seção
   const sectionRef = useRef<HTMLDivElement>(null)
-
-  // Hook que detecta quando seção está 20% visível no viewport
-  const isInView = useInView(sectionRef, {
-    threshold: 0.2,      // Trigger quando 20% visível
-    rootMargin: "50px"   // Começa 50px antes de entrar na view
-  })
+  const isInView = useInView(sectionRef, { threshold: 0.15, rootMargin: "80px" })
 
   return (
     <section
       ref={sectionRef}
       className={cn(
-      "bg-background text-foreground",
-      "py-12 sm:py-24 md:py-32 px-0",
-      className
-    )}>
-      <div className="mx-auto flex max-w-container flex-col items-center text-center">
-        {/* Header */}
-        <div className="text-center mb-16 lg:mb-20 px-4">
-          <div className="inline-block px-8 py-3 rounded-full bg-[#a89a8d]/10 border border-[#a89a8d]/20 mb-8">
-            <span className="text-base font-semibold text-neutral-700 uppercase tracking-wider">
-              +10.000 vidas transformadas
-            </span>
-          </div>
-          <h2 className="text-5xl lg:text-6xl font-light text-neutral-900 mb-8 tracking-tight leading-[1.1]">
+        "py-28 md:py-36 lg:py-44 relative overflow-hidden",
+        className,
+      )}
+      style={{
+        background: "linear-gradient(180deg, #081A12 0%, #0F2A1D 50%, #081A12 100%)",
+      }}
+    >
+      <div className="absolute inset-0 grain-texture opacity-30 pointer-events-none" />
+
+      <div className="mx-auto flex max-w-7xl flex-col items-center text-center relative">
+        <div className="text-center mb-16 md:mb-20 px-6 max-w-3xl">
+          <span className="eyebrow text-[#D9C89E]">Testemunhos</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-[#EDE4D0] mt-5 mb-6 tracking-[-0.01em] leading-[1.02]">
             {title}
           </h2>
-          <p className="text-xl lg:text-2xl text-neutral-600 max-w-3xl mx-auto leading-relaxed font-light">
+          <span className="hairline-gold w-24 mx-auto block mb-8" />
+          <p className="text-base md:text-lg text-[#EDE4D0]/70 max-w-2xl mx-auto leading-[1.8] font-light">
             {description}
           </p>
         </div>
 
-        {/* Marquee Container */}
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-          <div className="group flex overflow-hidden p-2 [--gap:2rem] flex-row [--duration:55s]">
-            {/* Grupo 1 - Animação inicia quando visível */}
-            <div
-              className={cn(
-                "flex shrink-0 [gap:var(--gap)] flex-row",
-                "group-hover:[animation-play-state:paused]",
-                isInView && "animate-marquee"
-              )}
-            >
-              {testimonials.map((testimonial, i) => (
-                <TestimonialCard key={`group1-${i}`} {...testimonial} />
-              ))}
-            </div>
-            {/* Grupo 2 */}
-            <div
-              className={cn(
-                "flex shrink-0 [gap:var(--gap)] flex-row",
-                "group-hover:[animation-play-state:paused]",
-                isInView && "animate-marquee"
-              )}
-            >
-              {testimonials.map((testimonial, i) => (
-                <TestimonialCard key={`group2-${i}`} {...testimonial} />
-              ))}
-            </div>
-            {/* Grupo 3 */}
-            <div
-              className={cn(
-                "flex shrink-0 [gap:var(--gap)] flex-row",
-                "group-hover:[animation-play-state:paused]",
-                isInView && "animate-marquee"
-              )}
-            >
-              {testimonials.map((testimonial, i) => (
-                <TestimonialCard key={`group3-${i}`} {...testimonial} />
-              ))}
-            </div>
-            {/* Grupo 4 */}
-            <div
-              className={cn(
-                "flex shrink-0 [gap:var(--gap)] flex-row",
-                "group-hover:[animation-play-state:paused]",
-                isInView && "animate-marquee"
-              )}
-            >
-              {testimonials.map((testimonial, i) => (
-                <TestimonialCard key={`group4-${i}`} {...testimonial} />
-              ))}
-            </div>
-            {/* Grupo 5 */}
-            <div
-              className={cn(
-                "flex shrink-0 [gap:var(--gap)] flex-row",
-                "group-hover:[animation-play-state:paused]",
-                isInView && "animate-marquee"
-              )}
-            >
-              {testimonials.map((testimonial, i) => (
-                <TestimonialCard key={`group5-${i}`} {...testimonial} />
-              ))}
-            </div>
-            {/* Grupo 6 */}
-            <div
-              className={cn(
-                "flex shrink-0 [gap:var(--gap)] flex-row",
-                "group-hover:[animation-play-state:paused]",
-                isInView && "animate-marquee"
-              )}
-            >
-              {testimonials.map((testimonial, i) => (
-                <TestimonialCard key={`group6-${i}`} {...testimonial} />
-              ))}
-            </div>
+          <div className="group flex overflow-hidden [--gap:2rem] flex-row [--duration:90s]">
+            {[1, 2, 3, 4, 5, 6].map((group) => (
+              <div
+                key={group}
+                className={cn(
+                  "flex shrink-0 [gap:var(--gap)] flex-row",
+                  "group-hover:[animation-play-state:paused]",
+                  isInView && "animate-marquee",
+                )}
+              >
+                {testimonials.map((testimonial, i) => (
+                  <TestimonialCard key={`g${group}-${i}`} {...testimonial} />
+                ))}
+              </div>
+            ))}
           </div>
 
-          {/* Gradientes de fade nas bordas para efeito premium */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/3 bg-gradient-to-r from-background sm:block" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/3 bg-gradient-to-l from-background sm:block" />
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/4 sm:block"
+            style={{ background: "linear-gradient(to right, #081A12, transparent)" }}
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/4 sm:block"
+            style={{ background: "linear-gradient(to left, #081A12, transparent)" }}
+          />
         </div>
       </div>
     </section>

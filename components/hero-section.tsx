@@ -3,18 +3,39 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { useRef, useState, useEffect } from "react"
-import { MessageCircle, ArrowDown } from "lucide-react"
-import { BRAND, COLORS, IMAGES, LOGO, COPY, CONTACT } from "@/lib/config/brand"
+import { BRAND, IMAGES, COPY, CONTACT } from "@/lib/config/brand"
+
+const EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1]
+
+function StaggeredWords({ text, delay = 0, className }: { text: string; delay?: number; className?: string }) {
+  const words = text.split(" ")
+  return (
+    <span className={className}>
+      {words.map((w, i) => (
+        <span key={i} className="inline-block overflow-hidden align-bottom pr-[0.25em]">
+          <motion.span
+            className="inline-block"
+            initial={{ y: "110%" }}
+            animate={{ y: "0%" }}
+            transition={{ duration: 1, delay: delay + i * 0.14, ease: EASE }}
+          >
+            {w}
+          </motion.span>
+        </span>
+      ))}
+    </span>
+  )
+}
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
   }, [])
 
   const { scrollYProgress } = useScroll({
@@ -22,8 +43,9 @@ export function HeroSection() {
     offset: ["start start", "end start"],
   })
 
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, 80])
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 120])
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 80])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
 
   return (
     <section
@@ -32,175 +54,140 @@ export function HeroSection() {
       className="relative min-h-screen overflow-hidden"
       aria-label={`${BRAND.name}, ${BRAND.tagline}`}
     >
-      {/* Background Sólido */}
-      <div 
-        className="absolute inset-0"
-        style={{ backgroundColor: COLORS.primaryDarker }}
-      />
-      
-      {/* Imagem — quadrada 1:1 ancorada à direita, preservando a composição */}
+      {/* Forest gradient base */}
       <div
-        className="absolute top-0 right-0 h-full aspect-square pointer-events-none"
+        className="absolute inset-0"
         style={{
-          maskImage:
-            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 25%, black 55%, black 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 25%, black 55%, black 100%)",
+          background: "linear-gradient(180deg, #0F2A1D 0%, #1B3A2A 55%, #0F2A1D 100%)",
         }}
-      >
+      />
+
+      {/* Cinematic parallax image */}
+      <motion.div className="absolute inset-0 pointer-events-none" style={{ y: imageY }}>
         <Image
           src={isMobile ? IMAGES.hero.mobile : IMAGES.hero.desktop}
           alt={`${BRAND.tagline} - ${BRAND.name}`}
           fill
           priority
           quality={100}
-          className="object-cover object-center"
-          sizes="(max-width: 768px) 100vw, 100vh"
+          className="object-cover object-center opacity-40"
+          sizes="100vw"
         />
-      </div>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(15,42,29,0.72) 0%, rgba(15,42,29,0.55) 40%, rgba(8,26,18,0.9) 100%)",
+          }}
+        />
+        <div className="absolute inset-0 grain-texture grain-pulse mix-blend-overlay" />
+      </motion.div>
 
-      {/* Overlay com teal do brand — agora mais translúcido para exibir a imagem */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `linear-gradient(105deg, ${COLORS.primaryDarker}d9 0%, ${COLORS.primaryDark}a6 35%, ${COLORS.primary}4d 70%, transparent 100%)`,
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30" />
-      {/* Glow sutil no canto superior direito para profundidade */}
-      <div
-        className="absolute -top-24 -right-24 w-[520px] h-[520px] rounded-full blur-3xl opacity-30 pointer-events-none"
-        style={{ backgroundColor: COLORS.accent }}
-      />
-
-      {/* Conteúdo */}
+      {/* Content */}
       <motion.div
-        className="relative z-10 min-h-screen flex items-center will-change-transform py-24 md:py-28 lg:py-32"
-        style={{ opacity: contentOpacity, y: contentY }}
+        className="relative z-10 min-h-screen flex items-center justify-center text-center px-6 md:px-10 lg:px-16 py-28"
+        style={{ y: contentY, opacity: contentOpacity }}
       >
-        <div className="max-w-[1200px] mx-auto px-5 md:px-8 lg:px-12 w-full">
-          <div className="max-w-3xl">
-            {/* Badge superior */}
-            <motion.div
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/25 backdrop-blur-md bg-white/[0.08] mb-7 shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full animate-pulse"
-                style={{
-                  backgroundColor: COLORS.accent,
-                  boxShadow: `0 0 10px ${COLORS.accent}`,
-                }}
-              />
-              <span className="text-[11px] md:text-xs font-semibold text-white/95 tracking-[0.18em] uppercase">
-                {COPY.hero.highlight}
-              </span>
-            </motion.div>
+        <div className="w-full max-w-4xl">
+          {/* Eyebrow */}
+          <motion.div
+            className="flex items-center justify-center gap-4 mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: EASE }}
+          >
+            <span className="hidden md:block w-20 h-px bg-[#D9C89E]/60" />
+            <span className="eyebrow text-[#D9C89E]">{COPY.hero.highlight}</span>
+            <span className="hidden md:block w-20 h-px bg-[#D9C89E]/60" />
+          </motion.div>
 
-            {/* Título — logo grande (h1 semântico com texto acessível) */}
-            <motion.h1
-              className="mb-6 md:mb-8"
-              initial={{ opacity: 0, y: 20, scale: 0.94 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.25, ease: [0.21, 0.47, 0.32, 0.98] }}
-            >
-              <span className="sr-only">
-                {BRAND.name}, {BRAND.tagline}
-              </span>
-              <Image
-                src={LOGO.light}
-                alt={LOGO.alt}
-                width={LOGO.heroWidth}
-                height={LOGO.heroHeight}
-                priority
-                className="h-20 md:h-28 lg:h-32 xl:h-36 w-auto"
-                style={{
-                  filter:
-                    "drop-shadow(0 10px 30px rgba(0,0,0,0.35)) drop-shadow(0 4px 12px rgba(0,0,0,0.25))",
-                }}
-              />
-            </motion.h1>
+          {/* Display headline with staggered word reveals */}
+          <h1 className="font-display text-[#D9C89E] font-light leading-[0.95] tracking-[-0.02em] text-5xl md:text-7xl lg:text-8xl mb-10 md:mb-12">
+            <StaggeredWords text="Elevação." delay={0.5} className="block" />
+            <span className="italic font-normal text-[#EDE4D0]/95 block">
+              <StaggeredWords text="Ciência. Presença." delay={0.85} />
+            </span>
+          </h1>
 
-            {/* Subtítulos */}
-            <motion.div
-              className="mb-5 md:mb-7 space-y-1.5 md:space-y-2 max-w-2xl"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.45, ease: [0.21, 0.47, 0.32, 0.98] }}
-            >
-              <p className="text-lg md:text-xl lg:text-[1.5rem] font-light text-white leading-[1.3] tracking-tight">
-                {COPY.hero.subtitle1}
-              </p>
-              <p className="text-lg md:text-xl lg:text-[1.5rem] font-light text-white/85 leading-[1.3] tracking-tight">
-                {COPY.hero.subtitle2}
-              </p>
-            </motion.div>
+          {/* Subtitle */}
+          <motion.p
+            className="font-display italic text-xl md:text-2xl lg:text-[1.75rem] text-[#EDE4D0]/85 leading-snug max-w-2xl mx-auto mb-6 md:mb-8"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 1.4, ease: EASE }}
+          >
+            {COPY.hero.subtitle1}
+          </motion.p>
 
-            {/* Descrição */}
-            <motion.p
-              className="text-sm md:text-base lg:text-[1.0625rem] text-white/75 mb-7 md:mb-9 leading-relaxed max-w-xl font-light"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-            >
-              {COPY.hero.description}
-            </motion.p>
+          {/* Description */}
+          <motion.p
+            className="text-sm md:text-base text-[#EDE4D0]/65 max-w-xl mx-auto leading-[1.85] font-light mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 1.6, ease: EASE }}
+          >
+            {COPY.hero.description}
+          </motion.p>
 
-            {/* CTAs */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-3 md:gap-4"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.75, ease: [0.21, 0.47, 0.32, 0.98] }}
+          {/* CTAs */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 1.8, ease: EASE }}
+          >
+            <a
+              href={CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="eyebrow px-10 py-5 border border-[#D9C89E] text-[#D9C89E] hover:bg-[#D9C89E] hover:text-[#0F2A1D] transition-all duration-700 ease-luxe min-w-[240px]"
             >
-              <motion.a
-                href={CONTACT.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 md:px-9 md:py-[18px] bg-white text-sm md:text-base font-semibold rounded-full transition-all duration-200 tracking-wide"
-                style={{
-                  color: COLORS.primaryDark,
-                  boxShadow:
-                    "0 10px 40px -12px rgba(0,0,0,0.4), 0 4px 16px -6px rgba(0,0,0,0.25)",
-                }}
-                whileHover={{ scale: 1.025, y: -1 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <MessageCircle className="w-4 h-4 md:w-[18px] md:h-[18px]" />
-                {COPY.hero.cta}
-              </motion.a>
-
-              <motion.a
-                href="#procedimento"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 md:px-9 md:py-[18px] border border-white/60 text-white text-sm md:text-base font-medium rounded-full transition-all duration-200 hover:bg-white/10 hover:border-white/80 tracking-wide backdrop-blur-sm"
-                whileHover={{ scale: 1.025 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {COPY.hero.ctaSecondary}
-                <ArrowDown className="w-4 h-4 md:w-[18px] md:h-[18px]" />
-              </motion.a>
-            </motion.div>
-          </div>
+              {COPY.hero.cta}
+            </a>
+            <a
+              href="#procedimento"
+              className="eyebrow px-10 py-5 text-[#EDE4D0]/75 hover:text-[#D9C89E] transition-colors duration-500 inline-flex items-center gap-3 gold-underline"
+            >
+              {COPY.hero.ctaSecondary}
+            </a>
+          </motion.div>
         </div>
       </motion.div>
 
-      {/* Scroll Indicator — ancorado à viewport (não cresce com a seção) */}
+      {/* Asymmetric gold hairlines — bottom horizontal + right vertical (stops before bottom) */}
       <motion.div
-        className="absolute left-1/2 -translate-x-1/2 z-20 hidden md:block pointer-events-none"
-        style={{ top: "calc(100vh - 60px)" }}
+        className="absolute bottom-16 left-6 md:left-10 lg:left-16 right-6 md:right-10 lg:right-16 h-px bg-[#D9C89E]/30 pointer-events-none origin-left"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1.6, delay: 1.2, ease: EASE }}
+      />
+      <motion.div
+        className="absolute top-28 right-6 md:right-10 lg:right-16 w-px bg-[#D9C89E]/30 pointer-events-none origin-top"
+        style={{ bottom: 140 }}
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        transition={{ duration: 1.6, delay: 1.4, ease: EASE }}
+      />
+
+      {/* Bottom-right corner scroll indicator */}
+      <motion.div
+        className="absolute bottom-24 right-10 lg:right-16 z-20 hidden md:flex items-center gap-4 pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.4 }}
+        transition={{ duration: 1.4, delay: 2 }}
       >
-        <motion.div
-          className="w-[26px] h-[42px] border border-white/50 rounded-full flex justify-center pt-2 backdrop-blur-sm"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        <span
+          className="eyebrow text-[#D9C89E]/60"
+          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
         >
-          <motion.div className="w-[3px] h-2 bg-white/70 rounded-full" />
-        </motion.div>
+          Scroll
+        </span>
+        <motion.div
+          className="w-px h-10 bg-gradient-to-b from-[#D9C89E]/70 to-transparent"
+          animate={{ scaleY: [0.3, 1, 0.3] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          style={{ transformOrigin: "top" }}
+        />
       </motion.div>
     </section>
   )

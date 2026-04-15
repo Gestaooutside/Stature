@@ -2,17 +2,15 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Plus, Minus, MessageCircle } from "lucide-react"
+import { Plus, Minus } from "lucide-react"
 import { Reveal } from "./reveal"
 import { faqItems } from "@/data/faq"
-import { COPY, COLORS, CONTACT } from "@/lib/config/brand"
+import { COPY, CONTACT } from "@/lib/config/brand"
+
+const EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1]
 
 export function FAQSection() {
   const [openId, setOpenId] = useState<string | null>(null)
-
-  const half = Math.ceil(faqItems.length / 2)
-  const leftColumn = faqItems.slice(0, half)
-  const rightColumn = faqItems.slice(half)
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -24,138 +22,108 @@ export function FAQSection() {
     })),
   }
 
-  const renderFaqItem = (faq: (typeof faqItems)[number], index: number) => (
-    <Reveal key={faq.id} delay={index * 0.04}>
-      <motion.div
-        className="border rounded-2xl overflow-hidden bg-white transition-colors duration-300"
-        style={{ borderColor: `${COLORS.accent}60` }}
-      >
-        <button
-          className="w-full px-4 md:px-5 lg:px-6 py-4 md:py-5 flex items-center justify-between gap-3 text-left group"
-          onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
-          aria-expanded={openId === faq.id}
-        >
-          <span
-            className="text-sm md:text-base font-medium transition-colors duration-300"
-            style={{
-              color: openId === faq.id ? COLORS.primary : COLORS.primaryDark,
-            }}
-          >
-            {faq.question}
-          </span>
-          <motion.div
-            animate={{ rotate: openId === faq.id ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="flex-shrink-0"
-          >
-            {openId === faq.id ? (
-              <Minus className="w-4 h-4 md:w-5 md:h-5" style={{ color: COLORS.primary }} />
-            ) : (
-              <Plus
-                className="w-4 h-4 md:w-5 md:h-5 text-neutral-400 group-hover:text-[color:var(--brand-primary)] transition-colors duration-300"
-                style={{ ["--brand-primary" as any]: COLORS.primary }}
-              />
-            )}
-          </motion.div>
-        </button>
-
-        <AnimatePresence initial={false}>
-          {openId === faq.id && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="overflow-hidden"
-            >
-              <div className="px-4 md:px-5 lg:px-6 pb-4 md:pb-5">
-                <div
-                  className="pt-3 md:pt-4 border-t"
-                  style={{ borderColor: `${COLORS.accent}30` }}
-                >
-                  <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </Reveal>
-  )
-
   return (
-    <section id="faq" className="py-16 md:py-24 lg:py-32 bg-white">
-      <div className="container-custom max-w-7xl">
+    <section id="faq" className="relative py-32 md:py-40 lg:py-56" style={{ background: "#F5EFE4" }}>
+      <span className="hairline-gold absolute bottom-0 left-0 right-0" />
+
+      <div className="container-custom max-w-5xl">
         <Reveal>
-          <div className="text-center mb-12 md:mb-14 lg:mb-16 px-4">
-            <div
-              className="inline-block px-5 py-2 rounded-full border mb-5"
-              style={{
-                backgroundColor: `${COLORS.surface}`,
-                borderColor: `${COLORS.accent}80`,
-              }}
-            >
-              <span
-                className="text-xs md:text-sm font-semibold uppercase tracking-wider"
-                style={{ color: COLORS.primaryDark }}
-              >
-                FAQ
-              </span>
+          <div className="text-center mb-20 md:mb-24 max-w-2xl mx-auto">
+            <div className="flex items-center justify-center gap-5 mb-10">
+              <span className="eyebrow text-[#3A5243]">FAQ</span>
+              <span className="font-display italic text-[#D9C89E]/80 text-sm">Cap. 05</span>
             </div>
-            <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 md:mb-5 tracking-tight"
-              style={{ color: COLORS.primaryDark }}
-            >
-              {COPY.faq.titlePrefix}{" "}
-              <span className="italic font-normal">{COPY.faq.titleItalic}</span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-[-0.02em] text-[#0F2A1D] leading-[1.02]">
+              {COPY.faq.titlePrefix} <span className="italic">{COPY.faq.titleItalic}</span>
             </h2>
-            <p className="text-base md:text-lg text-neutral-600 leading-relaxed">
+            <span className="hairline-gold w-24 mx-auto block mb-10" />
+            <p className="text-base md:text-lg text-[#0F2A1D]/75 leading-[1.85] font-light">
               {COPY.faq.description}
             </p>
           </div>
         </Reveal>
 
-        {/* FAQ Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5 lg:gap-6">
-          <div className="space-y-3 md:space-y-4">
-            {leftColumn.map((faq, i) => renderFaqItem(faq, i))}
-          </div>
-          <div className="space-y-3 md:space-y-4">
-            {rightColumn.map((faq, i) => renderFaqItem(faq, i))}
-          </div>
+        <div className="border-t border-[#3A5243]/20">
+          {faqItems.map((faq, i) => {
+            const isOpen = openId === faq.id
+            return (
+              <Reveal key={faq.id} delay={i * 0.04}>
+                <div className="border-b border-[#3A5243]/20">
+                  <button
+                    className="relative w-full py-8 md:py-9 flex items-start justify-between gap-8 text-left group pl-8 md:pl-10"
+                    onClick={() => setOpenId(isOpen ? null : faq.id)}
+                    aria-expanded={isOpen}
+                  >
+                    {/* Vertical gold bar */}
+                    <motion.span
+                      className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] bg-[#D9C89E]"
+                      animate={{ height: isOpen ? "calc(100% - 2rem)" : "24px" }}
+                      transition={{ duration: 0.7, ease: EASE }}
+                    />
+
+                    <span
+                      className={`font-display text-lg md:text-xl lg:text-[1.5rem] font-light leading-snug transition-[color,padding] duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] flex-1 ${
+                        isOpen ? "text-[#0F2A1D] md:pl-4" : "text-[#0F2A1D]/85 group-hover:text-[#0F2A1D]"
+                      }`}
+                    >
+                      {faq.question}
+                    </span>
+
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.6, ease: EASE }}
+                      className="flex-shrink-0 mt-1"
+                    >
+                      {isOpen ? (
+                        <Minus className="w-5 h-5 text-[#D9C89E]" strokeWidth={1} />
+                      ) : (
+                        <Plus
+                          className="w-5 h-5 text-[#3A5243] group-hover:text-[#D9C89E] transition-colors duration-500"
+                          strokeWidth={1}
+                        />
+                      )}
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.7, ease: EASE }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-9 pl-8 md:pl-14 pr-12">
+                          <p className="text-base md:text-lg text-[#0F2A1D]/70 leading-[1.85] font-light max-w-3xl">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </Reveal>
+            )
+          })}
         </div>
 
-        {/* CTA final */}
         <Reveal>
-          <div className="text-center mt-12 md:mt-14 lg:mt-16 px-4">
-            <p className="text-sm md:text-base text-neutral-600 mb-5 md:mb-6">
-              {COPY.faq.ctaQuestion}
-            </p>
-            <motion.a
+          <div className="text-center mt-20 md:mt-24">
+            <p className="eyebrow text-[#3A5243] mb-8">{COPY.faq.ctaQuestion}</p>
+            <a
               href={CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-sm md:text-base font-medium shadow-lg transition-all duration-300"
-              style={{
-                background: `linear-gradient(135deg, ${COLORS.primary} 0%, ${COLORS.secondary} 100%)`,
-              }}
-              whileHover={{ scale: 1.04, y: -2 }}
-              whileTap={{ scale: 0.97 }}
+              className="eyebrow inline-block px-10 py-5 border border-[#0F2A1D] text-[#0F2A1D] hover:bg-[#0F2A1D] hover:text-[#D9C89E] transition-all duration-700 ease-luxe"
             >
-              <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
               {COPY.faq.cta}
-            </motion.a>
+            </a>
           </div>
         </Reveal>
       </div>
 
-      {/* Schema SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </section>
   )
 }

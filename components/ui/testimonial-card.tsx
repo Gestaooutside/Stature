@@ -1,8 +1,4 @@
-// Card de depoimento individual
-// Adaptado da biblioteca SerafimCloud
-
 import { cn } from "@/lib/utils"
-import { Avatar, AvatarImage } from "@/components/ui/avatar"
 
 export interface TestimonialAuthor {
   name: string
@@ -17,52 +13,55 @@ export interface TestimonialCardProps {
   className?: string
 }
 
-/**
- * Card de depoimento com avatar, nome e texto
- * Design limpo com borda sutil e tipografia hierárquica
- * Pode ser link (se href fornecido) ou div estático
- */
-export function TestimonialCard({
-  author,
-  text,
-  href,
-  className
-}: TestimonialCardProps) {
-  const Card = href ? 'a' : 'div'
+function initials(name: string) {
+  const parts = name.replace(/[,.].*$/, "").trim().split(/\s+/)
+  const first = parts[0]?.[0] ?? ""
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : (parts[0]?.[1] ?? "")
+  return (first + last).toUpperCase()
+}
+
+export function TestimonialCard({ author, text, href, className }: TestimonialCardProps) {
+  const Card = href ? "a" : "div"
 
   return (
     <Card
       {...(href ? { href } : {})}
       className={cn(
-        "flex flex-col rounded-2xl",
-        // Design limpo com borda sutil
-        "bg-white",
-        "border border-neutral-200",
-        // Tamanho e espaçamento
-        "p-6 sm:p-8",
-        "max-w-[420px] sm:max-w-[420px]",
-        // Hover elegante e discreto
-        "hover:border-neutral-300 hover:bg-neutral-50",
-        "transition-all duration-500",
-        className
+        "relative flex flex-col matte-card p-10",
+        "w-[380px] min-w-[380px] max-w-[380px]",
+        "transition-all duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] hover:border-[#D9C89E]/40",
+        className,
       )}
     >
-      <div className="flex items-center gap-4 mb-5">
-        <Avatar className="h-14 w-14 ring-2 ring-neutral-200">
-          <AvatarImage src={author.avatar} alt={author.name} />
-        </Avatar>
-        <div className="flex flex-col items-start">
-          <h3 className="text-base font-semibold leading-tight text-neutral-900">
-            {author.name}
-          </h3>
-          <p className="text-sm text-neutral-600 mt-0.5">
-            {author.handle}
-          </p>
-        </div>
-      </div>
-      <p className="text-lg leading-relaxed text-neutral-800 font-light">
+      {/* Oversized opening quote */}
+      <span
+        className="absolute top-4 left-8 font-display italic text-[#D9C89E]/40 pointer-events-none select-none"
+        style={{ fontSize: "96px", lineHeight: 1 }}
+        aria-hidden
+      >
+        &ldquo;
+      </span>
+
+      <p className="relative text-base leading-[1.85] text-[#EDE4D0]/85 font-light text-left mb-10 mt-12 flex-1">
         {text}
       </p>
+      <span className="hairline-gold w-10 mb-6" />
+
+      <div className="flex items-center gap-4">
+        {/* Monogram circle */}
+        <span
+          className="w-11 h-11 flex items-center justify-center border border-[#D9C89E]/40 rounded-full font-display italic text-[#D9C89E] text-base"
+          aria-hidden
+        >
+          {initials(author.name)}
+        </span>
+        <div className="flex flex-col items-start">
+          <h3 className="font-display italic text-base font-normal leading-tight text-[#EDE4D0]">
+            {author.name}
+          </h3>
+          <p className="eyebrow text-[#D9C89E]/70 mt-1">{author.handle}</p>
+        </div>
+      </div>
     </Card>
   )
 }

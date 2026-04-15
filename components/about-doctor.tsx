@@ -2,182 +2,225 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { MapPin, BadgeCheck, Plane, MessageCircle } from "lucide-react"
 import { Reveal } from "./reveal"
-import { BRAND, COLORS, CONTACT, IMAGES, LOCATION, PROFESSIONAL, COPY } from "@/lib/config/brand"
+import { BRAND, CONTACT, IMAGES, LOCATION, PROFESSIONAL, COPY } from "@/lib/config/brand"
+
+const EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1]
 
 export function AboutDoctor() {
   return (
     <section
       id="sobre"
-      className="py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden"
+      className="relative overflow-hidden py-32 md:py-40 lg:py-56"
+      style={{ background: "#F5EFE4" }}
     >
-      {/* Orbes decorativos sutis */}
+      {/* Signature serif watermark */}
       <div
-        className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ backgroundColor: `${COLORS.accent}20` }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ backgroundColor: `${COLORS.surface}` }}
-      />
+        aria-hidden
+        className="pointer-events-none absolute -right-8 top-24 hidden md:block font-display italic text-[#0F2A1D]/[0.04] select-none"
+        style={{ fontSize: "clamp(180px, 22vw, 380px)", lineHeight: 1, letterSpacing: "-0.04em" }}
+      >
+        dm
+      </div>
 
-      <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 items-center">
-          {/* Imagem do médico */}
-          <Reveal>
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{
-                duration: 0.8,
-                ease: [0.21, 0.47, 0.32, 0.98],
-              }}
-            >
-              <div className="relative aspect-[4/5] max-w-md mx-auto lg:max-w-none overflow-hidden rounded-3xl shadow-2xl">
-                <Image
-                  src={IMAGES.doctor}
-                  alt={`${BRAND.name}, ${PROFESSIONAL.specialty}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                {/* Overlay suave */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
-                />
-              </div>
+      <div className="container-custom relative">
+        {/* Section eyebrow */}
+        <Reveal>
+          <div className="flex items-center gap-5 mb-16 md:mb-24">
+            <span className="eyebrow text-[#3A5243]">{COPY.about.badge}</span>
+            <span className="h-px flex-1 bg-[#3A5243]/20" />
+            <span className="font-display italic text-[#D9C89E] text-sm md:text-base tracking-wide">
+              Cap. 01
+            </span>
+          </div>
+        </Reveal>
 
-              {/* Badge flutuante com CRM */}
-              <motion.div
-                className="absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-8 lg:translate-x-0 px-5 py-3 rounded-full shadow-xl backdrop-blur-md border flex items-center gap-2"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.95)",
-                  borderColor: `${COLORS.accent}80`,
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 lg:gap-x-16 items-start">
+          {/* IMAGE — 5 cols, left-anchored */}
+          <motion.div
+            className="lg:col-span-5 relative lg:sticky lg:top-28"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-120px" }}
+            transition={{ duration: 1.2, ease: EASE }}
+          >
+            {/* Vertical rotated credential rail — editorial touch */}
+            <div className="hidden lg:flex absolute -left-12 top-4 h-full flex-col items-center gap-5 z-10">
+              <span className="w-px flex-1 bg-[#3A5243]/25" />
+              <span
+                className="eyebrow text-[#3A5243]/80 whitespace-nowrap"
+                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
               >
-                <BadgeCheck className="w-5 h-5" style={{ color: COLORS.primary }} />
-                <span className="text-sm font-semibold" style={{ color: COLORS.primaryDark }}>
-                  {PROFESSIONAL.crm}
-                </span>
-              </motion.div>
-            </motion.div>
-          </Reveal>
-
-          {/* Texto */}
-          <Reveal delay={0.15}>
-            <div className="space-y-5 md:space-y-6">
-              {/* Badge de seção */}
-              <div
-                className="inline-block px-5 py-2 rounded-full border"
-                style={{
-                  backgroundColor: `${COLORS.surface}`,
-                  borderColor: `${COLORS.accent}60`,
-                }}
-              >
-                <span
-                  className="text-xs md:text-sm font-semibold uppercase tracking-wider"
-                  style={{ color: COLORS.primaryDark }}
-                >
-                  {COPY.about.badge}
-                </span>
-              </div>
-
-              {/* Nome e especialidade */}
-              <div>
-                <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight mb-2"
-                  style={{ color: COLORS.primaryDark }}
-                >
-                  {COPY.about.title}
-                </h2>
-                <p
-                  className="text-base md:text-lg font-medium italic"
-                  style={{ color: COLORS.secondary }}
-                >
-                  {COPY.about.subtitle}
-                </p>
-              </div>
-
-              {/* Biografia */}
-              <p className="text-base md:text-lg text-neutral-700 leading-relaxed">
-                {COPY.about.description}
-              </p>
-
-              {/* Destaques */}
-              <ul className="space-y-3 pt-2">
-                {COPY.about.highlights.map((item, i) => (
-                  <motion.li
-                    key={item}
-                    className="flex items-start gap-3 text-sm md:text-base text-neutral-700"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 * i }}
-                  >
-                    <span
-                      className="mt-1 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: `${COLORS.accent}40` }}
-                    >
-                      {i === 0 ? (
-                        <Plane className="w-3 h-3" style={{ color: COLORS.primary }} />
-                      ) : i === 1 ? (
-                        <MapPin className="w-3 h-3" style={{ color: COLORS.primary }} />
-                      ) : (
-                        <BadgeCheck className="w-3 h-3" style={{ color: COLORS.primary }} />
-                      )}
-                    </span>
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-
-              {/* Info do hospital + CTA */}
-              <div
-                className="p-4 md:p-5 rounded-2xl border"
-                style={{
-                  backgroundColor: `${COLORS.surface}80`,
-                  borderColor: `${COLORS.accent}60`,
-                }}
-              >
-                <p
-                  className="text-xs md:text-sm font-semibold uppercase tracking-wider mb-1"
-                  style={{ color: COLORS.primaryDark }}
-                >
-                  Consultório
-                </p>
-                <p className="text-sm md:text-base text-neutral-700">
-                  {LOCATION.hospital}
-                </p>
-                <p className="text-sm md:text-base text-neutral-600">
-                  {LOCATION.fullAddress}
-                </p>
-              </div>
-
-              {/* CTA WhatsApp */}
-              <motion.a
-                href={CONTACT.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-sm md:text-base font-medium shadow-lg transition-all duration-300"
-                style={{
-                  background: `linear-gradient(135deg, ${COLORS.primary} 0%, ${COLORS.secondary} 100%)`,
-                }}
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
-                {COPY.about.cta}
-              </motion.a>
+                {PROFESSIONAL.crm} · {PROFESSIONAL.rqe}
+              </span>
+              <span className="w-px flex-1 bg-[#3A5243]/25" />
             </div>
-          </Reveal>
+
+            {/* Image with clip-path reveal */}
+            <motion.div
+              className="relative aspect-[4/5] w-full overflow-hidden"
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+              viewport={{ once: true, margin: "-120px" }}
+              transition={{ duration: 1.4, ease: EASE }}
+            >
+              <Image
+                src={IMAGES.doctor}
+                alt={`${BRAND.name}, ${PROFESSIONAL.specialty}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(15,42,29,0) 55%, rgba(15,42,29,0.35) 100%)",
+                }}
+              />
+            </motion.div>
+
+            {/* Bottom-left gold corner bracket */}
+            <motion.div
+              className="absolute -bottom-3 -left-3 pointer-events-none"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.9, ease: EASE }}
+            >
+              <span className="block w-20 h-px bg-[#D9C89E]" />
+              <span className="block w-px h-20 bg-[#D9C89E]" />
+            </motion.div>
+
+            {/* Mobile credential caption */}
+            <div className="lg:hidden mt-6 flex items-center gap-4">
+              <span className="w-10 h-px bg-[#D9C89E]" />
+              <span className="eyebrow text-[#3A5243]">
+                {PROFESSIONAL.crm} · {PROFESSIONAL.rqe}
+              </span>
+            </div>
+          </motion.div>
+
+          {/* TEXT — 7 cols */}
+          <div className="lg:col-span-7 lg:pl-4 xl:pl-12">
+            {/* Headline */}
+            <motion.h2
+              className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-light leading-[0.95] tracking-[-0.02em] text-[#0F2A1D] mb-10"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.1, delay: 0.15, ease: EASE }}
+            >
+              Dr. David<br />
+              <span className="italic text-[#3A5243]">de Mello.</span>
+            </motion.h2>
+
+            {/* Subtitle + hairline */}
+            <motion.div
+              className="flex items-center gap-5 mb-12"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3, ease: EASE }}
+            >
+              <span className="w-16 h-px bg-[#D9C89E]" />
+              <p className="font-display italic text-lg md:text-xl text-[#3A5243]">
+                {COPY.about.subtitle}
+              </p>
+            </motion.div>
+
+            {/* Drop-cap intro */}
+            <motion.p
+              className="text-base md:text-lg text-[#0F2A1D]/78 leading-[1.85] font-light max-w-[56ch] mb-14"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.45, ease: EASE }}
+            >
+              <span
+                className="float-left font-display text-7xl md:text-8xl leading-[0.85] text-[#0F2A1D] mr-3 mt-1"
+                style={{ fontStyle: "italic", fontWeight: 300 }}
+              >
+                M
+              </span>
+              {COPY.about.description.replace(/^M/, "")}
+            </motion.p>
+
+            {/* Numbered highlights — vertical editorial stack */}
+            <div className="border-t border-[#3A5243]/20 mb-14">
+              {COPY.about.highlights.map((item, i) => (
+                <motion.div
+                  key={item}
+                  className="flex items-baseline gap-8 md:gap-12 py-6 md:py-7 border-b border-[#3A5243]/20"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.9, delay: 0.12 * i + 0.6, ease: EASE }}
+                >
+                  <span className="font-display italic text-3xl md:text-4xl font-light text-[#D9C89E] leading-none shrink-0 w-14">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-xl md:text-2xl font-light text-[#0F2A1D] leading-snug">
+                    {item}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Footer row: mini-table + CTA */}
+            <motion.div
+              className="pt-2"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.9, ease: EASE }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto] items-end gap-y-10 gap-x-10">
+                <div>
+                  <span className="eyebrow text-[#3A5243]/80 block mb-3">Consultório</span>
+                  <p className="font-display text-lg md:text-xl text-[#0F2A1D] font-light leading-tight">
+                    {LOCATION.hospital}
+                  </p>
+                  <p className="text-sm text-[#0F2A1D]/60 font-light mt-1">
+                    {LOCATION.fullAddress}
+                  </p>
+                </div>
+
+                <span className="hidden md:block w-px h-16 bg-[#D9C89E]/60" />
+
+                <div>
+                  <span className="eyebrow text-[#3A5243]/80 block mb-3">Registro</span>
+                  <p className="font-display text-lg md:text-xl text-[#0F2A1D] font-light leading-tight">
+                    {PROFESSIONAL.crm}
+                  </p>
+                  <p className="text-sm text-[#0F2A1D]/60 font-light mt-1">
+                    {PROFESSIONAL.rqe} — Ortopedia
+                  </p>
+                </div>
+
+                <a
+                  href={CONTACT.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="eyebrow px-8 py-4 border border-[#0F2A1D] text-[#0F2A1D] hover:bg-[#0F2A1D] hover:text-[#D9C89E] transition-all duration-700 inline-block text-center whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D9C89E] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F5EFE4]"
+                >
+                  {COPY.about.cta}
+                </a>
+              </div>
+            </motion.div>
+          </div>
         </div>
+
+        {/* Closing signature hairline */}
+        <Reveal delay={0.5}>
+          <div className="mt-24 md:mt-32 flex items-center justify-center gap-6">
+            <span className="h-px w-16 bg-[#3A5243]/30" />
+            <span className="font-display italic text-[#D9C89E] text-sm tracking-wide">
+              — segue —
+            </span>
+            <span className="h-px w-16 bg-[#3A5243]/30" />
+          </div>
+        </Reveal>
       </div>
     </section>
   )

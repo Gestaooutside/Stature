@@ -2,24 +2,29 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, MessageCircle } from "lucide-react"
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { BRAND, COLORS, CONTACT, LOGO, NAVIGATION } from "@/lib/config/brand"
+import { BRAND, CONTACT, LOGO, NAVIGATION } from "@/lib/config/brand"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isCompact, setIsCompact] = useState(false)
+  const [activeId, setActiveId] = useState<string>("")
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 })
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
+      setIsCompact(window.scrollY > window.innerHeight * 0.8)
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Bloqueia scroll quando menu mobile está aberto
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : ""
     return () => {
@@ -27,116 +32,164 @@ export function Header() {
     }
   }, [mobileOpen])
 
+  // Observe sections for active link
+  useEffect(() => {
+    const ids = NAVIGATION.map((n) => n.href.replace("#", ""))
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveId(e.target.id)
+        })
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+    )
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
+
+  const splitMid = Math.ceil(NAVIGATION.length / 2)
+  const navLeft = NAVIGATION.slice(0, splitMid)
+  const navRight = NAVIGATION.slice(splitMid)
+
   return (
     <motion.header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md",
-        isScrolled
-          ? "bg-white/90 border-b border-neutral-200 shadow-sm"
-          : "bg-white/30 border-b border-white/20",
-      )}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+      className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-luxe border-b")}
+      style={{
+        backgroundColor: isScrolled ? "rgba(15, 42, 29, 0.88)" : "rgba(15, 42, 29, 0.55)",
+        borderColor: isScrolled ? "rgba(217, 200, 158, 0.2)" : "transparent",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+      }}
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-14 lg:h-20 gap-4">
-          {/* Logo (imagem) */}
-          <motion.div
-            className="flex-shrink-0"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <a
-              href="#"
-              aria-label={`${BRAND.name}, Home`}
-              className="flex items-center"
-            >
-              <Image
-                src={LOGO.dark}
-                alt={LOGO.alt}
-                width={LOGO.headerWidth}
-                height={LOGO.headerHeight}
-                priority
-                className="h-10 md:h-12 lg:h-14 w-auto"
-              />
-            </a>
-          </motion.div>
-
-          {/* Navegação desktop */}
-          <nav className="hidden lg:flex items-center gap-7">
-            {NAVIGATION.map((item) => (
+        <div
+          className="relative flex items-center justify-center transition-all duration-700 ease-luxe"
+          style={{ height: isCompact ? 64 : 96 }}
+        >
+          {/* Desktop nav left */}
+          <nav className="hidden lg:flex items-center gap-10 absolute left-0">
+            {navLeft.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-neutral-700 hover:text-[color:var(--brand-primary)] transition-colors duration-300"
-                style={{ ["--brand-primary" as any]: COLORS.primary }}
+                className={cn(
+                  "eyebrow text-[#EDE4D0]/80 hover:text-[#D9C89E] gold-underline transition-colors duration-500",
+                  activeId === item.href.replace("#", "") && "text-[#D9C89E] gold-underline-active",
+                )}
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* CTA WhatsApp desktop */}
-          <motion.a
-            href={CONTACT.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-medium shadow-md transition-all duration-300"
-            style={{
-              background: `linear-gradient(135deg, ${COLORS.primary} 0%, ${COLORS.secondary} 100%)`,
-            }}
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.97 }}
+          {/* Centered logo */}
+          <a
+            href="#"
+            aria-label={`${BRAND.name}, Home`}
+            className="flex items-center justify-center transition-all duration-700 ease-luxe"
           >
-            <MessageCircle className="w-4 h-4" />
-            Agende sua consulta
-          </motion.a>
+            <Image
+              src={LOGO.light}
+              alt={LOGO.alt}
+              width={LOGO.headerWidth}
+              height={LOGO.headerHeight}
+              priority
+              className={cn(
+                "w-auto transition-all duration-700 ease-luxe",
+                isCompact ? "h-8 md:h-9" : "h-9 md:h-11 lg:h-14",
+              )}
+            />
+          </a>
 
-          {/* Botão mobile */}
+          {/* Desktop nav right + CTA */}
+          <div className="hidden lg:flex items-center gap-10 absolute right-0">
+            {navRight.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "eyebrow text-[#EDE4D0]/80 hover:text-[#D9C89E] gold-underline transition-colors duration-500",
+                  activeId === item.href.replace("#", "") && "text-[#D9C89E] gold-underline-active",
+                )}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href={CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="eyebrow px-6 py-3 border border-[#D9C89E]/70 text-[#D9C89E] hover:bg-[#D9C89E] hover:text-[#0F2A1D] transition-all duration-700 ease-luxe"
+            >
+              Agendar Consulta
+            </a>
+          </div>
+
+          {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-lg text-neutral-800"
+            className="lg:hidden absolute right-0 p-2 text-[#EDE4D0]"
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? <X className="w-6 h-6" strokeWidth={1.25} /> : <Menu className="w-6 h-6" strokeWidth={1.25} />}
           </button>
         </div>
       </div>
 
-      {/* Drawer mobile */}
+      {/* Scroll progress bar */}
+      <motion.div
+        className="h-px origin-left"
+        style={{
+          scaleX,
+          background: "#D9C89E",
+          opacity: 0.55,
+        }}
+      />
+
+      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="lg:hidden bg-white border-t border-neutral-200"
+            className="lg:hidden overflow-hidden border-t"
+            style={{
+              borderColor: "rgba(217, 200, 158, 0.2)",
+              background: "rgba(15, 42, 29, 0.98)",
+              backdropFilter: "blur(24px)",
+            }}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
           >
-            <nav className="flex flex-col px-6 py-6 gap-4">
-              {NAVIGATION.map((item) => (
-                <a
+            <nav className="flex flex-col px-8 py-10 gap-0">
+              {NAVIGATION.map((item, i) => (
+                <motion.a
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-base font-medium text-neutral-800 py-2 border-b border-neutral-100"
+                  className="py-5 border-b font-display text-2xl font-light text-[#EDE4D0] hover:text-[#D9C89E] transition-colors duration-500"
+                  style={{ borderColor: "rgba(217, 200, 158, 0.12)" }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.08 * i }}
                 >
                   {item.label}
-                </a>
+                </motion.a>
               ))}
               <a
                 href={CONTACT.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-white text-sm font-medium shadow-md"
-                style={{
-                  background: `linear-gradient(135deg, ${COLORS.primary} 0%, ${COLORS.secondary} 100%)`,
-                }}
                 onClick={() => setMobileOpen(false)}
+                className="mt-10 text-center eyebrow py-4 border border-[#D9C89E]/70 text-[#D9C89E]"
               >
-                <MessageCircle className="w-4 h-4" />
-                Agende sua consulta
+                Agendar Consulta
               </a>
             </nav>
           </motion.div>

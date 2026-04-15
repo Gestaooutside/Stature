@@ -55,12 +55,18 @@ export const URLS = {
 // ─── CORES DA MARCA ──────────────────────────────────────────
 
 export const COLORS = {
-  primary: '#0d5c5c', // Teal escuro — backgrounds, header, footer
-  accent: '#7ec8c8', // Teal claro — hover, badges, destaques
-  primaryDark: '#0a3d3d', // Teal profundo — textos sobre fundo claro
-  primaryDarker: '#082e2e', // Variante ainda mais profunda
-  secondary: '#1a8a8a', // Teal médio — botões, links, acentos
-  surface: '#e8f5f5', // Teal ultra-claro — fundos alternados
+  // Quiet-luxury palette extracted from the Statura mark
+  primary: '#0F2A1D', // Deep forest — backgrounds, header, footer
+  primaryDark: '#0F2A1D', // Alias preservado para compat
+  primaryDarker: '#081A12', // Deep shadow — base absoluta
+  secondary: '#3A5243', // Muted sage — borders, dividers
+  accent: '#D9C89E', // Champagne gold — typography accent
+  accentHover: '#C5B485', // Champagne pressed
+  surface: '#F5EFE4', // Soft ivory — secondary surfaces
+  textOnDark: '#EDE4D0',
+  textOnLight: '#0F2A1D',
+  forestFrom: '#0F2A1D',
+  forestTo: '#1B3A2A',
 } as const
 
 // ─── LOGO ────────────────────────────────────────────────────

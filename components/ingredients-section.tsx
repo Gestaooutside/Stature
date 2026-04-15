@@ -3,117 +3,87 @@
 import { motion } from "framer-motion"
 import { Reveal } from "./reveal"
 import { differentials } from "@/data/differentials"
-import { COLORS, COPY } from "@/lib/config/brand"
+import { COPY } from "@/lib/config/brand"
+
+const EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1]
 
 export function IngredientsSection() {
   return (
-    <section id="tecnica" className="py-20 md:py-24 lg:py-32 bg-white">
+    <section id="tecnica" className="relative py-32 md:py-40 lg:py-56" style={{ background: "#F5EFE4" }}>
+      <span className="hairline-gold absolute top-0 left-0 right-0" />
+
       <div className="container-custom max-w-6xl">
-        {/* Header */}
         <Reveal>
-          <div className="text-center mb-14 md:mb-16 lg:mb-20">
-            <div
-              className="inline-block px-5 py-2 rounded-full border mb-5"
-              style={{
-                backgroundColor: `${COLORS.surface}`,
-                borderColor: `${COLORS.accent}80`,
-              }}
-            >
-              <span
-                className="text-xs md:text-sm font-semibold uppercase tracking-wider"
-                style={{ color: COLORS.primaryDark }}
-              >
-                Técnica & Diferenciais
-              </span>
+          <div className="text-center mb-20 md:mb-28 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-5 mb-10">
+              <span className="eyebrow text-[#3A5243]">Técnica &amp; Diferenciais</span>
+              <span className="font-display italic text-[#D9C89E]/80 text-sm">Cap. 03</span>
             </div>
-            <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-light mb-5 tracking-tight"
-              style={{ color: COLORS.primaryDark }}
-            >
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-[-0.02em] text-[#0F2A1D] leading-[1.02]">
               {COPY.ingredients.title}{" "}
-              <span className="italic font-normal">{COPY.ingredients.titleItalic}</span>
+              <span className="italic">{COPY.ingredients.titleItalic}</span>
             </h2>
-            <p className="text-base md:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+            <span className="hairline-gold w-24 mx-auto block mb-10" />
+            <p className="text-base md:text-lg text-[#0F2A1D]/75 leading-[1.85] font-light">
               {COPY.ingredients.description}
             </p>
           </div>
         </Reveal>
 
-        {/* Grid de diferenciais */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.1 },
-            },
-          }}
-        >
-          {differentials.map((item) => {
+        {/* Interleaved asymmetric flow */}
+        <div className="space-y-14 md:space-y-20">
+          {differentials.map((item, i) => {
+            const isLeft = i % 2 === 0
             const Icon = item.icon
             return (
               <motion.div
                 key={item.id}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-                }}
-                whileHover={{ y: -4 }}
-                className="p-6 md:p-7 rounded-2xl border-2 bg-white transition-all duration-500 group"
-                style={{ borderColor: `${COLORS.accent}50` }}
+                className={`grid grid-cols-12 gap-6 md:gap-10 items-start ${isLeft ? "" : "text-right"}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 1.1, ease: EASE }}
               >
-                <div className="flex items-start gap-4 mb-3">
-                  <div
-                    className="p-3 rounded-full flex-shrink-0 transition-colors duration-300"
-                    style={{ backgroundColor: `${COLORS.accent}30` }}
+                <div className={`col-span-12 md:col-span-7 ${isLeft ? "md:col-start-1" : "md:col-start-6"} relative`}>
+                  {/* Oversize ghost numeral */}
+                  <span
+                    className={`absolute font-display italic font-light text-[#D9C89E]/25 pointer-events-none select-none leading-[0.8] ${
+                      isLeft ? "-top-3 -left-2" : "-top-3 -right-2"
+                    }`}
+                    style={{ fontSize: "clamp(80px, 10vw, 120px)" }}
                   >
-                    <Icon
-                      className="w-6 h-6 md:w-7 md:h-7"
-                      style={{ color: COLORS.primary }}
-                      strokeWidth={1.5}
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h3
-                      className="text-base md:text-lg font-medium transition-colors duration-300"
-                      style={{ color: COLORS.primaryDark }}
-                    >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  <div className={`relative z-10 ${isLeft ? "pl-16 md:pl-24" : "pr-16 md:pr-24"}`}>
+                    <div className={`flex items-center gap-3 mb-5 ${isLeft ? "" : "justify-end"}`}>
+                      <Icon className="w-4 h-4 text-[#3A5243]" strokeWidth={1} />
+                      <span className="eyebrow text-[#3A5243]/70">Princípio</span>
+                    </div>
+                    <h3 className="font-display text-2xl md:text-3xl lg:text-[2.25rem] font-light text-[#0F2A1D] leading-[1.1] mb-5">
                       {item.name}
                     </h3>
+                    <span className={`w-12 h-px bg-[#D9C89E] block mb-5 ${isLeft ? "" : "ml-auto"}`} />
+                    <p className="text-base md:text-lg text-[#0F2A1D]/70 leading-[1.85] font-light max-w-[52ch] inline-block">
+                      {item.benefit}
+                    </p>
                   </div>
                 </div>
-                <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                  {item.benefit}
-                </p>
               </motion.div>
             )
           })}
-        </motion.div>
+        </div>
 
-        {/* Nota científica */}
         <Reveal>
-          <div className="mt-14 md:mt-16 lg:mt-20 text-center">
-            <div
-              className="inline-block p-6 md:p-7 rounded-2xl border max-w-3xl"
-              style={{
-                background: `linear-gradient(135deg, ${COLORS.surface} 0%, ${COLORS.accent}20 100%)`,
-                borderColor: `${COLORS.accent}80`,
-              }}
-            >
-              <p
-                className="text-sm md:text-base font-semibold mb-2 leading-relaxed"
-                style={{ color: COLORS.primaryDark }}
-              >
-                {COPY.ingredients.scienceNote}
-              </p>
-              <p className="text-xs md:text-sm text-neutral-600">
-                {COPY.ingredients.scienceFooter}
-              </p>
-            </div>
+          <div className="mt-28 md:mt-36 max-w-3xl mx-auto text-center px-8 py-12 md:p-14 border border-[#3A5243]/20 gold-foil relative">
+            <span className="eyebrow text-[#3A5243] block mb-6">Nota Científica</span>
+            <p className="font-display italic text-xl md:text-2xl text-[#0F2A1D] leading-snug mb-5 font-light">
+              {COPY.ingredients.scienceNote}
+            </p>
+            <span className="hairline-gold w-16 mx-auto block my-6" />
+            <p className="text-xs md:text-sm text-[#3A5243] leading-[1.85] font-light">
+              {COPY.ingredients.scienceFooter}
+            </p>
           </div>
         </Reveal>
       </div>

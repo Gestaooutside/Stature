@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep:*)",
+      "Bash(xargs ls:*)",
+      "Bash(find . -type f \\\\\\( -name \"*.tsx\" -o -name \"*.ts\" \\\\\\) -exec grep -l \"duonatural\\\\|620\\\\|97%\\\\|anvisa\\\\|prescription\" {} \\\\;)",
+      "Bash(pnpm next:*)",
+      "Bash(pnpm build:*)",
+      "Bash(ls node_modules/.bin/next*)",
+      "Bash(node_modules/.bin/next --version)",
+      "Bash(node -e \"console.log\\(require\\('crypto'\\).randomBytes\\(32\\).toString\\('hex'\\)\\)\")",
+      "Bash(cp public/logo.svg app/icon.svg)",
+      "Bash(cp public/logo.svg app/apple-icon.svg)",
+      "Bash(rm app/icon.svg app/apple-icon.svg)",
+      "Bash(ls app/*.svg)",
+      "Bash(ls:*)",
+      "Bash(cat .gitignore)",
+      "Bash(ls .claude/)",
+      "Bash(npx skills *)"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Montserrat } from "next/font/google"
+import { Cormorant_Garamond, Inter_Tight } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
 import { NavigationTracker } from "@/components/navigation-tracker"
@@ -16,14 +16,19 @@ import {
   LOCATION,
 } from "@/lib/config/brand"
 
-const montserrat = Montserrat({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-montserrat",
-  fallback: ["system-ui", "arial", "sans-serif"],
-  adjustFontFallback: true,
+  variable: "--font-cormorant",
+})
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+  variable: "--font-inter-tight",
 })
 
 export const metadata: Metadata = {
@@ -70,7 +75,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Schema.org Physician + MedicalBusiness
   const physicianSchema = {
     "@context": "https://schema.org",
     "@type": ["Physician", "MedicalBusiness"],
@@ -108,15 +112,14 @@ export default function RootLayout({
   }
 
   return (
-    <html lang={BRAND.lang} className={`${montserrat.variable} antialiased`}>
+    <html lang={BRAND.lang} className={`${cormorant.variable} ${interTight.variable} antialiased`}>
       <head>
         <link rel="preload" href={IMAGES.hero.desktop} as="image" type="image/jpeg" />
       </head>
-      <body className="font-sans bg-neutral-50 text-neutral-900 overflow-x-hidden">
+      <body className="font-sans overflow-x-hidden" style={{ background: "#F5EFE4", color: "#0F2A1D" }}>
         <NavigationTracker />
         {children}
 
-        {/* Microsoft Clarity - Analytics */}
         {process.env.NEXT_PUBLIC_CLARITY_ID && (
           <Script
             id="clarity-script"
@@ -133,7 +136,6 @@ export default function RootLayout({
           />
         )}
 
-        {/* Facebook Pixel */}
         {process.env.NEXT_PUBLIC_FB_PIXEL_ID && (
           <Script
             id="facebook-pixel"
@@ -155,7 +157,6 @@ export default function RootLayout({
           />
         )}
 
-        {/* Schema JSON-LD — Physician / MedicalBusiness */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
