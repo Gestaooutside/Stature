@@ -61,7 +61,7 @@ export function AboutDoctor() {
               className="relative aspect-[4/5] w-full overflow-hidden"
               initial={{ clipPath: "inset(0 100% 0 0)" }}
               whileInView={{ clipPath: "inset(0 0% 0 0)" }}
-              viewport={{ once: true, margin: "-120px" }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 1.4, ease: EASE }}
             >
               <Image
