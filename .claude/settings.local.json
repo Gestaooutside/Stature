@@ -16,7 +16,20 @@
       "Bash(ls:*)",
       "Bash(cat .gitignore)",
       "Bash(ls .claude/)",
-      "Bash(npx skills *)"
+      "Bash(npx skills *)",
+      "Bash(./node_modules/.bin/tsc --noEmit)",
+      "Bash(pnpm --version)",
+      "Bash(git stash *)",
+      "Bash(pnpm dev *)",
+      "Skill(update-config)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(claude mcp *)",
+      "Skill(taste-design)",
+      "Skill(design-md)",
+      "Skill(stitch-design)",
+      "Bash(pnpm tsc *)"
     ]
   }
 }

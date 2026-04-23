@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Cormorant_Garamond, Inter_Tight } from "next/font/google"
+import { Cormorant_Garamond, Inter_Tight, IBM_Plex_Mono } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
 import { NavigationTracker } from "@/components/navigation-tracker"
@@ -14,6 +14,7 @@ import {
   CONTACT,
   PROFESSIONAL,
   LOCATION,
+  CITIES,
 } from "@/lib/config/brand"
 
 const cormorant = Cormorant_Garamond({
@@ -29,6 +30,13 @@ const interTight = Inter_Tight({
   weight: ["300", "400", "500", "600"],
   display: "swap",
   variable: "--font-inter-tight",
+})
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-plex-mono",
 })
 
 export const metadata: Metadata = {
@@ -80,7 +88,7 @@ export default function RootLayout({
     "@type": ["Physician", "MedicalBusiness"],
     name: BRAND.name,
     url: URLS.domain,
-    image: `${URLS.domain}/logo-statura.svg`,
+    image: `${URLS.domain}/logo-stature.svg`,
     description: BRAND.fullDescription,
     medicalSpecialty: "Orthopedic",
     priceRange: "$$$",
@@ -92,6 +100,12 @@ export default function RootLayout({
       addressCountry: LOCATION.country,
       postalCode: LOCATION.zipCode,
     },
+    areaServed: CITIES.map((c) => ({
+      "@type": "City",
+      name: c.name,
+      addressRegion: c.state,
+      addressCountry: "BR",
+    })),
     hospitalAffiliation: {
       "@type": "Hospital",
       name: LOCATION.hospital,
@@ -99,12 +113,30 @@ export default function RootLayout({
     telephone: CONTACT.phoneDisplay,
     email: CONTACT.email,
     sameAs: SOCIAL.schemaUrls,
-    availableService: {
-      "@type": "MedicalProcedure",
-      name: "Alongamento Ósseo",
-      description:
-        "Alongamento ósseo para aumento de estatura e correção de discrepâncias com técnica minimamente invasiva.",
-    },
+    availableService: [
+      {
+        "@type": "MedicalProcedure",
+        name: "Alongamento Ósseo com Fitbone",
+        description:
+          "Alongamento ósseo e aumento de estatura com Fitbone, haste intramedular motorizada aprovada pela Anvisa, controlada por controle remoto. Alongamento médio de 8 cm no fêmur e 6 cm na tíbia.",
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Alongamento Ósseo com Método LON",
+        description:
+          "Alongamento da tíbia com fixador externo linear monolateral combinado a haste intramedular.",
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Correção de Discrepância dos Membros Inferiores",
+        description:
+          "Tratamento cirúrgico de dismetria dos membros inferiores com planejamento individualizado.",
+      },
+    ],
+    award: [
+      "Pioneiro no Brasil em alongamento ósseo com Fitbone",
+      "Referência na América Latina em alongamento ósseo",
+    ],
     memberOf: {
       "@type": "MedicalOrganization",
       name: PROFESSIONAL.crm,
@@ -112,7 +144,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang={BRAND.lang} className={`${cormorant.variable} ${interTight.variable} antialiased`}>
+    <html lang={BRAND.lang} className={`${cormorant.variable} ${interTight.variable} ${plexMono.variable} antialiased`}>
       <head>
         <link rel="preload" href={IMAGES.hero.desktop} as="image" type="image/jpeg" />
       </head>

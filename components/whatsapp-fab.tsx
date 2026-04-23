@@ -9,11 +9,11 @@ export function WhatsAppFab() {
       href={CONTACT.whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Falar com Statura Clinic no WhatsApp"
+      aria-label="Falar com Stature Clinic no WhatsApp"
       className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[60] group"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.6, duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
+      transition={{ delay: 1.6, duration: 1, ease: [0.22, 0.61, 0.36, 1] }}
     >
       <span
         aria-hidden="true"

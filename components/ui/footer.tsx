@@ -33,7 +33,7 @@ export function Footer() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+          transition={{ duration: 1.2, ease: [0.22, 0.61, 0.36, 1] }}
           className="flex flex-col items-center text-center mb-20 md:mb-24"
         >
           <Image
@@ -46,7 +46,7 @@ export function Footer() {
           <div className="flex items-center gap-5 mt-8">
             <span className="w-12 md:w-16 h-px bg-[#D9C89E]/50" />
             <p className="font-display italic text-sm md:text-base text-[#D9C89E]/80 tracking-wide whitespace-nowrap">
-              est. 2026 — Uberlândia
+              est. 2026, Brasil
             </p>
             <span className="w-12 md:w-16 h-px bg-[#D9C89E]/50" />
           </div>
@@ -64,7 +64,7 @@ export function Footer() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+              transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
               className="flex flex-col gap-5"
             >
               <h3 className="eyebrow text-[#D9C89E] pb-4 border-b border-[#D9C89E]/15">
@@ -87,15 +87,18 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Location + credentials bar */}
+        {/* Coverage + credentials bar */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 py-10 md:py-12 border-y border-[#D9C89E]/15 mb-12 md:mb-16">
           <div>
-            <span className="eyebrow text-[#D9C89E]/70 block mb-3">Consultório</span>
+            <span className="eyebrow text-[#D9C89E]/70 block mb-3">Atendimento</span>
             <p className="font-display text-lg md:text-xl text-[#EDE4D0] font-light leading-snug">
-              {LOCATION.hospital}
+              Cirurgia em 5 capitais
             </p>
             <p className="text-sm text-[#EDE4D0]/55 font-light mt-1">
-              {LOCATION.fullAddress}
+              São Paulo · Belo Horizonte · Fortaleza · Florianópolis · Uberlândia
+            </p>
+            <p className="text-sm text-[#D9C89E]/70 font-light mt-2 italic">
+              Consulta 100% online para qualquer cidade do Brasil
             </p>
           </div>
           <div className="md:text-right">
@@ -105,6 +108,9 @@ export function Footer() {
             </p>
             <p className="text-sm text-[#EDE4D0]/55 font-light mt-1">
               {PROFESSIONAL.registry}
+            </p>
+            <p className="text-xs text-[#D9C89E]/60 font-light mt-2 italic">
+              Pioneiro no Brasil em Fitbone
             </p>
           </div>
         </div>

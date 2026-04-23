@@ -2,7 +2,7 @@
 
 import { MapPin, Instagram, Plane, Phone } from "lucide-react"
 import { Reveal } from "./reveal"
-import { COPY, CONTACT, LOCATION, SOCIAL } from "@/lib/config/brand"
+import { COPY, CONTACT, SOCIAL } from "@/lib/config/brand"
 
 export function NewsletterSection() {
   return (
@@ -13,7 +13,7 @@ export function NewsletterSection() {
     >
       <div className="absolute inset-0 grain-texture grain-pulse pointer-events-none" />
 
-      {/* Abstract map line art — ambient backdrop */}
+      {/* Abstract map line art, ambient backdrop */}
       <svg
         aria-hidden
         className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06]"
@@ -38,7 +38,7 @@ export function NewsletterSection() {
             <div className="text-center mb-20 md:mb-24 max-w-3xl mx-auto">
               <div className="flex items-center justify-center gap-5 mb-10">
                 <span className="eyebrow text-[#D9C89E]">{COPY.contact.badge}</span>
-                <span className="font-display italic text-[#D9C89E]/80 text-sm">Cap. 06</span>
+                <span className="font-display italic text-[#D9C89E]/80 text-sm">Cap. 08</span>
               </div>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-[-0.02em] text-[#EDE4D0] leading-[1.02]">
                 {COPY.contact.titlePrefix}{" "}
@@ -52,7 +52,7 @@ export function NewsletterSection() {
 
             {/* T-composition: top row 3 contact cells */}
             <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-[#D9C89E]/15">
-              <ContactCell eyebrow="Consultório" Icon={MapPin} title={LOCATION.hospital} subtitle={`${LOCATION.address} — ${LOCATION.city}, ${LOCATION.state}`} />
+              <ContactCell eyebrow="Cirurgia" Icon={MapPin} title="5 capitais" subtitle="São Paulo · Belo Horizonte · Fortaleza · Florianópolis · Uberlândia" />
               <ContactCell eyebrow="WhatsApp" Icon={Phone} title={CONTACT.phone} subtitle="Atendimento segunda a sexta" href={CONTACT.whatsappUrl} />
               <ContactCell eyebrow="Instagram" Icon={Instagram} title={SOCIAL.instagramHandle} subtitle="Casos e bastidores" href={SOCIAL.instagram} />
             </div>
@@ -61,7 +61,7 @@ export function NewsletterSection() {
             <div className="grid grid-cols-1 border-l border-r border-b border-[#D9C89E]/15 p-10 md:p-14 flex flex-col md:flex-row items-start gap-6 md:gap-10">
               <div className="flex items-center gap-4 md:shrink-0">
                 <Plane className="w-5 h-5 text-[#D9C89E]" strokeWidth={1} />
-                <span className="eyebrow text-[#D9C89E]/80">Mobilidade</span>
+                <span className="eyebrow text-[#D9C89E]/80">Alcance</span>
               </div>
               <div className="flex-1 md:border-l border-[#D9C89E]/15 md:pl-10">
                 <p className="font-display text-xl md:text-2xl text-[#EDE4D0] font-light leading-snug mb-2">
@@ -73,7 +73,7 @@ export function NewsletterSection() {
               </div>
             </div>
 
-            {/* CTA panel — offset right (8/12) */}
+            {/* CTA panel, offset right (8/12) */}
             <div className="grid grid-cols-12 mt-20 md:mt-24">
               <div className="col-span-12 md:col-span-8 md:col-start-5 p-10 md:p-14 border border-[#D9C89E]/20 gold-foil">
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-end">

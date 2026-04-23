@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 export interface TestimonialAuthor {
   name: string
@@ -48,18 +49,30 @@ export function TestimonialCard({ author, text, href, className }: TestimonialCa
       <span className="hairline-gold w-10 mb-6" />
 
       <div className="flex items-center gap-4">
-        {/* Monogram circle */}
-        <span
-          className="w-11 h-11 flex items-center justify-center border border-[#D9C89E]/40 rounded-full font-display italic text-[#D9C89E] text-base"
-          aria-hidden
-        >
-          {initials(author.name)}
-        </span>
+        {/* Avatar or Monogram circle */}
+        {author.avatar ? (
+          <div className="relative w-11 h-11 flex-shrink-0 rounded-full overflow-hidden border border-[#D9C89E]/40">
+            <Image
+              src={author.avatar}
+              alt={author.name}
+              fill
+              className="object-cover"
+              sizes="44px"
+            />
+          </div>
+        ) : (
+          <span
+            className="w-11 h-11 flex-shrink-0 flex items-center justify-center border border-[#D9C89E]/40 rounded-full font-display italic text-[#D9C89E] text-base"
+            aria-hidden
+          >
+            {initials(author.name)}
+          </span>
+        )}
         <div className="flex flex-col items-start">
           <h3 className="font-display italic text-base font-normal leading-tight text-[#EDE4D0]">
             {author.name}
           </h3>
-          <p className="eyebrow text-[#D9C89E]/70 mt-1">{author.handle}</p>
+          <p className="font-mono-label text-[#D9C89E]/70 mt-1">{author.handle}</p>
         </div>
       </div>
     </Card>

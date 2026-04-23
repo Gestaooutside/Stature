@@ -1,8 +1,9 @@
 import { ImageResponse } from 'next/og'
-import { COLORS, LOCATION, PROFESSIONAL } from '@/lib/config/brand'
+import { COLORS, PROFESSIONAL } from '@/lib/config/brand'
 
 export const runtime = 'edge'
-export const alt = 'Statura Clinic: Alongamento Ósseo | Uberlândia-MG'
+export const alt =
+  'Stature Clinic: Alongamento Ósseo com Fitbone | Pioneiro no Brasil — Dr. David de Mello'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -17,10 +18,10 @@ async function loadCormorantGaramond(text: string, weight: 300 | 400) {
 }
 
 export default async function OpenGraphImage() {
-  const displayText = 'STATURA'
+  const displayText = 'STATURE'
   const smallText = 'CLINIC'
   const allText =
-    'STATURACLINICAlongamentoÓsseo·UberlândiaMGDr.DavidedMelloCRM72397RQE38488'
+    'STATURECLINICAlongamentoÓsseoFitbonePioneironoBrasil5capitaisConsultaonlineDr.DavidedMelloCRM72397RQE38488'
 
   const [fontLight, fontRegular] = await Promise.all([
     loadCormorantGaramond(allText, 300),
@@ -128,7 +129,7 @@ export default async function OpenGraphImage() {
               display: 'flex',
             }}
           >
-            Alongamento Ósseo · {LOCATION.city}-{LOCATION.state}
+            Alongamento Ósseo com Fitbone · Pioneiro no Brasil
           </div>
           <div
             style={{

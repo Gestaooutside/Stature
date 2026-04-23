@@ -11,7 +11,7 @@ interface ParallaxImageProps {
   parallaxOffset?: number
 }
 
-export function ParallaxImage({ src, alt, className, parallaxOffset = 12 }: ParallaxImageProps) {
+export function ParallaxImage({ src, alt, className, parallaxOffset = 8 }: ParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,

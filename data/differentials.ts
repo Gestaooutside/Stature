@@ -1,12 +1,15 @@
 /**
- * Diferenciais técnicos do tratamento oferecido pelo Dr. David.
- * Consumido pela seção "Técnica e Diferenciais" (ex-ingredients-section).
+ * Diferenciais técnicos do tratamento oferecido pela Stature Clinic.
+ * Consumido pela seção "Técnica e Diferenciais" (ingredients-section).
+ *
+ * Atualizado para refletir a tecnologia Fitbone (principal) e
+ * remover qualquer referência ao fixador circular (Ilizarov).
  */
 
 import type { LucideIcon } from 'lucide-react'
 import {
-  Layers,
-  Activity,
+  Cpu,
+  Radio,
   ShieldCheck,
   HeartPulse,
   Ruler,
@@ -22,45 +25,45 @@ export interface DifferentialItem {
 
 export const differentials: DifferentialItem[] = [
   {
-    id: 'fixador',
-    name: 'Fixador Externo Linear',
-    icon: Layers,
+    id: 'fitbone',
+    name: 'Fitbone · Haste Motorizada',
+    icon: Cpu,
     benefit:
-      'Monolateral, mais leve e confortável que o Ilizarov. Permite roupas comuns e é removido ao final da fase de alongamento.',
+      'Haste intramedular motorizada posicionada dentro do osso, aprovada pela Anvisa. Invisível externamente, sem hardware aparente. Cicatrizes mínimas e reabilitação mais rápida.',
   },
   {
-    id: 'haste',
-    name: 'Haste Intramedular',
-    icon: Activity,
+    id: 'controle-remoto',
+    name: 'Controle Externo por Controle Remoto',
+    icon: Radio,
     benefit:
-      'Posicionada dentro do osso, invisível externamente. Reduz o tempo de uso do fixador externo e acelera a carga.',
+      'O alongamento é acionado com precisão milimétrica por um controle remoto externo. Nada preso ao corpo entre as sessões — rotina, sono e conforto preservados.',
   },
   {
     id: 'minimamente',
     name: 'Minimamente Invasiva',
     icon: ShieldCheck,
     benefit:
-      'Poucas e pequenas incisões, com menor risco de infecção e cicatrizes discretas após a consolidação.',
+      'Incisões pequenas, menor risco de infecção e menos desconforto durante a fase de alongamento. Retorno ao cotidiano desde o início.',
   },
   {
     id: 'fisio',
     name: 'Fisioterapia Integrada',
     icon: HeartPulse,
     benefit:
-      'Reabilitação iniciada no primeiro dia pós-operatório. Força, mobilidade, treino de marcha e prevenção de rigidez.',
+      'Reabilitação iniciada no primeiro dia pós-operatório. Academia para membros inferiores liberada nas semanas iniciais, com autonomia para ir à fisioterapia sozinho.',
   },
   {
     id: 'proporcao',
     name: 'Proporcionalidade',
     icon: Ruler,
     benefit:
-      'Cálculos individualizados para manter a harmonia entre tronco, fêmur e tíbia. Ganho seguro e esteticamente natural.',
+      'Cálculos individualizados para manter a harmonia entre tronco, fêmur e tíbia. Alongamento médio de 8 cm no fêmur e 6 cm na tíbia — no fêmur, na tíbia ou em ambos.',
   },
   {
     id: 'vida-normal',
-    name: 'Vida Normal Após',
+    name: 'Vida Normal Durante e Após',
     icon: Dumbbell,
     benefit:
-      'Correr, saltar, academia, esportes. O osso formado é tão resistente quanto o original, sem restrições permanentes.',
+      'Trabalho, direção e rotina mantidos durante o tratamento. Aos 6 meses, atividades de impacto liberadas: correr, saltar, academia, esportes.',
   },
 ]

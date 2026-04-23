@@ -18,7 +18,7 @@ export function AnimatedText({ text, delay = 0 }: AnimatedTextProps) {
           transition={{
             duration: 0.5,
             delay: delay + index * 0.03,
-            ease: [0.21, 0.47, 0.32, 0.98],
+            ease: [0.22, 0.61, 0.36, 1],
           }}
           style={{ display: char === " " ? "inline" : "inline-block" }}
         >

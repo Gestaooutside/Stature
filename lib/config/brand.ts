@@ -1,28 +1,24 @@
 /**
  * ============================================================
- * BRAND CONFIGURATION - STATURA CLINIC
+ * BRAND CONFIGURATION - STATURE CLINIC
  * ============================================================
  *
  * Fonte única de verdade para a identidade visual, textos e
- * contatos do site institucional da Statura Clinic —
+ * contatos do site institucional da Stature Clinic,
  * Alongamento Ósseo (médico responsável: Dr. David de Mello).
- *
- * Os nomes dos exports (BRAND, COLORS, LOGO, IMAGES, CONTACT,
- * SOCIAL, SEO, COPY, FOOTER_CONFIG, TESTIMONIALS, TRUST_METRICS,
- * URLS, DEVELOPER) são preservados para continuar compatíveis
- * com a estrutura white-label da Base 1.
  * ============================================================
  */
 
 // ─── IDENTIDADE DA MARCA ─────────────────────────────────────
 
 export const BRAND = {
-  name: 'Statura Clinic',
-  shortName: 'Statura',
+  name: 'Stature Clinic',
+  shortName: 'Stature',
   tagline: 'Clínica de Alongamento Ósseo',
-  shortDescription: 'Statura Clinic, Alongamento Ósseo em Uberlândia-MG',
+  shortDescription:
+    'Stature Clinic, Alongamento Ósseo com Fitbone em São Paulo, BH, Fortaleza, Florianópolis e Uberlândia',
   fullDescription:
-    'Statura Clinic: clínica especializada em alongamento ósseo e aumento de estatura com técnica minimamente invasiva. Médico responsável: Dr. David de Mello. Hospital Orthomed Center, Uberlândia-MG.',
+    'Stature Clinic: clínica especializada em alongamento ósseo e aumento de estatura com a tecnologia Fitbone, haste intramedular motorizada aprovada pela Anvisa. Atendimento cirúrgico em cinco capitais e consulta online para todo o Brasil. Médico responsável: Dr. David de Mello, pioneiro no Brasil em alongamento com Fitbone.',
   lang: 'pt-BR',
   foundedYear: '2026',
 } as const
@@ -42,27 +38,26 @@ export const PROFESSIONAL = {
     'Graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP).',
     'Especialização em Alongamento e Reconstrução Óssea e Correção de Deformidades com Fixadores Externos pela Escola Paulista de Medicina (UNIFESP).',
   ],
-  bio: 'Médico ortopedista com graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP) e especialização em Alongamento e Reconstrução Óssea e Correção de Deformidades com Fixadores Externos pela Escola Paulista de Medicina (UNIFESP). Atua no Hospital Orthomed Center, em Uberlândia-MG, com foco em alongamento ósseo e aumento de estatura utilizando técnica minimamente invasiva (fixador externo linear monolateral + haste intramedular). Registrado sob CRM-MG 72397 e RQE 38488.',
+  bio: 'Médico ortopedista com graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP) e especialização em Alongamento e Reconstrução Óssea pela Escola Paulista de Medicina (UNIFESP). Pioneiro no Brasil em alongamento ósseo com Fitbone, haste intramedular motorizada aprovada pela Anvisa, e referência na América Latina, com mais de 400 pacientes operados. Atende cirurgicamente em cinco capitais (São Paulo, Belo Horizonte, Fortaleza, Florianópolis e Uberlândia) e oferece consulta 100% online para pacientes de qualquer cidade do Brasil. Registrado sob CRM-MG 72397 e RQE 38488.',
 } as const
 
 // ─── DOMÍNIO E URLs ──────────────────────────────────────────
 
 export const URLS = {
-  domain: 'https://staturaclinic.com.br',
+  domain: 'https://statureclinic.com.br',
   twitterHandle: '@daviddemello.orto',
 } as const
 
 // ─── CORES DA MARCA ──────────────────────────────────────────
 
 export const COLORS = {
-  // Quiet-luxury palette extracted from the Statura mark
-  primary: '#0F2A1D', // Deep forest — backgrounds, header, footer
-  primaryDark: '#0F2A1D', // Alias preservado para compat
-  primaryDarker: '#081A12', // Deep shadow — base absoluta
-  secondary: '#3A5243', // Muted sage — borders, dividers
-  accent: '#D9C89E', // Champagne gold — typography accent
-  accentHover: '#C5B485', // Champagne pressed
-  surface: '#F5EFE4', // Soft ivory — secondary surfaces
+  primary: '#0F2A1D',
+  primaryDark: '#0F2A1D',
+  primaryDarker: '#081A12',
+  secondary: '#3A5243',
+  accent: '#D9C89E',
+  accentHover: '#C5B485',
+  surface: '#F5EFE4',
   textOnDark: '#EDE4D0',
   textOnLight: '#0F2A1D',
   forestFrom: '#0F2A1D',
@@ -72,12 +67,9 @@ export const COLORS = {
 // ─── LOGO ────────────────────────────────────────────────────
 
 export const LOGO = {
-  // light = logo de cor clara, para fundos escuros (hero, footer)
-  light: '/logo-statura.svg',
-  // dark = logo de cor escura, para fundos claros (header)
-  dark: '/logo-statura-dark.svg',
-  alt: 'Statura Clinic, Alongamento Ósseo',
-  // Proporção 4:1 matches viewBox recortado dos SVGs (880 x 220).
+  light: '/logo-stature.svg',
+  dark: '/logo-stature-dark.svg',
+  alt: 'Stature Clinic, Alongamento Ósseo',
   headerWidth: 240,
   headerHeight: 60,
   heroWidth: 532,
@@ -90,9 +82,7 @@ export const LOGO = {
 
 export const IMAGES = {
   hero: { desktop: '/hero-section.jpg', mobile: '/hero-section-mobile.jpg' },
-  // OG image agora é gerada dinamicamente em app/opengraph-image.tsx
-  // (Next.js file convention). Este campo é mantido para fallback/schema.
-  ogImage: '/logo-statura.svg',
+  ogImage: '/logo-stature.svg',
   doctor: '/David-de-Melo-Marin.jpg',
   hospital: '/hospital.jpg',
   procedures: {
@@ -100,6 +90,7 @@ export const IMAGES = {
     tibia: '/proc-tibia.png',
     correction: '/proc-correcao.png',
   },
+  fitboneVideo: '/fitbone-video-explicativo.mp4',
 } as const
 
 // ─── CONTATO ─────────────────────────────────────────────────
@@ -113,15 +104,41 @@ export const CONTACT = {
   whatsappSupport: '5534991649910',
   whatsappPartnership: '5534991649910',
   whatsappMessage:
-    'Olá, vim pelo site da Statura Clinic e gostaria de saber mais sobre o alongamento ósseo!',
+    'Olá, vim pelo site da Stature Clinic e gostaria de saber mais sobre o alongamento ósseo!',
   whatsappUrl:
-    'https://wa.me/5534991649910?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Statura%20Clinic%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20alongamento%20%C3%B3sseo!',
-  email: 'contato@statura.clinic', // TODO: confirmar email final
+    'https://wa.me/5534991649910?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Stature%20Clinic%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20alongamento%20%C3%B3sseo!',
+  email: 'contato@stature.clinic',
   partnershipMessage:
-    'Olá, vim pelo site da Statura Clinic e gostaria de saber mais sobre o alongamento ósseo!',
+    'Olá, vim pelo site da Stature Clinic e gostaria de saber mais sobre o alongamento ósseo!',
 } as const
 
-// ─── LOCALIZAÇÃO ─────────────────────────────────────────────
+// ─── CIDADES COM CIRURGIA DISPONÍVEL ─────────────────────────
+
+export interface CityInfo {
+  id: string
+  name: string
+  state: string
+  label: string
+  /**
+   * Coordenadas normalizadas (0–1) usadas pelo mini-mapa do Brasil.
+   * Referência aproximada sobre uma bounding box simples do país.
+   */
+  pin: { x: number; y: number }
+}
+
+// Coordenadas derivadas de lat/long reais projetadas sobre a bounding box do
+// Brasil (long [-73.9, -34.8] × lat [5.2, -33.75]), batem com o contorno em
+// components/cities-strip.tsx. Ajustes manuais de ±0.01 evitam que o pino fique
+// no exato limite do traçado.
+export const CITIES: readonly CityInfo[] = [
+  { id: 'sao-paulo',     name: 'São Paulo',     state: 'SP', label: 'São Paulo, SP',     pin: { x: 0.705, y: 0.737 } },
+  { id: 'belo-horizonte',name: 'Belo Horizonte',state: 'MG', label: 'Belo Horizonte, MG',pin: { x: 0.773, y: 0.645 } },
+  { id: 'fortaleza',     name: 'Fortaleza',     state: 'CE', label: 'Fortaleza, CE',     pin: { x: 0.895, y: 0.245 } },
+  { id: 'florianopolis', name: 'Florianópolis', state: 'SC', label: 'Florianópolis, SC', pin: { x: 0.640, y: 0.835 } },
+  { id: 'uberlandia',    name: 'Uberlândia',    state: 'MG', label: 'Uberlândia, MG',    pin: { x: 0.664, y: 0.620 } },
+] as const
+
+// ─── LOCALIZAÇÃO (cidade-sede referência / compat) ───────────
 
 export const LOCATION = {
   hospital: 'Hospital Orthomed Center',
@@ -133,7 +150,7 @@ export const LOCATION = {
   fullAddress: 'Av. Rondon Pacheco, 555, Uberlândia, MG',
   hasAirport: true,
   airportNote:
-    'Uberlândia tem aeroporto com voos para diversas cidades do país.',
+    'Cirurgia realizada em cinco capitais e consulta online para qualquer cidade do Brasil.',
   googleMapsEmbed: '',
 } as const
 
@@ -157,101 +174,164 @@ export const DEVELOPER = {
 // ─── SEO E METADATA ──────────────────────────────────────────
 
 export const SEO = {
-  title: 'Statura Clinic: Alongamento Ósseo com Dr. David de Mello | Uberlândia-MG',
+  title:
+    'Stature Clinic: Alongamento Ósseo com Fitbone | Dr. David de Mello, Pioneiro no Brasil',
   description:
-    'Statura Clinic: clínica especializada em alongamento ósseo e aumento de estatura. Técnica minimamente invasiva com fixador externo + haste intramedular. Médico responsável: Dr. David de Mello. Hospital Orthomed Center, Uberlândia-MG.',
+    'Alongamento ósseo e aumento de estatura com Fitbone, haste intramedular motorizada aprovada pela Anvisa. Pioneiro no Brasil, referência na América Latina, +400 pacientes operados. Cirurgia em São Paulo, Belo Horizonte, Fortaleza, Florianópolis e Uberlândia. Consulta online para todo o Brasil.',
   keywords: [
-    'Statura Clinic',
-    'Statura',
-    'alongamento ósseo',
+    'Stature Clinic',
+    'Stature',
+    'Fitbone Brasil',
+    'Fitbone alongamento ósseo',
+    'alongamento ósseo com Fitbone',
     'aumento de estatura',
-    'cirurgia ortopédica',
-    'fixador externo',
-    'haste intramedular',
+    'alongamento ósseo São Paulo',
+    'aumento de estatura Belo Horizonte',
+    'alongamento ósseo Fortaleza',
+    'alongamento ósseo Florianópolis',
+    'alongamento ósseo Uberlândia',
+    'haste intramedular motorizada',
+    'Método LON',
     'Dr David de Mello',
-    'Uberlândia',
-    'Orthomed Center',
+    'pioneiro Fitbone Brasil',
+    'referência alongamento América Latina',
+    'cirurgia ortopédica',
     'ortopedia',
     'discrepância de membros',
   ],
-  ogTitle: 'Statura Clinic: Alongamento Ósseo | Uberlândia-MG',
+  ogTitle: 'Stature Clinic: Alongamento Ósseo com Fitbone | Pioneiro no Brasil',
   ogDescription:
-    'Statura Clinic: alongamento ósseo e aumento de estatura com técnica minimamente invasiva. Médico responsável: Dr. David de Mello. Hospital Orthomed Center, Uberlândia-MG.',
+    'Fitbone, haste motorizada aprovada pela Anvisa. +400 pacientes operados. Cirurgia em 5 capitais, consulta online nacional. Dr. David de Mello, referência na América Latina.',
   twitterDescription:
-    'Statura Clinic: alongamento ósseo e aumento de estatura com técnica minimamente invasiva. Uberlândia-MG.',
+    'Fitbone no Brasil · Haste motorizada Anvisa · +400 pacientes · 5 capitais · Dr. David de Mello.',
   categories: ['medical', 'health', 'orthopedics'] as string[],
 } as const
+
+// ─── CREDENCIAIS / AUTORIDADE ────────────────────────────────
+// Faixa de estatísticas exibida abaixo do hero / trust-bar.
+
+export interface CredentialStat {
+  id: string
+  value: string
+  label: string
+}
+
+export const CREDENTIALS: readonly CredentialStat[] = [
+  {
+    id: 'pioneiro',
+    value: '1º',
+    label: 'Pioneiro no Brasil em alongamento com Fitbone',
+  },
+  {
+    id: 'america-latina',
+    value: 'LATAM',
+    label: 'Referência na América Latina',
+  },
+  {
+    id: 'pacientes',
+    value: '+400',
+    label: 'Pacientes operados',
+  },
+  {
+    id: 'premios',
+    // TODO: Substituir por total real de prêmios quando os nomes forem fornecidos.
+    value: 'Int.',
+    label: 'Premiações internacionais',
+  },
+] as const
+
+/**
+ * Lista de premiações internacionais. Placeholder, substituir
+ * pelos nomes oficiais dos prêmios ao recebê-los do Dr. David.
+ */
+export const AWARDS: readonly string[] = [
+  // TODO: preencher com prêmios reais (ex.: "Best Limb Reconstruction Paper — ILLRS 2023")
+] as const
 
 // ─── MÉTRICAS DE CONFIANÇA (TRUST BAR) ───────────────────────
 
 export const TRUST_METRICS = {
-  hospital: 'Orthomed',
-  hospitalLabel: 'Hospital Orthomed Center',
-  technique: 'Minimamente',
-  techniqueLabel: 'Técnica Minimamente Invasiva',
+  hospital: 'Fitbone',
+  hospitalLabel: 'Haste motorizada aprovada pela Anvisa',
+  technique: 'Pioneiro',
+  techniqueLabel: 'Primeiro no Brasil em Fitbone',
   crm: 'CRM-MG 72397',
   crmLabel: 'RQE 38488 · Ortopedia e Traumatologia',
-  reach: 'Brasil',
-  reachLabel: 'Pacientes de Todo o Brasil',
+  reach: '5 capitais',
+  reachLabel: 'Cirurgia em SP, BH, Fortaleza, Floripa e Uberlândia',
+} as const
+
+// ─── NÚMEROS PADRÃO DE ALONGAMENTO ───────────────────────────
+
+export const LENGTHENING = {
+  femur: '8 cm',
+  tibia: '6 cm',
+  /** Copy padrão — manter idêntica em todo o site. */
+  summary:
+    'Alongamento médio de 8 cm no fêmur e 6 cm na tíbia. O tratamento pode ser feito no fêmur, na tíbia ou em ambos.',
+  disclaimer:
+    'Resultados variam conforme idade, biologia individual, estado nutricional, tabagismo e outros fatores.',
 } as const
 
 // ─── DEPOIMENTOS ─────────────────────────────────────────────
-// Placeholders — substituir por depoimentos reais com autorização dos pacientes.
+// Público-alvo: homens, 18–45 anos, altura 160–170cm.
+// Placeholders recalibrados, substituir por depoimentos reais
+// autorizados assim que disponíveis.
 
 export const TESTIMONIALS = [
   {
     author: {
-      name: 'Paciente A., 29 anos',
-      handle: 'São Paulo, SP',
+      name: 'Paciente L., 26 anos',
+      handle: 'São Paulo, SP · 168 cm',
       avatar:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
+        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
     },
-    text: 'O procedimento mudou minha vida. A equipe do Dr. David foi excepcional e o acompanhamento impecável do início ao fim. Já estou com vida normal, correndo e voltando à academia.',
+    text: 'O Fitbone mudou tudo. Sem ferragem aparecendo, dormia de lado normalmente, voltei à academia cedo. Ganhei 8 cm no fêmur e hoje continuo treinando pesado, como antes.',
   },
   {
     author: {
-      name: 'Paciente B., 34 anos',
-      handle: 'Rio de Janeiro, RJ',
+      name: 'Paciente M., 31 anos',
+      handle: 'Belo Horizonte, MG · 165 cm',
       avatar:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+        'https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=150&h=150&fit=crop&crop=face',
     },
-    text: 'Pesquisei bastante antes de decidir. A técnica minimamente invasiva e o atendimento humano do Dr. David fizeram toda a diferença. Recomendo muito.',
+    text: 'Pesquisei muito antes de decidir e o que pesou foi o Dr. David ser referência e a técnica ser minimamente invasiva. Dirigi, trabalhei e fiz fisio sozinho durante quase todo o tratamento.',
   },
   {
     author: {
-      name: 'Paciente C., 27 anos',
-      handle: 'Belo Horizonte, MG',
+      name: 'Paciente R., 29 anos',
+      handle: 'Fortaleza, CE · 170 cm',
       avatar:
-        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
+        'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&h=150&fit=crop&crop=face',
     },
-    text: 'O que mais me marcou foi a clareza nas explicações e a tranquilidade em cada etapa. A reabilitação foi bem conduzida e hoje vivo sem limitações.',
+    text: 'Cicatrizes mínimas, sem controle externo a carregar. O controle remoto do Fitbone ainda me impressiona. Aos 6 meses já estava correndo de novo.',
   },
   {
     author: {
-      name: 'Paciente D., 31 anos',
-      handle: 'Brasília, DF',
+      name: 'Paciente T., 35 anos',
+      handle: 'Florianópolis, SC · 162 cm',
       avatar:
-        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&h=150&fit=crop&crop=face',
     },
-    text: 'Dr. David é um profissional diferenciado. Ciência, técnica e empatia em cada consulta. O resultado superou minhas expectativas.',
+    text: 'Consulta online antes, cirurgia em casa. O Dr. David e a equipe explicaram cada etapa. Voltei ao trabalho durante o tratamento, nunca imaginei que seria assim.',
   },
   {
     author: {
-      name: 'Paciente E., 38 anos',
-      handle: 'Curitiba, PR',
+      name: 'Paciente J., 23 anos',
+      handle: 'Uberlândia, MG · 166 cm',
       avatar:
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+        'https://images.unsplash.com/photo-1521119989659-a83eee488004?w=150&h=150&fit=crop&crop=face',
     },
-    text: 'Saí de Curitiba só pela referência do Dr. David. Valeu cada quilômetro percorrido. O cuidado com o paciente é impecável.',
+    text: 'Academia para membros inferiores liberada desde cedo, fisio precoce, desconforto muito menor do que eu esperava. O resultado estético e funcional superou tudo.',
   },
   {
     author: {
-      name: 'Paciente F., 42 anos',
-      handle: 'Porto Alegre, RS',
+      name: 'Paciente D., 40 anos',
+      handle: 'São Paulo, SP · 169 cm',
       avatar:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+        'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=150&h=150&fit=crop&crop=face',
     },
-    text: 'A correção da diferença entre as pernas me devolveu a confiança. Dr. David explicou tudo com paciência e conduziu o processo com maestria.',
+    text: 'Aos 40, era importante voltar a correr e ao futebol. Aos 6 meses o Dr. David liberou impacto. Hoje faço tudo que fazia antes, com alguns centímetros a mais.',
   },
 ] as const
 
@@ -259,13 +339,16 @@ export const TESTIMONIALS = [
 
 export const COPY = {
   hero: {
+    // Canonical mixed-weight headline (DESIGN.md §6)
+    headline1: 'Mais altura.',
+    headline2: 'Mesma vida.',
     subtitle1: 'Segurança, ciência e tecnologia de ponta.',
-    subtitle2: 'Aumento de estatura com técnica minimamente invasiva.',
+    subtitle2: 'Aumento de estatura com a tecnologia Fitbone.',
     description:
-      'Fixador externo linear monolateral + haste intramedular. Vida normal durante e depois do tratamento.',
-    highlight: 'Uberlândia-MG · Hospital Orthomed Center',
+      'Haste intramedular motorizada, controlada por controle remoto. Nada externo ao corpo. Vida normal durante e depois do tratamento.',
+    highlight: 'Pioneiro no Brasil em Fitbone · 5 capitais · Consulta online nacional',
     cta: 'Fale comigo no WhatsApp',
-    ctaSecondary: 'Conheça o procedimento',
+    ctaSecondary: 'Conheça as técnicas',
   },
   about: {
     badge: 'Sobre o Médico',
@@ -273,9 +356,9 @@ export const COPY = {
     subtitle: 'Ortopedia e Alongamento Ósseo',
     description: PROFESSIONAL.bio,
     highlights: [
-      'Atendo pacientes de todo o Brasil',
-      'Hospital Orthomed Center, Uberlândia-MG',
-      'Técnica minimamente invasiva',
+      'Pioneiro no Brasil em alongamento com Fitbone',
+      'Referência na América Latina · +400 pacientes',
+      'Cirurgia em 5 capitais · Consulta online nacional',
     ],
     cta: 'Agende sua consulta',
   },
@@ -283,29 +366,57 @@ export const COPY = {
     title: 'Nossos',
     titleItalic: 'Procedimentos',
     description:
-      'Alongamento ósseo para aumento de estatura e correção de discrepâncias, com técnica minimamente invasiva, cálculo de proporcionalidade e reabilitação integrada.',
+      'Alongamento ósseo para aumento de estatura e correção de discrepâncias. Alongamento médio de 8 cm no fêmur e 6 cm na tíbia. O tratamento pode ser feito no fêmur, na tíbia ou em ambos.',
   },
   testimonials: {
     title: 'O que nossos pacientes dizem',
     description:
-      'Histórias reais de pessoas que recuperaram confiança e qualidade de vida através do alongamento ósseo.',
+      'Histórias reais de homens que recuperaram confiança e presença através do alongamento ósseo com Fitbone.',
   },
   ingredients: {
     title: 'Técnica e',
     titleItalic: 'diferenciais',
     titleSuffix: '',
     description:
-      'Conheça a técnica empregada pelo Dr. David: minimamente invasiva, cientificamente embasada e com reabilitação integrada desde o primeiro dia.',
+      'Conheça a técnica empregada pelo Dr. David: Fitbone motorizado (interno, invisível), reabilitação integrada desde o primeiro dia e retorno à rotina durante o próprio tratamento.',
     scienceNote:
-      'A combinação de fixador externo linear monolateral com haste intramedular permite um processo de alongamento mais leve, previsível e com menor tempo de fixador externo.',
+      'O Fitbone é uma haste intramedular motorizada, controlada externamente por controle remoto, sem hardware aparente, com cicatrizes mínimas e desconforto muito menor que os métodos tradicionais.',
     scienceFooter:
       'Todos os protocolos seguem diretrizes internacionais de segurança e reabilitação em cirurgia reconstrutiva.',
+  },
+  techniques: {
+    badge: 'Técnicas Cirúrgicas',
+    title: 'Duas técnicas,',
+    titleItalic: 'uma decisão conjunta.',
+    description:
+      'Apresentamos as duas opções cirúrgicas disponíveis. Na consulta, definimos juntos qual é a melhor para o seu caso.',
+    cta: 'Descubra qual técnica é ideal para você',
+  },
+  rehab: {
+    badge: 'Reabilitação',
+    title: 'Do primeiro dia',
+    titleItalic: 'ao impacto pleno.',
+    description:
+      'Protocolo estruturado que mantém sua rotina: trabalho, fisioterapia, academia e autonomia desde o início.',
+  },
+  gallery: {
+    badge: 'Rotina Real',
+    title: 'A vida durante',
+    titleItalic: 'o tratamento.',
+    description:
+      'Pacientes reais do Dr. David ao longo da jornada: cirurgia, imagens médicas, cuidados pós-operatórios, fisioterapia e retomada da rotina com direção e trabalho. Identidades preservadas.',
+  },
+  cities: {
+    title: 'Cirurgia em 5 capitais',
+    titleItalic: '· Consulta online nacional',
+    description:
+      'Procedimento cirúrgico realizado em São Paulo, Belo Horizonte, Fortaleza, Florianópolis e Uberlândia. Consulta 100% online disponível para qualquer cidade do Brasil.',
   },
   faq: {
     titlePrefix: 'Dúvidas',
     titleItalic: 'frequentes',
     description:
-      'Respostas para as perguntas mais comuns sobre alongamento ósseo, técnica e reabilitação.',
+      'Respostas para as perguntas mais comuns sobre Fitbone, técnica, recuperação e cidades de atendimento.',
     cta: 'Fale comigo no WhatsApp',
     ctaQuestion: 'Ainda tem dúvidas? Fale diretamente comigo:',
   },
@@ -314,10 +425,10 @@ export const COPY = {
     titlePrefix: 'Vamos',
     titleItalic: 'conversar',
     description:
-      'Envie uma mensagem pelo WhatsApp ou visite o consultório no Hospital Orthomed Center em Uberlândia-MG.',
+      'Envie uma mensagem pelo WhatsApp ou agende consulta 100% online. Cirurgia disponível em São Paulo, Belo Horizonte, Fortaleza, Florianópolis e Uberlândia.',
     cta: 'Fale comigo no WhatsApp',
     airportNote:
-      'Uberlândia tem aeroporto com voos diários para diversas capitais do país.',
+      'Consulta 100% online disponível para qualquer cidade do Brasil.',
   },
   finalCta: {
     headline1: 'Pronto para dar o próximo passo?',
@@ -325,7 +436,7 @@ export const COPY = {
     subheadline:
       'Atendimento humanizado, avaliação criteriosa e acompanhamento completo.',
     cta: 'Fale comigo no WhatsApp',
-    badges: ['Minimamente invasivo', 'Acompanhamento completo', 'Pacientes de todo Brasil'],
+    badges: ['Fitbone · Anvisa', '5 capitais', 'Consulta online Brasil'],
   },
 } as const
 
@@ -337,9 +448,10 @@ export const FOOTER_CONFIG = {
       title: 'Navegação',
       links: [
         { name: 'Sobre o Médico', href: '#sobre' },
-        { name: 'Procedimento', href: '#procedimento' },
+        { name: 'Técnicas', href: '#tecnicas' },
+        { name: 'Procedimentos', href: '#procedimento' },
         { name: 'Resultados', href: '#resultados' },
-        { name: 'Técnica', href: '#tecnica' },
+        { name: 'Recuperação', href: '#recuperacao' },
       ],
     },
     {
@@ -352,11 +464,13 @@ export const FOOTER_CONFIG = {
       ],
     },
     {
-      title: 'Consultório',
+      title: 'Cidades',
       links: [
-        { name: LOCATION.hospital, href: '#contato' },
-        { name: LOCATION.fullAddress, href: '#contato' },
-        { name: PROFESSIONAL.crm, href: '#sobre' },
+        { name: 'São Paulo · SP', href: '#contato' },
+        { name: 'Belo Horizonte · MG', href: '#contato' },
+        { name: 'Fortaleza · CE', href: '#contato' },
+        { name: 'Florianópolis · SC', href: '#contato' },
+        { name: 'Uberlândia · MG', href: '#contato' },
       ],
     },
     {
@@ -373,9 +487,10 @@ export const FOOTER_CONFIG = {
 
 export const NAVIGATION = [
   { label: 'Sobre', href: '#sobre' },
+  { label: 'Técnicas', href: '#tecnicas' },
   { label: 'Procedimento', href: '#procedimento' },
   { label: 'Resultados', href: '#resultados' },
-  { label: 'Técnica', href: '#tecnica' },
+  { label: 'Recuperação', href: '#recuperacao' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contato', href: '#contato' },
 ] as const

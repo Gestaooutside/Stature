@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 :root {
-  /* Statura — quiet luxury palette */
+  /* Stature — quiet luxury palette */
   --forest-900: #081A12;
   --forest-800: #0F2A1D;
   --forest-700: #1B3A2A;
@@ -42,6 +42,21 @@
   --sidebar-accent-foreground: #EDE4D0;
   --sidebar-border: rgba(217, 200, 158, 0.18);
   --sidebar-ring: #D9C89E;
+
+  /* Motion tokens (DESIGN.md §4.6) */
+  --ease-luxe: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-swift: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-hover: 240ms;
+  --dur-page: 400ms;
+  --dur-reveal: 720ms;
+  --dur-curtain: 1100ms;
+
+  /* Radii token — quiet luxury, low radii except pill CTA (DESIGN.md §4.4) */
+  --radius-pill: 9999px;
+
+  /* Shadow tokens (DESIGN.md §4.5) */
+  --shadow-hairline: 0 0 0 1px rgba(15, 42, 29, 0.08);
+  --shadow-depth: 0 1px 2px rgba(15, 42, 29, 0.05), 0 12px 32px -12px rgba(15, 42, 29, 0.16);
 }
 
 .dark {
@@ -67,8 +82,9 @@
 @theme inline {
   --font-sans: var(--font-inter-tight), "Inter Tight", "Inter", system-ui, sans-serif;
   --font-display: var(--font-cormorant), "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "JetBrains Mono", SFMono-Regular, Menlo, monospace;
 
-  /* Statura brand tokens */
+  /* Stature brand tokens */
   --color-forest-900: #081A12;
   --color-forest-800: #0F2A1D;
   --color-forest-700: #1B3A2A;
@@ -311,6 +327,31 @@
 
   .will-change-transform { will-change: transform; }
   .will-change-opacity { will-change: opacity; }
+
+  /* Mono utility classes for credential stats and inline data (DESIGN.md §4.2) */
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .font-mono-stat {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+  .font-mono-label {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+
+  /* Shadow + radii utilities (DESIGN.md §4.4, §4.5) */
+  .shadow-hairline { box-shadow: var(--shadow-hairline); }
+  .shadow-depth   { box-shadow: var(--shadow-depth); }
+  .radius-pill    { border-radius: var(--radius-pill); }
 }
 
 @media (prefers-reduced-motion: reduce) {

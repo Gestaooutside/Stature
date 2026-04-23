@@ -17,7 +17,7 @@ export function IngredientsSection() {
           <div className="text-center mb-20 md:mb-28 max-w-3xl mx-auto">
             <div className="flex items-center justify-center gap-5 mb-10">
               <span className="eyebrow text-[#3A5243]">Técnica &amp; Diferenciais</span>
-              <span className="font-display italic text-[#D9C89E]/80 text-sm">Cap. 03</span>
+              <span className="font-display italic text-[#D9C89E]/80 text-sm">Cap. 04</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-[-0.02em] text-[#0F2A1D] leading-[1.02]">
               {COPY.ingredients.title}{" "}

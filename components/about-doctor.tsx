@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Reveal } from "./reveal"
-import { BRAND, CONTACT, IMAGES, LOCATION, PROFESSIONAL, COPY } from "@/lib/config/brand"
+import { BRAND, CONTACT, IMAGES, PROFESSIONAL, COPY } from "@/lib/config/brand"
 
 const EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1]
 
@@ -177,12 +177,12 @@ export function AboutDoctor() {
             >
               <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto] items-end gap-y-10 gap-x-10">
                 <div>
-                  <span className="eyebrow text-[#3A5243]/80 block mb-3">Consultório</span>
+                  <span className="eyebrow text-[#3A5243]/80 block mb-3">Atendimento</span>
                   <p className="font-display text-lg md:text-xl text-[#0F2A1D] font-light leading-tight">
-                    {LOCATION.hospital}
+                    Cirurgia em 5 capitais
                   </p>
                   <p className="text-sm text-[#0F2A1D]/60 font-light mt-1">
-                    {LOCATION.fullAddress}
+                    SP · BH · Fortaleza · Floripa · Uberlândia · Consulta online nacional
                   </p>
                 </div>
 
@@ -194,7 +194,7 @@ export function AboutDoctor() {
                     {PROFESSIONAL.crm}
                   </p>
                   <p className="text-sm text-[#0F2A1D]/60 font-light mt-1">
-                    {PROFESSIONAL.rqe} — Ortopedia
+                    {PROFESSIONAL.rqe} · Ortopedia
                   </p>
                 </div>
 
@@ -216,7 +216,7 @@ export function AboutDoctor() {
           <div className="mt-24 md:mt-32 flex items-center justify-center gap-6">
             <span className="h-px w-16 bg-[#3A5243]/30" />
             <span className="font-display italic text-[#D9C89E] text-sm tracking-wide">
-              — segue —
+              segue
             </span>
             <span className="h-px w-16 bg-[#3A5243]/30" />
           </div>

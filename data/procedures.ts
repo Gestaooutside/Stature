@@ -1,6 +1,6 @@
 /**
- * Procedimentos oferecidos pelo Dr. David de Mello.
- * Dados consumidos pela seção "Procedimentos" (ex-featured-products).
+ * Procedimentos oferecidos pela Stature Clinic.
+ * Números alinhados à mensagem padrão: 8 cm no fêmur, 6 cm na tíbia.
  */
 
 import { IMAGES } from '@/lib/config/brand'
@@ -21,14 +21,14 @@ export const procedures: ProcedureItem[] = [
     id: 'femur',
     name: 'Alongamento de Fêmur',
     shortName: 'Fêmur',
-    gain: '6–8 cm',
+    gain: '8 cm',
     duration: '6–8 meses',
     description:
-      'Alongamento do osso do fêmur com fixador externo linear monolateral associado à haste intramedular. Técnica minimamente invasiva que permite carga precoce e retorno acelerado à rotina.',
+      'Alongamento do fêmur com Fitbone — haste intramedular motorizada, controlada externamente por controle remoto. Nada externo ao corpo, cicatrizes mínimas e reabilitação mais rápida.',
     image: IMAGES.procedures.femur,
     highlights: [
-      'Ganho médio de 6 a 8 cm',
-      'Fixador externo + haste intramedular',
+      'Alongamento médio de 8 cm',
+      'Fitbone · haste motorizada Anvisa',
       'Reabilitação desde o primeiro dia',
     ],
   },
@@ -36,14 +36,14 @@ export const procedures: ProcedureItem[] = [
     id: 'tibia',
     name: 'Alongamento de Tíbia',
     shortName: 'Tíbia',
-    gain: '5–7 cm',
+    gain: '6 cm',
     duration: '6–9 meses',
     description:
-      'Alongamento da tíbia indicado quando se busca complementar o ganho do fêmur ou tratar discrepâncias específicas. Protocolo combinado para manter força, mobilidade e proporcionalidade.',
+      'Alongamento da tíbia indicado para complementar o ganho do fêmur ou tratar discrepâncias específicas. Conforme o caso, realizado com Fitbone ou Método LON (fixador linear + haste intramedular).',
     image: IMAGES.procedures.tibia,
     highlights: [
-      'Ganho médio de 5 a 7 cm',
-      'Ideal para complementar o fêmur',
+      'Alongamento médio de 6 cm',
+      'Fitbone ou Método LON conforme indicação',
       'Cálculo de proporcionalidade corporal',
     ],
   },
@@ -54,7 +54,7 @@ export const procedures: ProcedureItem[] = [
     gain: 'Personalizado',
     duration: 'Variável',
     description:
-      'Tratamento da diferença de comprimento entre os membros inferiores (dismetria) causada por sequelas, fraturas antigas, poliomielite ou deformidades. Planejamento individual baseado em exames de imagem.',
+      'Tratamento da diferença de comprimento entre os membros inferiores (dismetria) por sequelas, fraturas antigas, poliomielite ou deformidades. Planejamento individual baseado em exames de imagem.',
     image: IMAGES.procedures.correction,
     highlights: [
       'Correção milimétrica da dismetria',

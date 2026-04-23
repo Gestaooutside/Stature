@@ -2,12 +2,16 @@
 
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { TrustBar } from "@/components/trust-bar"
+import { CredentialsStrip } from "@/components/credentials-strip"
 import { AboutDoctor } from "@/components/about-doctor"
+import { TechniquesSection } from "@/components/techniques-section"
 import { FeaturedProducts } from "@/components/featured-products"
 import { TestimonialsSection } from "@/components/ui/testimonials-with-marquee"
 import { patientTestimonials } from "@/data/testimonials"
 import { IngredientsSection } from "@/components/ingredients-section"
+import { RehabSection } from "@/components/rehab-section"
+import { PatientGallery } from "@/components/patient-gallery"
+import { CitiesStrip } from "@/components/cities-strip"
 import { FAQSection } from "@/components/faq-section"
 import { NewsletterSection } from "@/components/newsletter-section"
 import { Footer } from "@/components/ui/footer"
@@ -15,9 +19,10 @@ import { WhatsAppFab } from "@/components/whatsapp-fab"
 import { COPY } from "@/lib/config/brand"
 
 /**
- * Landing page única do Dr. David de Mello.
- * Fluxo: hero → confiança → médico → procedimentos → depoimentos
- *        → técnica → FAQ → contato → footer + WhatsApp fab
+ * Landing page única da Stature Clinic.
+ * Fluxo: hero → confiança → credenciais → médico → técnicas cirúrgicas
+ *        → procedimentos → depoimentos → diferenciais → recuperação
+ *        → galeria → cidades → FAQ → contato → footer + WhatsApp fab
  */
 export default function HomePage() {
   return (
@@ -25,8 +30,9 @@ export default function HomePage() {
       <Header />
 
       <HeroSection />
-      <TrustBar />
+      <CredentialsStrip />
       <AboutDoctor />
+      <TechniquesSection />
       <FeaturedProducts />
 
       <section id="resultados">
@@ -38,6 +44,9 @@ export default function HomePage() {
       </section>
 
       <IngredientsSection />
+      <RehabSection />
+      <PatientGallery />
+      <CitiesStrip />
       <FAQSection />
       <NewsletterSection />
 

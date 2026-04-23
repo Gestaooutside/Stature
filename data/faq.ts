@@ -1,10 +1,12 @@
 /**
- * Perguntas frequentes sobre alongamento ósseo — Dr. David de Mello.
+ * Perguntas frequentes sobre alongamento ósseo, Stature Clinic.
  *
- * Conteúdo inicial baseado nas perguntas mais comuns em consulta.
- * Substitua/complemente as respostas com as 17 perguntas oficiais
- * fornecidas pelo Dr. David antes de publicar.
+ * Conteúdo alinhado com o lançamento da tecnologia Fitbone,
+ * a expansão cirúrgica para 5 capitais e a mensagem padrão
+ * de 8 cm no fêmur / 6 cm na tíbia.
  */
+
+import { LENGTHENING } from '@/lib/config/brand'
 
 export interface FaqItem {
   id: string
@@ -26,28 +28,27 @@ export const faqItems: FaqItem[] = [
     category: 'Indicação',
     question: 'Quem pode passar pelo procedimento?',
     answer:
-      'Os pacientes são cuidadosamente avaliados, sendo fatores importantes: idade, hábitos como tabagismo e exercícios físicos, alimentação, estado de saúde e nutricional. Pacientes que se enquadram nesses critérios são submetidos a exames de imagem para estudo ósseo.',
+      'Os pacientes são cuidadosamente avaliados: idade, hábitos como tabagismo, prática de exercícios, alimentação, estado de saúde e nutricional são considerados. Pacientes que se enquadram nesses critérios são submetidos a exames de imagem para estudo ósseo.',
   },
   {
     id: 'q3',
     category: 'Técnica',
     question: 'Qual técnica é utilizada no alongamento?',
     answer:
-      'Utilizamos uma combinação de fixador externo linear monolateral com haste intramedular. Essa abordagem reduz o tempo de uso do fixador externo, é menos invasiva e oferece maior conforto durante o tratamento.',
+      'A técnica principal é o Fitbone: uma haste intramedular motorizada, controlada externamente por controle remoto. Nada externo ao corpo, o alongamento acontece dentro do osso, com cicatrizes mínimas e reabilitação mais rápida. Em casos específicos de tíbia, utilizamos também o Método LON (fixador externo combinado com haste intramedular).',
   },
   {
     id: 'q4',
     category: 'Técnica',
-    question: 'Qual a diferença entre o fixador linear e o fixador de Ilizarov?',
+    question: 'O que é o Fitbone e o que ele traz de diferente?',
     answer:
-      'O fixador linear monolateral é posicionado em apenas um lado do membro, é mais leve, discreto e confortável que o fixador circular de Ilizarov. Ele permite maior mobilidade, facilita o uso de roupas e reduz o impacto psicológico do tratamento.',
+      'O Fitbone é uma haste intramedular motorizada aprovada pela Anvisa, acionada por controle remoto. Diferenças práticas: zero hardware externo aparente, sem limitações mecânicas (é possível dormir de lado normalmente), cicatrizes mínimas, menos desconforto e reabilitação mais rápida que métodos com fixador externo prolongado.',
   },
   {
     id: 'q5',
     category: 'Quanto cresce',
     question: 'Quantos centímetros é possível ganhar em altura?',
-    answer:
-      'No alongamento de fêmur, é comum ganhar entre 6 e 8 cm. Na tíbia, entre 5 e 7 cm. Quando indicado, é possível combinar os dois ossos em tempos diferentes. O ganho total sempre respeita a proporcionalidade corporal e o limite seguro do tecido.',
+    answer: `${LENGTHENING.summary} ${LENGTHENING.disclaimer}`,
   },
   {
     id: 'q6',
@@ -59,23 +60,23 @@ export const faqItems: FaqItem[] = [
   {
     id: 'q7',
     category: 'Recuperação',
-    question: 'Consigo andar durante o alongamento?',
+    question: 'Como é a recuperação no dia a dia?',
     answer:
-      'Sim. Com a associação do fixador externo e da haste intramedular, o paciente inicia carga parcial assistida em poucos dias. A fisioterapia é iniciada logo no pós-operatório para manter a mobilidade, força muscular e o treino de marcha.',
+      'Caminhada liberada já no dia 1. Fisioterapia precoce e academia para membros inferiores permitidas nas semanas iniciais. Durante o tratamento é possível manter o trabalho, dirigir e ir à fisioterapia sozinho. Em torno dos 6 meses, atividades de impacto (corrida, saltos, esportes) são liberadas.',
   },
   {
     id: 'q8',
     category: 'Dor',
     question: 'O procedimento é doloroso?',
     answer:
-      'A cirurgia é realizada sob anestesia e o pós-operatório é conduzido com analgesia multimodal. Durante a fase de alongamento pode haver desconforto, controlado com medicação e fisioterapia. A maioria dos pacientes relata tolerância muito boa.',
+      'A cirurgia é realizada sob anestesia e o pós-operatório é conduzido com analgesia multimodal. Com o Fitbone, o desconforto da fase de alongamento é significativamente menor que em métodos tradicionais. A maioria dos pacientes relata tolerância muito boa.',
   },
   {
     id: 'q9',
     category: 'Riscos',
     question: 'Quais são os riscos do alongamento ósseo?',
     answer:
-      'Como toda cirurgia, existem riscos: infecção no trajeto dos pinos, retardo de consolidação, rigidez articular. O acompanhamento rigoroso, a técnica minimamente invasiva e a fisioterapia estruturada reduzem muito essas ocorrências.',
+      'Como toda cirurgia, existem riscos: infecção, retardo de consolidação, rigidez articular. O acompanhamento rigoroso, a técnica minimamente invasiva e a fisioterapia estruturada reduzem muito essas ocorrências.',
   },
   {
     id: 'q10',
@@ -89,14 +90,14 @@ export const faqItems: FaqItem[] = [
     category: 'Cicatrizes',
     question: 'Ficarão cicatrizes visíveis?',
     answer:
-      'A técnica minimamente invasiva utiliza pequenas incisões para a colocação da haste e dos pinos do fixador. As cicatrizes são discretas e tendem a se tornar pouco perceptíveis após a cicatrização completa.',
+      'Com o Fitbone, as incisões são pequenas e discretas. Toda a mecânica do alongamento acontece dentro do osso. As cicatrizes tendem a se tornar pouco perceptíveis após a cicatrização completa.',
   },
   {
     id: 'q12',
     category: 'Pós-tratamento',
     question: 'Após o tratamento, poderei praticar esportes normalmente?',
     answer:
-      'Sim. Concluída a consolidação óssea e a reabilitação, o paciente retoma todas as atividades do dia a dia e esportes: correr, saltar, academia, bicicleta. O osso formado é tão resistente quanto o original.',
+      'Sim. Concluída a consolidação óssea e a reabilitação (em torno dos 6 meses), o paciente retoma todas as atividades: correr, saltar, academia, esportes de impacto. O osso formado é tão resistente quanto o original.',
   },
   {
     id: 'q13',
@@ -107,10 +108,10 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: 'q14',
-    category: 'De fora',
-    question: 'Posso fazer o procedimento vindo de outra cidade ou estado?',
+    category: 'Onde é feita',
+    question: 'Onde é feita a cirurgia?',
     answer:
-      'Sim. Atendo pacientes de todo o Brasil. Uberlândia possui aeroporto com voos diários para diversas capitais, facilitando o deslocamento. Organizamos o calendário de avaliação, cirurgia e retornos para acomodar pacientes de outras cidades.',
+      'A cirurgia está disponível em cinco capitais: São Paulo (SP), Belo Horizonte (MG), Fortaleza (CE), Florianópolis (SC) e Uberlândia (MG). A consulta pode ser 100% online, disponível para qualquer cidade do Brasil. Você escolhe a capital mais conveniente para a cirurgia e acompanhamento.',
   },
   {
     id: 'q15',
@@ -124,13 +125,13 @@ export const faqItems: FaqItem[] = [
     category: 'Fisioterapia',
     question: 'A fisioterapia é obrigatória durante o tratamento?',
     answer:
-      'Sim. A fisioterapia é parte fundamental do tratamento e começa no primeiro dia do pós-operatório. Ela garante manutenção de mobilidade, força muscular, prevenção de rigidez e reeducação da marcha ao longo de todo o processo.',
+      'Sim. A fisioterapia é parte fundamental e começa no primeiro dia do pós-operatório. Ela garante manutenção de mobilidade, força muscular, prevenção de rigidez e reeducação da marcha ao longo de todo o processo.',
   },
   {
     id: 'q17',
     category: 'Contato',
     question: 'Como posso tirar outras dúvidas e agendar uma avaliação?',
     answer:
-      'Você pode entrar em contato diretamente pelo WhatsApp através do botão fixo no site ou pelo Instagram @daviddemello.orto. A avaliação inicial pode ser presencial em Uberlândia-MG ou via teleconsulta para pacientes de outras cidades.',
+      'Entre em contato pelo WhatsApp através do botão fixo no site ou pelo Instagram @daviddemello.orto. A avaliação inicial pode ser 100% online, para qualquer cidade do Brasil.',
   },
 ]

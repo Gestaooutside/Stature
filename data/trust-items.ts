@@ -1,9 +1,10 @@
 /**
  * Selos de confiança exibidos na TrustBar.
+ * Alinhados ao lançamento do Fitbone e à cobertura em 5 capitais.
  */
 
 import type { LucideIcon } from 'lucide-react'
-import { Building2, Scissors, BadgeCheck, Plane } from 'lucide-react'
+import { Cpu, Award, BadgeCheck, MapPin } from 'lucide-react'
 
 export interface TrustItem {
   id: string
@@ -14,27 +15,27 @@ export interface TrustItem {
 
 export const trustItems: TrustItem[] = [
   {
-    id: 'hospital',
-    icon: Building2,
-    title: 'Hospital Orthomed Center',
-    subtitle: 'Uberlândia, MG',
+    id: 'fitbone',
+    icon: Cpu,
+    title: 'Fitbone',
+    subtitle: 'Haste motorizada · Anvisa',
   },
   {
-    id: 'minimamente-invasiva',
-    icon: Scissors,
-    title: 'Técnica Minimamente Invasiva',
-    subtitle: 'Fixador + haste intramedular',
+    id: 'pioneiro',
+    icon: Award,
+    title: 'Pioneiro no Brasil',
+    subtitle: 'Referência na América Latina',
   },
   {
     id: 'crm',
     icon: BadgeCheck,
-    title: 'CRM-MG',
-    subtitle: 'Registro Profissional',
+    title: 'CRM-MG 72397',
+    subtitle: 'RQE 38488 · Ortopedia e Traumatologia',
   },
   {
-    id: 'brasil',
-    icon: Plane,
-    title: 'Pacientes de Todo o Brasil',
-    subtitle: 'Uberlândia tem aeroporto',
+    id: 'capitais',
+    icon: MapPin,
+    title: '5 capitais',
+    subtitle: 'Consulta online nacional',
   },
 ]

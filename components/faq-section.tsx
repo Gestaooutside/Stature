@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Plus, Minus } from "lucide-react"
 import { Reveal } from "./reveal"
 import { faqItems } from "@/data/faq"
 import { COPY, CONTACT } from "@/lib/config/brand"
@@ -31,7 +30,7 @@ export function FAQSection() {
           <div className="text-center mb-20 md:mb-24 max-w-2xl mx-auto">
             <div className="flex items-center justify-center gap-5 mb-10">
               <span className="eyebrow text-[#3A5243]">FAQ</span>
-              <span className="font-display italic text-[#D9C89E]/80 text-sm">Cap. 05</span>
+              <span className="font-display italic text-[#D9C89E]/80 text-sm">Cap. 07</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light mb-8 tracking-[-0.02em] text-[#0F2A1D] leading-[1.02]">
               {COPY.faq.titlePrefix} <span className="italic">{COPY.faq.titleItalic}</span>
@@ -69,20 +68,25 @@ export function FAQSection() {
                       {faq.question}
                     </span>
 
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.6, ease: EASE }}
-                      className="flex-shrink-0 mt-1"
-                    >
-                      {isOpen ? (
-                        <Minus className="w-5 h-5 text-[#D9C89E]" strokeWidth={1} />
-                      ) : (
-                        <Plus
-                          className="w-5 h-5 text-[#3A5243] group-hover:text-[#D9C89E] transition-colors duration-500"
-                          strokeWidth={1}
-                        />
-                      )}
-                    </motion.div>
+                    <div className="relative flex-shrink-0 mt-1 w-5 h-5 flex items-center justify-center">
+                      <AnimatePresence mode="wait" initial={false}>
+                        <motion.span
+                          key={isOpen ? "minus" : "plus"}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.24, ease: EASE }}
+                          className={`font-mono-label text-lg leading-none ${
+                            isOpen
+                              ? "text-[#D9C89E]"
+                              : "text-[#3A5243] group-hover:text-[#D9C89E] transition-colors duration-[240ms]"
+                          }`}
+                          aria-hidden="true"
+                        >
+                          {isOpen ? "−" : "+"}
+                        </motion.span>
+                      </AnimatePresence>
+                    </div>
                   </button>
 
                   <AnimatePresence initial={false}>
