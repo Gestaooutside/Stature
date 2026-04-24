@@ -1,13 +1,27 @@
 "use client"
 
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
 import { Reveal } from "./reveal"
 import { BRAND, CONTACT, IMAGES, PROFESSIONAL, COPY } from "@/lib/config/brand"
 
 const EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1]
+const DUR_REVEAL = 0.72
+const PARALLAX_OFFSET = 8
 
 export function AboutDoctor() {
+  const imageRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: imageRef,
+    offset: ["start end", "end start"],
+  })
+  const parallaxY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [-PARALLAX_OFFSET, PARALLAX_OFFSET],
+  )
+
   return (
     <section
       id="sobre"
@@ -37,15 +51,15 @@ export function AboutDoctor() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 lg:gap-x-16 items-start">
           {/* IMAGE — 5 cols, left-anchored */}
-          <motion.div
-            className="lg:col-span-5 relative lg:sticky lg:top-28"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-120px" }}
-            transition={{ duration: 1.2, ease: EASE }}
-          >
+          <div className="lg:col-span-5 relative lg:sticky lg:top-28">
             {/* Vertical rotated credential rail — editorial touch */}
-            <div className="hidden lg:flex absolute -left-12 top-4 h-full flex-col items-center gap-5 z-10">
+            <motion.div
+              className="hidden lg:flex absolute -left-12 top-4 h-full flex-col items-center gap-5 z-10"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: DUR_REVEAL, delay: 0.24, ease: EASE }}
+            >
               <span className="w-px flex-1 bg-[#3A5243]/25" />
               <span
                 className="eyebrow text-[#3A5243]/80 whitespace-nowrap"
@@ -54,23 +68,28 @@ export function AboutDoctor() {
                 {PROFESSIONAL.crm} · {PROFESSIONAL.rqe}
               </span>
               <span className="w-px flex-1 bg-[#3A5243]/25" />
-            </div>
+            </motion.div>
 
-            {/* Image with clip-path reveal */}
+            {/* Image frame — Reveal-Up (§8) */}
             <motion.div
+              ref={imageRef}
               className="relative aspect-[4/5] w-full overflow-hidden"
-              initial={{ clipPath: "inset(0 100% 0 0)" }}
-              whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 1.4, ease: EASE }}
+              transition={{ duration: DUR_REVEAL, ease: EASE }}
             >
-              <Image
-                src={IMAGES.doctor}
-                alt={`${BRAND.name}, ${PROFESSIONAL.specialty}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 42vw"
-              />
+              {/* Parallax-Soft (§4.6 · ±8 px) */}
+              <motion.div className="absolute inset-0" style={{ y: parallaxY }}>
+                <Image
+                  src={IMAGES.doctor}
+                  alt={`${BRAND.name}, ${PROFESSIONAL.specialty}`}
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                />
+              </motion.div>
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -80,26 +99,32 @@ export function AboutDoctor() {
               />
             </motion.div>
 
-            {/* Bottom-left gold corner bracket */}
+            {/* Bottom-left gold corner bracket — Reveal-Up staggered 80 ms */}
             <motion.div
               className="absolute -bottom-3 -left-3 pointer-events-none"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.9, ease: EASE }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: DUR_REVEAL, delay: 0.08, ease: EASE }}
             >
               <span className="block w-20 h-px bg-[#D9C89E]" />
               <span className="block w-px h-20 bg-[#D9C89E]" />
             </motion.div>
 
-            {/* Mobile credential caption */}
-            <div className="lg:hidden mt-6 flex items-center gap-4">
+            {/* Mobile credential caption — Reveal-Up staggered 160 ms */}
+            <motion.div
+              className="lg:hidden mt-6 flex items-center gap-4"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: DUR_REVEAL, delay: 0.16, ease: EASE }}
+            >
               <span className="w-10 h-px bg-[#D9C89E]" />
               <span className="eyebrow text-[#3A5243]">
                 {PROFESSIONAL.crm} · {PROFESSIONAL.rqe}
               </span>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* TEXT — 7 cols */}
           <div className="lg:col-span-7 lg:pl-4 xl:pl-12">
@@ -182,7 +207,7 @@ export function AboutDoctor() {
                     Cirurgia em 5 capitais
                   </p>
                   <p className="text-sm text-[#0F2A1D]/60 font-light mt-1">
-                    SP · BH · Fortaleza · Floripa · Uberlândia · Consulta online nacional
+                    SP · BH · Brasília · Fortaleza · Floripa · Consulta online nacional
                   </p>
                 </div>
 

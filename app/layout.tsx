@@ -124,7 +124,7 @@ export default function RootLayout({
         "@type": "MedicalProcedure",
         name: "Alongamento Ósseo com Método LON",
         description:
-          "Alongamento da tíbia com fixador externo linear monolateral combinado a haste intramedular.",
+          "Alongamento de fêmur ou tíbia com fixador externo linear monolateral combinado a haste intramedular.",
       },
       {
         "@type": "MedicalProcedure",

@@ -22,13 +22,13 @@ export const procedures: ProcedureItem[] = [
     name: 'Alongamento de Fêmur',
     shortName: 'Fêmur',
     gain: '8 cm',
-    duration: '6–8 meses',
+    duration: '6 a 8 meses',
     description:
-      'Alongamento do fêmur com Fitbone — haste intramedular motorizada, controlada externamente por controle remoto. Nada externo ao corpo, cicatrizes mínimas e reabilitação mais rápida.',
+      'Alongamento do fêmur realizado com Fitbone (haste intramedular motorizada, acionada por controle remoto) ou Método LON (fixador externo combinado com haste intramedular), conforme indicação clínica.',
     image: IMAGES.procedures.femur,
     highlights: [
       'Alongamento médio de 8 cm',
-      'Fitbone · haste motorizada Anvisa',
+      'Fitbone ou Método LON conforme indicação',
       'Reabilitação desde o primeiro dia',
     ],
   },
@@ -37,7 +37,7 @@ export const procedures: ProcedureItem[] = [
     name: 'Alongamento de Tíbia',
     shortName: 'Tíbia',
     gain: '6 cm',
-    duration: '6–9 meses',
+    duration: '6 a 9 meses',
     description:
       'Alongamento da tíbia indicado para complementar o ganho do fêmur ou tratar discrepâncias específicas. Conforme o caso, realizado com Fitbone ou Método LON (fixador linear + haste intramedular).',
     image: IMAGES.procedures.tibia,

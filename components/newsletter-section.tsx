@@ -52,7 +52,7 @@ export function NewsletterSection() {
 
             {/* T-composition: top row 3 contact cells */}
             <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-[#D9C89E]/15">
-              <ContactCell eyebrow="Cirurgia" Icon={MapPin} title="5 capitais" subtitle="São Paulo · Belo Horizonte · Fortaleza · Florianópolis · Uberlândia" />
+              <ContactCell eyebrow="Cirurgia" Icon={MapPin} title="5 capitais" subtitle="São Paulo · Belo Horizonte · Brasília · Fortaleza · Florianópolis" />
               <ContactCell eyebrow="WhatsApp" Icon={Phone} title={CONTACT.phone} subtitle="Atendimento segunda a sexta" href={CONTACT.whatsappUrl} />
               <ContactCell eyebrow="Instagram" Icon={Instagram} title={SOCIAL.instagramHandle} subtitle="Casos e bastidores" href={SOCIAL.instagram} />
             </div>

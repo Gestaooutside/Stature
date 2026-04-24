@@ -16,7 +16,7 @@ export const BRAND = {
   shortName: 'Stature',
   tagline: 'Clínica de Alongamento Ósseo',
   shortDescription:
-    'Stature Clinic, Alongamento Ósseo com Fitbone em São Paulo, BH, Fortaleza, Florianópolis e Uberlândia',
+    'Stature Clinic, Alongamento Ósseo com Fitbone em São Paulo, BH, Brasília, Fortaleza e Florianópolis',
   fullDescription:
     'Stature Clinic: clínica especializada em alongamento ósseo e aumento de estatura com a tecnologia Fitbone, haste intramedular motorizada aprovada pela Anvisa. Atendimento cirúrgico em cinco capitais e consulta online para todo o Brasil. Médico responsável: Dr. David de Mello, pioneiro no Brasil em alongamento com Fitbone.',
   lang: 'pt-BR',
@@ -38,7 +38,7 @@ export const PROFESSIONAL = {
     'Graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP).',
     'Especialização em Alongamento e Reconstrução Óssea e Correção de Deformidades com Fixadores Externos pela Escola Paulista de Medicina (UNIFESP).',
   ],
-  bio: 'Médico ortopedista com graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP) e especialização em Alongamento e Reconstrução Óssea pela Escola Paulista de Medicina (UNIFESP). Pioneiro no Brasil em alongamento ósseo com Fitbone, haste intramedular motorizada aprovada pela Anvisa, e referência na América Latina, com mais de 400 pacientes operados. Atende cirurgicamente em cinco capitais (São Paulo, Belo Horizonte, Fortaleza, Florianópolis e Uberlândia) e oferece consulta 100% online para pacientes de qualquer cidade do Brasil. Registrado sob CRM-MG 72397 e RQE 38488.',
+  bio: 'Médico ortopedista com graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP) e especialização em Alongamento e Reconstrução Óssea pela Escola Paulista de Medicina (UNIFESP). Pioneiro no Brasil em alongamento ósseo com Fitbone, haste intramedular motorizada aprovada pela Anvisa, e referência na América Latina, com mais de 400 pacientes operados. Atende cirurgicamente em cinco capitais (São Paulo, Belo Horizonte, Brasília, Fortaleza e Florianópolis) e oferece consulta 100% online para pacientes de qualquer cidade do Brasil. Registrado sob CRM-MG 72397 e RQE 38488.',
 } as const
 
 // ─── DOMÍNIO E URLs ──────────────────────────────────────────
@@ -83,12 +83,12 @@ export const LOGO = {
 export const IMAGES = {
   hero: { desktop: '/hero-section.jpg', mobile: '/hero-section-mobile.jpg' },
   ogImage: '/logo-stature.svg',
-  doctor: '/David-de-Melo-Marin.jpg',
+  doctor: '/Dr-david-de-melo.png',
   hospital: '/hospital.jpg',
   procedures: {
-    femur: '/proc-femur.png',
-    tibia: '/proc-tibia.png',
-    correction: '/proc-correcao.png',
+    femur: '/proc-femur-new.png',
+    tibia: '/proc-tibia-lon.png',
+    correction: '/proc-correcao-new.png',
   },
   fitboneVideo: '/fitbone-video-explicativo.mp4',
 } as const
@@ -135,7 +135,7 @@ export const CITIES: readonly CityInfo[] = [
   { id: 'belo-horizonte',name: 'Belo Horizonte',state: 'MG', label: 'Belo Horizonte, MG',pin: { x: 0.773, y: 0.645 } },
   { id: 'fortaleza',     name: 'Fortaleza',     state: 'CE', label: 'Fortaleza, CE',     pin: { x: 0.895, y: 0.245 } },
   { id: 'florianopolis', name: 'Florianópolis', state: 'SC', label: 'Florianópolis, SC', pin: { x: 0.640, y: 0.835 } },
-  { id: 'uberlandia',    name: 'Uberlândia',    state: 'MG', label: 'Uberlândia, MG',    pin: { x: 0.664, y: 0.620 } },
+  { id: 'brasilia',      name: 'Brasília',      state: 'DF', label: 'Brasília, DF',      pin: { x: 0.665, y: 0.540 } },
 ] as const
 
 // ─── LOCALIZAÇÃO (cidade-sede referência / compat) ───────────
@@ -177,7 +177,7 @@ export const SEO = {
   title:
     'Stature Clinic: Alongamento Ósseo com Fitbone | Dr. David de Mello, Pioneiro no Brasil',
   description:
-    'Alongamento ósseo e aumento de estatura com Fitbone, haste intramedular motorizada aprovada pela Anvisa. Pioneiro no Brasil, referência na América Latina, +400 pacientes operados. Cirurgia em São Paulo, Belo Horizonte, Fortaleza, Florianópolis e Uberlândia. Consulta online para todo o Brasil.',
+    'Alongamento ósseo e aumento de estatura com Fitbone, haste intramedular motorizada aprovada pela Anvisa. Pioneiro no Brasil, referência na América Latina, +400 pacientes operados. Cirurgia em São Paulo, Belo Horizonte, Brasília, Fortaleza e Florianópolis. Consulta online para todo o Brasil.',
   keywords: [
     'Stature Clinic',
     'Stature',
@@ -189,7 +189,7 @@ export const SEO = {
     'aumento de estatura Belo Horizonte',
     'alongamento ósseo Fortaleza',
     'alongamento ósseo Florianópolis',
-    'alongamento ósseo Uberlândia',
+    'alongamento ósseo Brasília',
     'haste intramedular motorizada',
     'Método LON',
     'Dr David de Mello',
@@ -258,7 +258,7 @@ export const TRUST_METRICS = {
   crm: 'CRM-MG 72397',
   crmLabel: 'RQE 38488 · Ortopedia e Traumatologia',
   reach: '5 capitais',
-  reachLabel: 'Cirurgia em SP, BH, Fortaleza, Floripa e Uberlândia',
+  reachLabel: 'Cirurgia em SP, BH, Brasília, Fortaleza e Floripa',
 } as const
 
 // ─── NÚMEROS PADRÃO DE ALONGAMENTO ───────────────────────────
@@ -318,7 +318,7 @@ export const TESTIMONIALS = [
   {
     author: {
       name: 'Paciente J., 23 anos',
-      handle: 'Uberlândia, MG · 166 cm',
+      handle: 'Brasília, DF · 166 cm',
       avatar:
         'https://images.unsplash.com/photo-1521119989659-a83eee488004?w=150&h=150&fit=crop&crop=face',
     },
@@ -410,7 +410,7 @@ export const COPY = {
     title: 'Cirurgia em 5 capitais',
     titleItalic: '· Consulta online nacional',
     description:
-      'Procedimento cirúrgico realizado em São Paulo, Belo Horizonte, Fortaleza, Florianópolis e Uberlândia. Consulta 100% online disponível para qualquer cidade do Brasil.',
+      'Procedimento cirúrgico realizado em São Paulo, Belo Horizonte, Brasília, Fortaleza e Florianópolis. Consulta 100% online disponível para qualquer cidade do Brasil.',
   },
   faq: {
     titlePrefix: 'Dúvidas',
@@ -425,7 +425,7 @@ export const COPY = {
     titlePrefix: 'Vamos',
     titleItalic: 'conversar',
     description:
-      'Envie uma mensagem pelo WhatsApp ou agende consulta 100% online. Cirurgia disponível em São Paulo, Belo Horizonte, Fortaleza, Florianópolis e Uberlândia.',
+      'Envie uma mensagem pelo WhatsApp ou agende consulta 100% online. Cirurgia disponível em São Paulo, Belo Horizonte, Brasília, Fortaleza e Florianópolis.',
     cta: 'Fale comigo no WhatsApp',
     airportNote:
       'Consulta 100% online disponível para qualquer cidade do Brasil.',
@@ -470,7 +470,7 @@ export const FOOTER_CONFIG = {
         { name: 'Belo Horizonte · MG', href: '#contato' },
         { name: 'Fortaleza · CE', href: '#contato' },
         { name: 'Florianópolis · SC', href: '#contato' },
-        { name: 'Uberlândia · MG', href: '#contato' },
+        { name: 'Brasília · DF', href: '#contato' },
       ],
     },
     {

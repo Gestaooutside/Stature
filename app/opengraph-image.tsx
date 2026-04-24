@@ -3,7 +3,7 @@ import { COLORS, PROFESSIONAL } from '@/lib/config/brand'
 
 export const runtime = 'edge'
 export const alt =
-  'Stature Clinic: Alongamento Ósseo com Fitbone | Pioneiro no Brasil — Dr. David de Mello'
+  'Stature Clinic: Alongamento Ósseo com Fitbone | Pioneiro no Brasil | Dr. David de Mello'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 

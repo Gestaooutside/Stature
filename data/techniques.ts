@@ -54,7 +54,7 @@ export const techniques: readonly Technique[] = [
     credentialBadge: 'Aprovado pela Anvisa · Tecnologia de ponta mundial',
     advantages: [
       'Zero hardware externo aparente',
-      'Sem limitações mecânicas — dorme de lado normalmente',
+      'Sem limitações mecânicas, dorme de lado normalmente',
       'Cicatrizes mínimas',
       'Menos invasiva',
       'Menos desconforto',
@@ -66,7 +66,7 @@ export const techniques: readonly Technique[] = [
       // TODO: Gerar um poster .jpg a partir do frame mais representativo do vídeo
       // (momento do controle remoto acionando o alongamento) e referenciar aqui.
       poster: undefined,
-      alt: 'Animação do alongamento ósseo com Fitbone — haste intramedular motorizada acionada por controle remoto.',
+      alt: 'Animação do alongamento ósseo com Fitbone, haste intramedular motorizada acionada por controle remoto.',
       aspect: '4/5',
     },
     featured: true,
@@ -76,9 +76,9 @@ export const techniques: readonly Technique[] = [
     shortName: 'LON',
     name: 'Método LON',
     shortDefinition:
-      'Fixador externo combinado com haste intramedular, aplicado na tíbia.',
+      'Fixador externo combinado com haste intramedular, aplicado em fêmur ou tíbia.',
     advantages: [
-      'Indicado para casos específicos de tíbia',
+      'Aplicável ao fêmur e à tíbia',
       'Fixador externo linear monolateral',
       'Haste intramedular associada',
       'Técnica consolidada e amplamente documentada',
@@ -88,7 +88,7 @@ export const techniques: readonly Technique[] = [
       // TODO: Substituir pela foto real do paciente com método LON (rosto oculto/crop).
       // Placeholder: imagem neutra do fluxo atual.
       src: IMAGES.procedures.tibia,
-      alt: 'Método LON — fixador externo linear associado a haste intramedular na tíbia. Identidade do paciente preservada.',
+      alt: 'Método LON, fixador externo linear associado a haste intramedular. Identidade do paciente preservada.',
       aspect: '4/5',
     },
     featured: false,

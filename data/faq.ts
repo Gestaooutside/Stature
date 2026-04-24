@@ -35,7 +35,7 @@ export const faqItems: FaqItem[] = [
     category: 'Técnica',
     question: 'Qual técnica é utilizada no alongamento?',
     answer:
-      'A técnica principal é o Fitbone: uma haste intramedular motorizada, controlada externamente por controle remoto. Nada externo ao corpo, o alongamento acontece dentro do osso, com cicatrizes mínimas e reabilitação mais rápida. Em casos específicos de tíbia, utilizamos também o Método LON (fixador externo combinado com haste intramedular).',
+      'A técnica principal é o Fitbone: uma haste intramedular motorizada, controlada externamente por controle remoto. Nada externo ao corpo, o alongamento acontece dentro do osso, com cicatrizes mínimas e reabilitação mais rápida. Conforme a indicação, utilizamos também o Método LON (fixador externo combinado com haste intramedular). Ambas as técnicas podem ser aplicadas no fêmur e na tíbia.',
   },
   {
     id: 'q4',
@@ -111,7 +111,7 @@ export const faqItems: FaqItem[] = [
     category: 'Onde é feita',
     question: 'Onde é feita a cirurgia?',
     answer:
-      'A cirurgia está disponível em cinco capitais: São Paulo (SP), Belo Horizonte (MG), Fortaleza (CE), Florianópolis (SC) e Uberlândia (MG). A consulta pode ser 100% online, disponível para qualquer cidade do Brasil. Você escolhe a capital mais conveniente para a cirurgia e acompanhamento.',
+      'A cirurgia está disponível em cinco capitais: São Paulo (SP), Belo Horizonte (MG), Brasília (DF), Fortaleza (CE) e Florianópolis (SC). A consulta pode ser 100% online, disponível para qualquer cidade do Brasil. Você escolhe a capital mais conveniente para a cirurgia e acompanhamento.',
   },
   {
     id: 'q15',

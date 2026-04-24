@@ -110,7 +110,7 @@ non-negotiable. Anything on this list is a regeneration trigger.
 - Lengthening numbers: **8 cm fêmur / 6 cm tíbia**.
 - Credentials: **+400 pacientes**, **pioneiro no Brasil em Fitbone**,
   **referência na América Latina**.
-- Cities: São Paulo, Belo Horizonte, Fortaleza, Florianópolis, Uberlândia.
+- Cities: São Paulo, Belo Horizonte, Brasília, Fortaleza, Florianópolis.
 - Rehabilitation arc: dia 1 → 6 meses.
 - Fitbone mechanics: haste intramedular motorizada, aprovada pela Anvisa,
   controlada por controle remoto, sem hardware externo.

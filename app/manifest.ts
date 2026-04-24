@@ -3,7 +3,7 @@ import { BRAND, COLORS, SEO } from '@/lib/config/brand'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${BRAND.name} - ${BRAND.shortDescription}`,
+    name: `${BRAND.name} | ${BRAND.shortDescription}`,
     short_name: BRAND.name,
     description: BRAND.fullDescription,
     start_url: '/',

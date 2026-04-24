@@ -95,7 +95,7 @@ export function Footer() {
               Cirurgia em 5 capitais
             </p>
             <p className="text-sm text-[#EDE4D0]/55 font-light mt-1">
-              São Paulo · Belo Horizonte · Fortaleza · Florianópolis · Uberlândia
+              São Paulo · Belo Horizonte · Brasília · Fortaleza · Florianópolis
             </p>
             <p className="text-sm text-[#D9C89E]/70 font-light mt-2 italic">
               Consulta 100% online para qualquer cidade do Brasil

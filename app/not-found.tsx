@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { BRAND } from '@/lib/config/brand'
 
 export const metadata: Metadata = {
-  title: `Página não encontrada - ${BRAND.name}`,
+  title: `Página não encontrada | ${BRAND.name}`,
   description: `A página que você procura não existe. Retorne para a página inicial do ${BRAND.name}.`,
 }
 
