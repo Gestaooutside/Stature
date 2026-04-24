@@ -83,7 +83,7 @@ export const LOGO = {
 export const IMAGES = {
   hero: { desktop: '/hero-section.jpg', mobile: '/hero-section-mobile.jpg' },
   ogImage: '/logo-stature.svg',
-  doctor: '/Dr-david-de-melo.png',
+  doctor: '/Dr-david-melo.jpeg',
   hospital: '/hospital.jpg',
   procedures: {
     femur: '/proc-femur-new.png',
