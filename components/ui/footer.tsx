@@ -110,7 +110,7 @@ export function Footer() {
               {PROFESSIONAL.registry}
             </p>
             <p className="text-xs text-[#D9C89E]/60 font-light mt-2 italic">
-              Pioneiro no Brasil em Fitbone
+              Pioneiro no Brasil em alongamento ósseo estético
             </p>
           </div>
         </div>

@@ -18,7 +18,7 @@ export const BRAND = {
   shortDescription:
     'Stature Clinic, Alongamento Ósseo com Fitbone em São Paulo, BH, Brasília, Fortaleza e Florianópolis',
   fullDescription:
-    'Stature Clinic: clínica especializada em alongamento ósseo e aumento de estatura com a tecnologia Fitbone, haste intramedular motorizada aprovada pela Anvisa. Atendimento cirúrgico em cinco capitais e consulta online para todo o Brasil. Médico responsável: Dr. David de Mello, pioneiro no Brasil em alongamento com Fitbone.',
+    'Stature Clinic: clínica especializada em alongamento ósseo e aumento de estatura com as tecnologias Fitbone (haste intramedular motorizada aprovada pela Anvisa) e LON. Atendimento cirúrgico em cinco capitais e consulta online para todo o Brasil. Médico responsável: Dr. David de Mello, pioneiro no Brasil em alongamento ósseo estético.',
   lang: 'pt-BR',
   foundedYear: '2026',
 } as const
@@ -38,7 +38,7 @@ export const PROFESSIONAL = {
     'Graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP).',
     'Especialização em Alongamento e Reconstrução Óssea e Correção de Deformidades com Fixadores Externos pela Escola Paulista de Medicina (UNIFESP).',
   ],
-  bio: 'Médico ortopedista com graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP) e especialização em Alongamento e Reconstrução Óssea pela Escola Paulista de Medicina (UNIFESP). Pioneiro no Brasil em alongamento ósseo com Fitbone, haste intramedular motorizada aprovada pela Anvisa, e referência na América Latina, com mais de 400 pacientes operados. Atende cirurgicamente em cinco capitais (São Paulo, Belo Horizonte, Brasília, Fortaleza e Florianópolis) e oferece consulta 100% online para pacientes de qualquer cidade do Brasil. Registrado sob CRM-MG 72397 e RQE 38488.',
+  bio: 'Médico ortopedista com graduação e residência em Ortopedia e Traumatologia pela Pontifícia Universidade Católica de São Paulo (PUC-SP) e especialização em Alongamento e Reconstrução Óssea pela Escola Paulista de Medicina (UNIFESP). Pioneiro no Brasil em alongamento ósseo estético e aumento de estatura, com domínio das técnicas Fitbone (haste intramedular motorizada aprovada pela Anvisa) e LON, e referência na América Latina, com mais de 400 pacientes operados. Atende cirurgicamente em cinco capitais (São Paulo, Belo Horizonte, Brasília, Fortaleza e Florianópolis) e oferece consulta 100% online para pacientes de qualquer cidade do Brasil. Registrado sob CRM-MG 72397 e RQE 38488.',
 } as const
 
 // ─── DOMÍNIO E URLs ──────────────────────────────────────────
@@ -193,7 +193,7 @@ export const SEO = {
     'haste intramedular motorizada',
     'Método LON',
     'Dr David de Mello',
-    'pioneiro Fitbone Brasil',
+    'pioneiro alongamento ósseo estético Brasil',
     'referência alongamento América Latina',
     'cirurgia ortopédica',
     'ortopedia',
@@ -220,7 +220,7 @@ export const CREDENTIALS: readonly CredentialStat[] = [
   {
     id: 'pioneiro',
     value: '1º',
-    label: 'Pioneiro no Brasil em alongamento com Fitbone',
+    label: 'Pioneiro no Brasil em alongamento ósseo estético',
   },
   {
     id: 'america-latina',
@@ -254,7 +254,7 @@ export const TRUST_METRICS = {
   hospital: 'Fitbone',
   hospitalLabel: 'Haste motorizada aprovada pela Anvisa',
   technique: 'Pioneiro',
-  techniqueLabel: 'Primeiro no Brasil em Fitbone',
+  techniqueLabel: 'Primeiro no Brasil em aumento de estatura',
   crm: 'CRM-MG 72397',
   crmLabel: 'RQE 38488 · Ortopedia e Traumatologia',
   reach: '5 capitais',
@@ -346,7 +346,7 @@ export const COPY = {
     subtitle2: 'Aumento de estatura com a tecnologia Fitbone.',
     description:
       'Haste intramedular motorizada, controlada por controle remoto. Nada externo ao corpo. Vida normal durante e depois do tratamento.',
-    highlight: 'Pioneiro no Brasil em Fitbone · 5 capitais · Consulta online nacional',
+    highlight: 'Pioneiro no Brasil em alongamento ósseo estético · 5 capitais · Consulta online nacional',
     cta: 'Fale comigo no WhatsApp',
     ctaSecondary: 'Conheça as técnicas',
   },
@@ -356,7 +356,7 @@ export const COPY = {
     subtitle: 'Ortopedia e Alongamento Ósseo',
     description: PROFESSIONAL.bio,
     highlights: [
-      'Pioneiro no Brasil em alongamento com Fitbone',
+      'Pioneiro no Brasil em alongamento ósseo estético',
       'Referência na América Latina · +400 pacientes',
       'Cirurgia em 5 capitais · Consulta online nacional',
     ],

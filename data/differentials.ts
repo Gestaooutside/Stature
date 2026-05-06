@@ -36,7 +36,7 @@ export const differentials: DifferentialItem[] = [
     name: 'Controle Externo por Controle Remoto',
     icon: Radio,
     benefit:
-      'O alongamento é acionado com precisão milimétrica por um controle remoto externo. Nada preso ao corpo entre as sessões — rotina, sono e conforto preservados.',
+      'O alongamento é acionado com precisão milimétrica por um controle remoto externo. Nada preso ao corpo entre as sessões, rotina, sono e conforto preservados.',
   },
   {
     id: 'minimamente',
@@ -57,7 +57,7 @@ export const differentials: DifferentialItem[] = [
     name: 'Proporcionalidade',
     icon: Ruler,
     benefit:
-      'Cálculos individualizados para manter a harmonia entre tronco, fêmur e tíbia. Alongamento médio de 8 cm no fêmur e 6 cm na tíbia — no fêmur, na tíbia ou em ambos.',
+      'Cálculos individualizados para manter a harmonia entre tronco, fêmur e tíbia. Alongamento médio de 8 cm no fêmur e 6 cm na tíbia, no fêmur, na tíbia ou em ambos.',
   },
   {
     id: 'vida-normal',

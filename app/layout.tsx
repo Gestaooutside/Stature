@@ -134,7 +134,7 @@ export default function RootLayout({
       },
     ],
     award: [
-      "Pioneiro no Brasil em alongamento ósseo com Fitbone",
+      "Pioneiro no Brasil em alongamento ósseo estético",
       "Referência na América Latina em alongamento ósseo",
     ],
     memberOf: {
